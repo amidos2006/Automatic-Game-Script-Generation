@@ -1,0 +1,25 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: mthesis.aux
+The style file: acm.bst
+Database file #1: thesis.bib
+A bad cross reference---entry "sokobanLevelGenerationOld"
+refers to entry "DBLP:conf/pricai/1996", which doesn't exist
+A bad cross reference---entry "ctrSimulationApproach"
+refers to entry "conf/aiide/2013", which doesn't exist
+A bad cross reference---entry "ctrAutomaticGeneration"
+refers to entry "conf/cig/2013", which doesn't exist
+Warning--I didn't find a database entry for "DBLP:conf/pricai/1996"
+Warning--I didn't find a database entry for "conf/aiide/2013"
+Warning--I didn't find a database entry for "conf/cig/2013"
+Warning--to sort, need author or key in budgetAAA
+Warning--to sort, need author or key in gameCost
+Warning--to sort, need author or key in gameCloses
+Warning--to sort, need author or key in threesTime
+Warning--to sort, need author or key in pcgFirstGame
+Warning--to sort, need author or key in pcgHistory
+Warning--to sort, need author or key in mcGenerateEverything
+Warning--to sort, need author or key in geneticAlgorithm
+Warning--to sort, need author or key in puzzleScript
+Warning--to sort, need author or key in sokoban
+Warning--to sort, need author or key in bfxr
+Warning--to sort, need author or key in fruitDating
+(There were 3 error messages)

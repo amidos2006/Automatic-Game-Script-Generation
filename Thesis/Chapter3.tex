@@ -1,0 +1,62 @@
+This chapter will provide a review of the past work on Procedural Content Generation. It will highlight different efforts towards generating levels and rules for games.
+
+\section{Level Generation}
+This section will present some of the work related to level generation from academia and industry. Most of previous work didn't talk a lot about generating levels for Puzzle Games but it focus more on Platform genre and Arcade games. The work found about Puzzle Games was limited toward certain games such as Sokoban \cite{sokobanLevelGenerationNew, sokobanLevelGenerationOld}, Cut The Rope \cite{ctrSimulationApproach}, and Fruit Dating \cite{fruitDating}. Even the generic work on Puzzle Games need prior human understanding of the game rules \cite{ctrProgressiveApproach, ctrAutomaticGeneration}.\\\par
+
+Generating levels for Puzzle Games seems interesting but it has lots of problems. Levels must have at least one solution. Every element in the level should be used, adding unused items is a bad design. There is no rules govern Puzzle Games ideas which is different from FPS Genre or any other genre. For example some games may have continuous space where all game actions depend on player skills (Angry Birds, Cut the Rope, and Where's my Water?) while others have discrete space where game actions depend (Fruit Dating, Sokoban, and HueBrix).
+
+\subsection{Puzzle Level Generation}
+As there is nothing before like this work, this section will show all previous work that can be slightly related. One of the earliest research in Puzzle Games was by Yoshio Murase et al. trying to generate well designed solvable levels for Sokoban game \cite{sokobanLevelGenerationOld}. His system consists of 3 stages Generate, Check, then Evaluate. 
+\begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
+	\item \textbf{Generate:} At the first step the system generate levels layout using predefined templates and placing them at random positions. Goal areas are placed afterwards at random position avoiding placing it at places where player can't push object towards it. For boxes placement more processing is done, first add goal areas at corner to avoid list, second find all possible positions that a crate at goal area can move towards, third choose any random position from the list of positions and not from the avoid list, then repeat the process again till all the boxes are placed.
+  	\item \textbf{Check:} Used \newnom{Breadth First Search}{BFS} to solve levels to check for solution for the generated level. Any level doesn't have a solution using BFS is being removed from the candidate levels. This step reduced the number of generated levels to the half.
+  	\item \textbf{Evaluate:} Check the legal candidate levels solutions and remove all levels with short sequence of solution, have less than four changes in the directions, or have no detours in the solution.
+\end{itemize}
+Out of 500 generated levels only 14 are marked as good levels. The problem of the generated levels they are always short due to the usage of BFS.
+
+
+\subsection{Platformer Level Generation}
+
+\subsection{Dungeon Level Generation}
+
+
+\pagebreak
+Figures and tables should be included in the main text as close to the point of their introduction as possible. For figure captions use 12 point Times New Roman, bold, centered; place below the figure, use spacing of 12 points above and 24 points below. Leave two blank lines between the figure and the text above it. 
+
+\figref{3.1} shows $\ldots$.
+
+\gfigure{Example figure for demonstration}{3.1}{width=4.0in}{Fig3-1} 
+
+\ref{table:l1}
+
+\tabref{3.1}~demonstrates $\ldots$.
+
+\gtable{Example table for demonstration}{3.1}{width=5.0in}{Table3-1}
+
+\begin{table}
+ \label{table:l1}
+ \centering
+ \caption{Example table for demonstration}
+ \begin{tabular}{|c|c|c|}\\
+ xxxx & 1233 & ccccc\\ \hline
+ uuuuu & 2323 & gggggg\\ \hline
+ \end{tabular}
+
+\end{table}
+
+						
+					
+
+
+Use two blank lines below the table. In some cases you may need to include a wide table using the full available paper height with a $90^{o}$ clockwise rotation. 
+The following page shows one such table, \tabref{3.2}.
+
+
+\begin{landscape}
+\gtable{Another example wide table for demonstration}{3.2}{width=9.0in}{Table3-2}
+\end{landscape}
+
+
+\section{Rule Generation}
+
+\section{General Video Game Playing}

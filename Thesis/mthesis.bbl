@@ -1,0 +1,136 @@
+\begin{thebibliography}{10}
+
+\bibitem{pcgFirstGame}
+Akalabeth.
+\newblock \url{http://www.filfre.net/2011/12/akalabeth/}.
+\newblock [Accessed: 2015-01-18].
+
+\bibitem{bfxr}
+Bfxr.
+\newblock \url{http://www.bfxr.net/}.
+\newblock [Accessed: 2015-01-19].
+
+\bibitem{gameCloses}
+Every game studio that's closed down since 2006.
+\newblock
+  \url{http://kotaku.com/5876693/every-game-studio-thats-closed-down-since-2006}.
+\newblock [Accessed: 2015-01-20].
+
+\bibitem{mcGenerateEverything}
+Generate everything.
+\newblock \url{http://vimeo.com/92623463}.
+\newblock [Accessed: 2015-01-19].
+
+\bibitem{geneticAlgorithm}
+Genetic algorithm.
+\newblock \url{http://en.wikipedia.org/wiki/Genetic_algorithm}.
+\newblock [Accessed: 2015-01-18].
+
+\bibitem{pcgHistory}
+History of video games.
+\newblock \url{http://en.wikipedia.org/wiki/History_of_video_games}.
+\newblock [Accessed: 2015-01-18].
+
+\bibitem{gameCost}
+How much does it cost to make a big video game?
+\newblock
+  \url{http://kotaku.com/how-much-does-it-cost-to-make-a-big-video-game-1501413649}.
+\newblock [Accessed: 2015-01-20].
+
+\bibitem{fruitDating}
+Procedural generation of puzzle game levels.
+\newblock
+  \url{http://www.gamedev.net/page/resources/_/technical/game-programming/procedural-generation-of-puzzle-game-levels-r3862}.
+\newblock [Accessed: 2015-02-24].
+
+\bibitem{puzzleScript}
+Puzzle script.
+\newblock \url{http://www.puzzlescript.net/}.
+\newblock [Accessed: 2015-01-19].
+
+\bibitem{threesTime}
+The rip-offs and making our original game.
+\newblock \url{http://asherv.com/threes/threemails/}.
+\newblock [Accessed: 2015-01-21].
+
+\bibitem{sokoban}
+Sokoban.
+\newblock \url{http://en.wikipedia.org/wiki/Sokoban}.
+\newblock [Accessed: 2015-01-19].
+
+\bibitem{budgetAAA}
+What is the budget breakdown of aaa games?
+\newblock \url{http://www.quora.com/What-is-the-budget-breakdown-of-AAA-games}.
+\newblock [Accessed: 2015-01-21].
+
+\bibitem{mechanicMiner}
+{\sc Cook, M., Colton, S., Raad, A., and Gow, J.}
+\newblock Mechanic miner: Reflection-driven game mechanic discovery and level
+  design.
+\newblock In {\em Applications of Evolutionary Computation - 16th European
+  Conference, EvoApplications 2013, Vienna, Austria, April 3-5, 2013.
+  Proceedings\/} (2013), pp.~284--293.
+
+\bibitem{vgdl}
+{\sc Ebner, M., Levine, J., Lucas, S.~M., Schaul, T., Thompson, T., and
+  Togelius, J.}
+\newblock {Towards a Video Game Description Language}.
+\newblock In {\em Artificial and Computational Intelligence in Games}, S.~M.
+  Lucas, M.~Mateas, M.~Preuss, P.~Spronck, and J.~Togelius, Eds., vol.~6 of
+  {\em Dagstuhl Follow-Ups}. Schloss Dagstuhl--Leibniz-Zentrum fuer Informatik,
+  Dagstuhl, Germany, 2013, pp.~85--100.
+
+\bibitem{gvgp}
+{\sc Levine, J., Congdon, C.~B., Ebner, M., Kendall, G., Lucas, S.~M.,
+  Miikkulainen, R., Schaul, T., and Thompson, T.}
+\newblock {General Video Game Playing}.
+\newblock In {\em Artificial and Computational Intelligence in Games}, S.~M.
+  Lucas, M.~Mateas, M.~Preuss, P.~Spronck, and J.~Togelius, Eds., vol.~6 of
+  {\em Dagstuhl Follow-Ups}. Schloss Dagstuhl--Leibniz-Zentrum fuer Informatik,
+  Dagstuhl, Germany, 2013, pp.~77--83.
+
+\bibitem{sokobanLevelGenerationOld}
+{\sc Murase, Y., Matsubara, H., and Hiraga, Y.}
+\newblock Automatic making of sokoban problems.
+\newblock In {\em PRICAI'96: Topics in Artificial Intelligence, 4th Pacific Rim
+  International Conference on Artificial Intelligence, Cairns, Australia,
+  August 26-30, 1996, Proceedings\/} (1996), pp.~592--600.
+
+\bibitem{ctrAutomaticGeneration}
+{\sc Shaker, M., Sarhan, M.~H., Naameh, O.~A., Shaker, N., and Togelius, J.}
+\newblock Automatic generation and analysis of physics-based puzzle games.
+\newblock In {\em CIG\/} (2013), IEEE, pp.~1--8.
+
+\bibitem{ctrProgressiveApproach}
+{\sc Shaker, M., Shaker, N., Togelius, J., and Abou~Zleikha, M.}
+\newblock A progressive approach to content generation.
+\newblock In {\em EvoGames: Applications of Evolutionary Computation\/} (2015).
+
+\bibitem{ctrSimulationApproach}
+{\sc Shaker, N., Shaker, M., and Togelius, J.}
+\newblock Evolving playable content for cut the rope through a simulation-based
+  approach.
+\newblock In {\em AIIDE\/} (2013), G.~Sukthankar and I.~Horswill, Eds., AAAI.
+
+\bibitem{sokobanLevelGenerationNew}
+{\sc Taylor, J., and Parberry, I.}
+\newblock Procedural generation of {S}okoban levels.
+\newblock In {\em Proceedings of the 6th International North American
+  Conference on Intelligent Games and Simulation ({GAMEON-NA})\/} (2011),
+  {EUROSIS}, pp.~5--12.
+
+\bibitem{pcgBookRules}
+{\sc Togelius, J., Shaker, N., and Nelson, M.~J.}
+\newblock Rules and mechanics.
+\newblock In {\em Procedural Content Generation in Games: A Textbook and an
+  Overview of Current Research}, N.~Shaker, J.~Togelius, and M.~J. Nelson, Eds.
+  Springer, 2015.
+
+\bibitem{pcgBookSearch}
+{\sc Togelius, J., Shaker, N., and Nelson, M.~J.}
+\newblock The search-based approach.
+\newblock In {\em Procedural Content Generation in Games: A Textbook and an
+  Overview of Current Research}, N.~Shaker, J.~Togelius, and M.~J. Nelson, Eds.
+  Springer, 2015.
+
+\end{thebibliography}
