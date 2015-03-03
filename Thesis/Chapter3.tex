@@ -6,56 +6,38 @@ This section will present some of the work related to level generation from acad
 Generating levels for Puzzle Games seems interesting but it has lots of problems. Levels must have at least one solution. Every element in the level should be used, adding unused items is a bad design. There is no rules govern Puzzle Games ideas which is different from FPS Genre or any other genre. For example some games may have continuous space where all game actions depend on player skills (Angry Birds, Cut the Rope, and Where's my Water?) while others have discrete space where game actions depend (Fruit Dating, Sokoban, and HueBrix).
 
 \subsection{Puzzle Level Generation}
-As there is nothing before like this work, this section will show all previous work that can be slightly related. One of the earliest research in Puzzle Games was by Yoshio Murase et al. trying to generate well designed solvable levels for Sokoban game \cite{sokobanLevelGenerationOld}. His system consists of 3 stages Generate, Check, then Evaluate. 
+As there is nothing before like this work, this section will show all previous work that can be slightly related. One of the earliest research in Puzzle Games was by Murase et al.\cite{sokobanLevelGenerationOld} trying to generate well designed solvable levels for Sokoban game. His system consists of 3 stages generate, check, then evaluate.
 \begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
-	\item \textbf{Generate:} At the first step the system generate levels layout using predefined templates and placing them at random positions. Goal areas are placed afterwards at random position avoiding placing it at places where player can't push object towards it. For boxes placement more processing is done, first add goal areas at corner to avoid list, second find all possible positions that a crate at goal area can move towards, third choose any random position from the list of positions and not from the avoid list, then repeat the process again till all the boxes are placed.
-  	\item \textbf{Check:} Used \newnom{Breadth First Search}{BFS} to solve levels to check for solution for the generated level. Any level doesn't have a solution using BFS is being removed from the candidate levels. This step reduced the number of generated levels to the half.
-  	\item \textbf{Evaluate:} Check the legal candidate levels solutions and remove all levels with short sequence of solution, have less than four changes in the directions, or have no detours in the solution.
+	\item \textbf{Generate:} The system generates levels layout using predefined templates and placing them at random positions. Goal areas are placed afterwards at random position avoiding placing it at places where player can't push object towards it. For boxes placement more processing is done, as he choose random position that is reachable from the goal area.
+	\item \textbf{Check:} The system then uses \newnom{Breadth First Search}{BFS} to check for solution for the generated levels an remove all unsolvable levels.
+	\item \textbf{Evaluate:} The system check all the legal candidate levels and remove levels with very short solution, less than four direction changes in the solution, or no detours in the solution.
 \end{itemize}
-Out of 500 generated levels only 14 are marked as good levels. The problem of the generated levels they are always short due to the usage of BFS.
+The system generated levels around 500 levels but only 14 are marked as good levels. The generated levels have short solution sequence due to the usage of BFS.\\\par
 
+Taylor and Parberry\cite{sokobanLevelGenerationNew} followed Yoshio Murase et al.\cite{sokobanLevelGenerationOld} work in generating levels for Sokobon game. He followed a system similar to previous consists of 4 stages generating empty room, placing goals, finding the farthest state, then evaluating generated levels.
+\begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
+	\item \textbf{Generating empty room:} The system generate the size of empty rooms then using predefined 3x3 templates, it starts creating the layout of the level. Generated levels are discarded if they are not completely connected, they have huge empty space, the number of empty floors is less than planned number of boxes and goals, there
+	\item \textbf{Placing goals:} The system places goal areas using brute force algorithm to try every possible combination for goals.
+	\item \textbf{Finding the farthest state:} The system tries to find farthest position from goal area using a similar algorithm to BFS. The algorithm continues till no more possible locations  can be found. It returns the farthest locations using a box line metric heuristic which calculates the number of unrepeated moves after each other.
+	\item \textbf{Evaluating generated levels:} The system evaluates the generated levels and give each one score based on some heuristics. For example: number of box pushes in the solution, number of levels found at same depth, number of box lines, number of boxes, and ...etc.  
+\end{itemize}
+The generated levels by system using single box are generally uninteresting and as the number of boxes increased they become more interesting and more difficult but takes more time to generate.
+
+\gfigure{Screenshot from Fruit Dating}{fdScreenshot}{width=4in}{Images/fruitDatingScreenshot}
+
+Rychnovsky worked on generating puzzle levels layout for his new game Fruit Dating\cite{fruitDating}. As shown in \figref{fdScreenshot}, Fruit Dating is a puzzle game where the player need to make all similar fruits meet each other. In order to move objects in the level player can swipe in one of the four direction (up, down, left, right). Swiping in any direction cause all level object to move toward that direction. The game sounds simple but with different kind of objects, it become very difficult. His system starts with generating level layout utilizing symmetry when generating two walls at a time. The system generates fruits at random locations based on predefined weights. For example placing fruits is more preferable at the end of corridors, followed by corners, followed by corridors, and last thing is open area. Other game objects are placed with the same strategy but using different weights for different locations. The system tries to solve the generated level and return the solution using an algorithm similar to BFS. Rychonovsky made a level editor to edit the generated levels and test for playability using autosolver algorithm. The technique doesn't take more than couple of minutes to generate a level but the main problem is there is no way to know the difficulty of level before generating it or even influence difficulty in the generation.
+
+\gfigure{Screenshot from Cut The Rope game}{ctrScreenshot}{height=4in}{Images/CutTheRope}
+
+Shaker et al.\cite{ctrAutomaticGeneration} worked on generating levels for physics based puzzle games and applied his output on \newnom{Cut The Rope}{CTR}. As shown in \figref{ctrScreenshot}, CTR goal is to cut some ropes to free the candy to reach OmNom (a frog monster fixed at certain position on the screen). The game is not as easy as it sounds as levels advanced more components are introduced which affect on the movement of the candy to redirect it to OmNom. Shaker used Grammar Evolution to generate levels for the game where he enforced at least one object from each game component. Shaker used a fitness function completely depending on how CTR levels are designed. For example: Candy should be placed higher than the Om Nom, Om Nom must be placed below the lowest rope, and ...etc. He generated 500 levels and then show some analysis on the expressive range of the generator such as frequency, density, and ...etc. Since there is nothing to make sure the level is playable, so Shaker modified the fitness function with a score generated from random player plays the generated level. If the random player couldn't solve the generated level in 10 trials or less, the fitness is decreased by large number to indicate that level is unplayable. Shaker generated 100 playable levels using and show there expressive range which didn't change a lot from the previous.\\\par
+
+Shaker et al. conducted their research on CTR in an another paper\cite{ctrSimulationApproach} and developed a AI to simulate game playing better than random player in the previous paper\cite{ctrAutomaticGeneration}. He introduced two kind of AI, the first one takes actions based on the current properties of components in the level, while the second one depends on reachability of the components by the candy based on its current position and velocity and direction. The levels generated from this paper are more diverse from the previous because random agent may discard some potential levels.\\\par
+
+Shaker et al. started working on reducing the time for his generating levels in 2015\cite{ctrProgressiveApproach}. He introduced a new search technique named Progressive Approach. Shaker uses GA to evolve timeline of game events. This evolved timeline is evaluated by simulating the game and following the timeline. An intelligent agent is used during the simulation utilizing prior knowledge about the game to map the timeline to a possible level layout. If the agent succeed it return the layout, else it returns invalid. This technique can be used on any kind of games to improve generation time, so he tested it on CTR. The results was better than simulation approach as this technique took on average 9.79 seconds to generate a level while previous one \cite{ctrSimulationApproach} took around 82 seconds, the only drawback that you can't know the difficulty of the level from the timeline, you need to simulate it to evaluate level difficulty.\\\par
 
 \subsection{Platformer Level Generation}
 
 \subsection{Dungeon Level Generation}
-
-
-\pagebreak
-Figures and tables should be included in the main text as close to the point of their introduction as possible. For figure captions use 12 point Times New Roman, bold, centered; place below the figure, use spacing of 12 points above and 24 points below. Leave two blank lines between the figure and the text above it. 
-
-\figref{3.1} shows $\ldots$.
-
-\gfigure{Example figure for demonstration}{3.1}{width=4.0in}{Fig3-1} 
-
-\ref{table:l1}
-
-\tabref{3.1}~demonstrates $\ldots$.
-
-\gtable{Example table for demonstration}{3.1}{width=5.0in}{Table3-1}
-
-\begin{table}
- \label{table:l1}
- \centering
- \caption{Example table for demonstration}
- \begin{tabular}{|c|c|c|}\\
- xxxx & 1233 & ccccc\\ \hline
- uuuuu & 2323 & gggggg\\ \hline
- \end{tabular}
-
-\end{table}
-
-						
-					
-
-
-Use two blank lines below the table. In some cases you may need to include a wide table using the full available paper height with a $90^{o}$ clockwise rotation. 
-The following page shows one such table, \tabref{3.2}.
-
-
-\begin{landscape}
-\gtable{Another example wide table for demonstration}{3.2}{width=9.0in}{Table3-2}
-\end{landscape}
-
 
 \section{Rule Generation}
 
