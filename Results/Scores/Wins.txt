@@ -1,3 +1,0 @@
-Sokoban: 244
-LavaGame: 970
-BlockFaker: 936
