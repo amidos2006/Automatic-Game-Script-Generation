@@ -1,0 +1,1689 @@
+>>>> loading curlevel from localStorage (18:15:01:483)
+  at public_html/js/globalVariables.js:12
+>>>> compile(), command=%s (18:15:28:032)
+  at public_html/js/compiler.js:2358
+>>>> loadFile (18:15:28:040)
+  at public_html/js/compiler.js:2279
+>>>> setGameState(), _state=%o, command=%s (18:15:28:041)
+  at public_html/js/engine.js:550
+Level 1: (18:15:29:281)
+  at public_html/js/compiler.js:2449
+################################### (18:15:29:284)
+  at public_html/js/compiler.js:2450
+	iteration 1 (18:15:29:285)
+  at public_html/js/compiler.js:2455
+	iteration 2 (18:15:29:286)
+  at public_html/js/compiler.js:2455
+	iteration 3 (18:15:29:287)
+  at public_html/js/compiler.js:2455
+	iteration 4 (18:15:29:287)
+  at public_html/js/compiler.js:2455
+	iteration 5 (18:15:29:288)
+  at public_html/js/compiler.js:2455
+	iteration 6 (18:15:29:289)
+  at public_html/js/compiler.js:2455
+	iteration 7 (18:15:29:291)
+  at public_html/js/compiler.js:2455
+	iteration 8 (18:15:29:291)
+  at public_html/js/compiler.js:2455
+	iteration 9 (18:15:29:292)
+  at public_html/js/compiler.js:2455
+	iteration 10 (18:15:29:292)
+  at public_html/js/compiler.js:2455
+	iteration 11 (18:15:29:293)
+  at public_html/js/compiler.js:2455
+	iteration 12 (18:15:29:293)
+  at public_html/js/compiler.js:2455
+	iteration 13 (18:15:29:294)
+  at public_html/js/compiler.js:2455
+	iteration 14 (18:15:29:296)
+  at public_html/js/compiler.js:2455
+	iteration 15 (18:15:29:297)
+  at public_html/js/compiler.js:2455
+	iteration 16 (18:15:29:297)
+  at public_html/js/compiler.js:2455
+	iteration 17 (18:15:29:306)
+  at public_html/js/compiler.js:2455
+	iteration 18 (18:15:29:307)
+  at public_html/js/compiler.js:2455
+	iteration 19 (18:15:29:308)
+  at public_html/js/compiler.js:2455
+	iteration 20 (18:15:29:309)
+  at public_html/js/compiler.js:2455
+	iteration 21 (18:15:29:309)
+  at public_html/js/compiler.js:2455
+	iteration 22 (18:15:29:310)
+  at public_html/js/compiler.js:2455
+	iteration 23 (18:15:29:311)
+  at public_html/js/compiler.js:2455
+	iteration 24 (18:15:29:311)
+  at public_html/js/compiler.js:2455
+	iteration 25 (18:15:29:314)
+  at public_html/js/compiler.js:2455
+	iteration 26 (18:15:29:316)
+  at public_html/js/compiler.js:2455
+	iteration 27 (18:15:29:318)
+  at public_html/js/compiler.js:2455
+	iteration 28 (18:15:29:322)
+  at public_html/js/compiler.js:2455
+	iteration 29 (18:15:29:324)
+  at public_html/js/compiler.js:2455
+	iteration 30 (18:15:29:325)
+  at public_html/js/compiler.js:2455
+	iteration 31 (18:15:29:326)
+  at public_html/js/compiler.js:2455
+	iteration 32 (18:15:29:327)
+  at public_html/js/compiler.js:2455
+	iteration 33 (18:15:29:341)
+  at public_html/js/compiler.js:2455
+	iteration 34 (18:15:29:390)
+  at public_html/js/compiler.js:2455
+	iteration 35 (18:15:29:404)
+  at public_html/js/compiler.js:2455
+	iteration 36 (18:15:29:407)
+  at public_html/js/compiler.js:2455
+	iteration 37 (18:15:29:457)
+  at public_html/js/compiler.js:2455
+	iteration 38 (18:15:29:461)
+  at public_html/js/compiler.js:2455
+	iteration 39 (18:15:29:473)
+  at public_html/js/compiler.js:2455
+	iteration 40 (18:15:29:521)
+  at public_html/js/compiler.js:2455
+	iteration 41 (18:15:29:530)
+  at public_html/js/compiler.js:2455
+	iteration 42 (18:15:29:536)
+  at public_html/js/compiler.js:2455
+	iteration 43 (18:15:29:582)
+  at public_html/js/compiler.js:2455
+	iteration 44 (18:15:29:630)
+  at public_html/js/compiler.js:2455
+	iteration 45 (18:15:29:659)
+  at public_html/js/compiler.js:2455
+	iteration 46 (18:15:29:670)
+  at public_html/js/compiler.js:2455
+	iteration 47 (18:15:29:696)
+  at public_html/js/compiler.js:2455
+	iteration 48 (18:15:29:713)
+  at public_html/js/compiler.js:2455
+	iteration 49 (18:15:29:737)
+  at public_html/js/compiler.js:2455
+	iteration 50 (18:15:29:739)
+  at public_html/js/compiler.js:2455
+	iteration 51 (18:15:29:764)
+  at public_html/js/compiler.js:2455
+	iteration 52 (18:15:29:814)
+  at public_html/js/compiler.js:2455
+	iteration 53 (18:15:29:839)
+  at public_html/js/compiler.js:2455
+	iteration 54 (18:15:29:867)
+  at public_html/js/compiler.js:2455
+	iteration 55 (18:15:29:892)
+  at public_html/js/compiler.js:2455
+	iteration 56 (18:15:29:945)
+  at public_html/js/compiler.js:2455
+	iteration 57 (18:15:29:971)
+  at public_html/js/compiler.js:2455
+	iteration 58 (18:15:29:980)
+  at public_html/js/compiler.js:2455
+	iteration 59 (18:15:30:070)
+  at public_html/js/compiler.js:2455
+	iteration 60 (18:15:30:073)
+  at public_html/js/compiler.js:2455
+	iteration 61 (18:15:30:124)
+  at public_html/js/compiler.js:2455
+	iteration 62 (18:15:30:126)
+  at public_html/js/compiler.js:2455
+	iteration 63 (18:15:30:203)
+  at public_html/js/compiler.js:2455
+	iteration 64 (18:15:30:217)
+  at public_html/js/compiler.js:2455
+	iteration 65 (18:15:30:236)
+  at public_html/js/compiler.js:2455
+	iteration 66 (18:15:30:251)
+  at public_html/js/compiler.js:2455
+	iteration 67 (18:15:30:265)
+  at public_html/js/compiler.js:2455
+	iteration 68 (18:15:30:378)
+  at public_html/js/compiler.js:2455
+	iteration 69 (18:15:30:400)
+  at public_html/js/compiler.js:2455
+	iteration 70 (18:15:30:409)
+  at public_html/js/compiler.js:2455
+	iteration 71 (18:15:30:462)
+  at public_html/js/compiler.js:2455
+	iteration 72 (18:15:30:530)
+  at public_html/js/compiler.js:2455
+	iteration 73 (18:15:30:557)
+  at public_html/js/compiler.js:2455
+	iteration 74 (18:15:30:563)
+  at public_html/js/compiler.js:2455
+	iteration 75 (18:15:30:566)
+  at public_html/js/compiler.js:2455
+	iteration 76 (18:15:30:587)
+  at public_html/js/compiler.js:2455
+	iteration 77 (18:15:30:597)
+  at public_html/js/compiler.js:2455
+	iteration 78 (18:15:30:602)
+  at public_html/js/compiler.js:2455
+	iteration 79 (18:15:30:629)
+  at public_html/js/compiler.js:2455
+	iteration 80 (18:15:30:679)
+  at public_html/js/compiler.js:2455
+	iteration 81 (18:15:30:680)
+  at public_html/js/compiler.js:2455
+	iteration 82 (18:15:30:684)
+  at public_html/js/compiler.js:2455
+	iteration 83 (18:15:30:691)
+  at public_html/js/compiler.js:2455
+	iteration 84 (18:15:30:705)
+  at public_html/js/compiler.js:2455
+	iteration 85 (18:15:30:725)
+  at public_html/js/compiler.js:2455
+	iteration 86 (18:15:30:808)
+  at public_html/js/compiler.js:2455
+	iteration 87 (18:15:30:883)
+  at public_html/js/compiler.js:2455
+	iteration 88 (18:15:30:997)
+  at public_html/js/compiler.js:2455
+	iteration 89 (18:15:31:000)
+  at public_html/js/compiler.js:2455
+	iteration 90 (18:15:31:001)
+  at public_html/js/compiler.js:2455
+	iteration 91 (18:15:31:082)
+  at public_html/js/compiler.js:2455
+	iteration 92 (18:15:31:164)
+  at public_html/js/compiler.js:2455
+	iteration 93 (18:15:31:184)
+  at public_html/js/compiler.js:2455
+	iteration 94 (18:15:31:207)
+  at public_html/js/compiler.js:2455
+	iteration 95 (18:15:31:461)
+  at public_html/js/compiler.js:2455
+	iteration 96 (18:15:31:462)
+  at public_html/js/compiler.js:2455
+	iteration 97 (18:15:31:463)
+  at public_html/js/compiler.js:2455
+	iteration 98 (18:15:31:467)
+  at public_html/js/compiler.js:2455
+	iteration 99 (18:15:31:499)
+  at public_html/js/compiler.js:2455
+	iteration 100 (18:15:31:590)
+  at public_html/js/compiler.js:2455
+current sd: 0.06445525573536112 ,average fitness: 0.5563771142180286 ,best fitness: 0.6163621933646114 ,min fitness: 0.41062927575109454 (18:15:31:592)
+  at public_html/js/compiler.js:2459
+Level 2: (18:15:31:593)
+  at public_html/js/compiler.js:2449
+################################### (18:15:31:594)
+  at public_html/js/compiler.js:2450
+	iteration 1 (18:15:32:397)
+  at public_html/js/compiler.js:2455
+	iteration 2 (18:15:32:879)
+  at public_html/js/compiler.js:2455
+	iteration 3 (18:15:33:334)
+  at public_html/js/compiler.js:2455
+	iteration 4 (18:15:33:881)
+  at public_html/js/compiler.js:2455
+	iteration 5 (18:15:34:184)
+  at public_html/js/compiler.js:2455
+	iteration 6 (18:15:34:217)
+  at public_html/js/compiler.js:2455
+	iteration 7 (18:15:34:239)
+  at public_html/js/compiler.js:2455
+	iteration 8 (18:15:34:249)
+  at public_html/js/compiler.js:2455
+	iteration 9 (18:15:34:546)
+  at public_html/js/compiler.js:2455
+	iteration 10 (18:15:34:830)
+  at public_html/js/compiler.js:2455
+	iteration 11 (18:15:35:068)
+  at public_html/js/compiler.js:2455
+	iteration 12 (18:15:35:088)
+  at public_html/js/compiler.js:2455
+	iteration 13 (18:15:35:140)
+  at public_html/js/compiler.js:2455
+	iteration 14 (18:15:35:593)
+  at public_html/js/compiler.js:2455
+	iteration 15 (18:15:35:604)
+  at public_html/js/compiler.js:2455
+	iteration 16 (18:15:35:631)
+  at public_html/js/compiler.js:2455
+	iteration 17 (18:15:36:184)
+  at public_html/js/compiler.js:2455
+	iteration 18 (18:15:36:599)
+  at public_html/js/compiler.js:2455
+	iteration 19 (18:15:37:065)
+  at public_html/js/compiler.js:2455
+	iteration 20 (18:15:37:217)
+  at public_html/js/compiler.js:2455
+	iteration 21 (18:15:37:240)
+  at public_html/js/compiler.js:2455
+	iteration 22 (18:15:37:828)
+  at public_html/js/compiler.js:2455
+	iteration 23 (18:15:37:916)
+  at public_html/js/compiler.js:2455
+	iteration 24 (18:15:38:083)
+  at public_html/js/compiler.js:2455
+	iteration 25 (18:15:38:829)
+  at public_html/js/compiler.js:2455
+	iteration 26 (18:15:39:500)
+  at public_html/js/compiler.js:2455
+	iteration 27 (18:15:39:664)
+  at public_html/js/compiler.js:2455
+	iteration 28 (18:15:40:185)
+  at public_html/js/compiler.js:2455
+	iteration 29 (18:15:40:349)
+  at public_html/js/compiler.js:2455
+	iteration 30 (18:15:40:375)
+  at public_html/js/compiler.js:2455
+	iteration 31 (18:15:40:488)
+  at public_html/js/compiler.js:2455
+	iteration 32 (18:15:41:061)
+  at public_html/js/compiler.js:2455
+	iteration 33 (18:15:41:736)
+  at public_html/js/compiler.js:2455
+	iteration 34 (18:15:41:837)
+  at public_html/js/compiler.js:2455
+	iteration 35 (18:15:42:445)
+  at public_html/js/compiler.js:2455
+	iteration 36 (18:15:42:454)
+  at public_html/js/compiler.js:2455
+	iteration 37 (18:15:42:813)
+  at public_html/js/compiler.js:2455
+	iteration 38 (18:15:42:822)
+  at public_html/js/compiler.js:2455
+	iteration 39 (18:15:42:827)
+  at public_html/js/compiler.js:2455
+	iteration 40 (18:15:42:899)
+  at public_html/js/compiler.js:2455
+	iteration 41 (18:15:43:362)
+  at public_html/js/compiler.js:2455
+	iteration 42 (18:15:43:534)
+  at public_html/js/compiler.js:2455
+	iteration 43 (18:15:43:542)
+  at public_html/js/compiler.js:2455
+	iteration 44 (18:15:43:884)
+  at public_html/js/compiler.js:2455
+	iteration 45 (18:15:43:899)
+  at public_html/js/compiler.js:2455
+	iteration 46 (18:15:43:992)
+  at public_html/js/compiler.js:2455
+	iteration 47 (18:15:44:225)
+  at public_html/js/compiler.js:2455
+	iteration 48 (18:15:44:290)
+  at public_html/js/compiler.js:2455
+	iteration 49 (18:15:44:422)
+  at public_html/js/compiler.js:2455
+	iteration 50 (18:15:44:490)
+  at public_html/js/compiler.js:2455
+	iteration 51 (18:15:44:495)
+  at public_html/js/compiler.js:2455
+	iteration 52 (18:15:44:656)
+  at public_html/js/compiler.js:2455
+	iteration 53 (18:15:44:661)
+  at public_html/js/compiler.js:2455
+	iteration 54 (18:15:44:747)
+  at public_html/js/compiler.js:2455
+	iteration 55 (18:15:44:817)
+  at public_html/js/compiler.js:2455
+	iteration 56 (18:15:44:950)
+  at public_html/js/compiler.js:2455
+	iteration 57 (18:15:45:067)
+  at public_html/js/compiler.js:2455
+	iteration 58 (18:15:45:183)
+  at public_html/js/compiler.js:2455
+	iteration 59 (18:15:45:188)
+  at public_html/js/compiler.js:2455
+	iteration 60 (18:15:45:310)
+  at public_html/js/compiler.js:2455
+	iteration 61 (18:15:45:330)
+  at public_html/js/compiler.js:2455
+	iteration 62 (18:15:45:359)
+  at public_html/js/compiler.js:2455
+	iteration 63 (18:15:45:479)
+  at public_html/js/compiler.js:2455
+	iteration 64 (18:15:45:522)
+  at public_html/js/compiler.js:2455
+	iteration 65 (18:15:45:633)
+  at public_html/js/compiler.js:2455
+	iteration 66 (18:15:45:810)
+  at public_html/js/compiler.js:2455
+	iteration 67 (18:15:45:930)
+  at public_html/js/compiler.js:2455
+	iteration 68 (18:15:47:053)
+  at public_html/js/compiler.js:2455
+	iteration 69 (18:15:47:080)
+  at public_html/js/compiler.js:2455
+	iteration 70 (18:15:48:199)
+  at public_html/js/compiler.js:2455
+	iteration 71 (18:15:48:642)
+  at public_html/js/compiler.js:2455
+	iteration 72 (18:15:49:000)
+  at public_html/js/compiler.js:2455
+	iteration 73 (18:15:49:017)
+  at public_html/js/compiler.js:2455
+	iteration 74 (18:15:49:583)
+  at public_html/js/compiler.js:2455
+	iteration 75 (18:15:50:030)
+  at public_html/js/compiler.js:2455
+	iteration 76 (18:15:50:051)
+  at public_html/js/compiler.js:2455
+	iteration 77 (18:15:50:227)
+  at public_html/js/compiler.js:2455
+	iteration 78 (18:15:50:663)
+  at public_html/js/compiler.js:2455
+	iteration 79 (18:15:50:729)
+  at public_html/js/compiler.js:2455
+	iteration 80 (18:15:51:186)
+  at public_html/js/compiler.js:2455
+	iteration 81 (18:15:51:629)
+  at public_html/js/compiler.js:2455
+	iteration 82 (18:15:52:123)
+  at public_html/js/compiler.js:2455
+	iteration 83 (18:15:52:621)
+  at public_html/js/compiler.js:2455
+	iteration 84 (18:15:53:188)
+  at public_html/js/compiler.js:2455
+	iteration 85 (18:15:53:623)
+  at public_html/js/compiler.js:2455
+	iteration 86 (18:15:53:773)
+  at public_html/js/compiler.js:2455
+	iteration 87 (18:15:53:781)
+  at public_html/js/compiler.js:2455
+	iteration 88 (18:15:53:969)
+  at public_html/js/compiler.js:2455
+	iteration 89 (18:15:53:979)
+  at public_html/js/compiler.js:2455
+	iteration 90 (18:15:54:687)
+  at public_html/js/compiler.js:2455
+	iteration 91 (18:15:54:721)
+  at public_html/js/compiler.js:2455
+	iteration 92 (18:15:55:363)
+  at public_html/js/compiler.js:2455
+	iteration 93 (18:15:55:463)
+  at public_html/js/compiler.js:2455
+	iteration 94 (18:15:55:532)
+  at public_html/js/compiler.js:2455
+	iteration 95 (18:15:55:905)
+  at public_html/js/compiler.js:2455
+	iteration 96 (18:15:56:052)
+  at public_html/js/compiler.js:2455
+	iteration 97 (18:15:56:269)
+  at public_html/js/compiler.js:2455
+	iteration 98 (18:15:56:273)
+  at public_html/js/compiler.js:2455
+	iteration 99 (18:15:56:375)
+  at public_html/js/compiler.js:2455
+	iteration 100 (18:15:56:387)
+  at public_html/js/compiler.js:2455
+current sd: 0.09335132087348141 ,average fitness: 0.5395029224751628 ,best fitness: 0.6973467273301986 ,min fitness: 0.29114045679996114 (18:15:56:388)
+  at public_html/js/compiler.js:2459
+Level 3: (18:15:56:392)
+  at public_html/js/compiler.js:2449
+################################### (18:15:56:406)
+  at public_html/js/compiler.js:2450
+	iteration 1 (18:15:56:416)
+  at public_html/js/compiler.js:2455
+	iteration 2 (18:15:56:573)
+  at public_html/js/compiler.js:2455
+	iteration 3 (18:15:58:294)
+  at public_html/js/compiler.js:2455
+	iteration 4 (18:15:58:520)
+  at public_html/js/compiler.js:2455
+	iteration 5 (18:15:59:727)
+  at public_html/js/compiler.js:2455
+	iteration 6 (18:15:59:816)
+  at public_html/js/compiler.js:2455
+	iteration 7 (18:16:00:818)
+  at public_html/js/compiler.js:2455
+	iteration 8 (18:16:01:264)
+  at public_html/js/compiler.js:2455
+	iteration 9 (18:16:01:441)
+  at public_html/js/compiler.js:2455
+	iteration 10 (18:16:02:077)
+  at public_html/js/compiler.js:2455
+	iteration 11 (18:16:03:243)
+  at public_html/js/compiler.js:2455
+	iteration 12 (18:16:03:248)
+  at public_html/js/compiler.js:2455
+	iteration 13 (18:16:03:284)
+  at public_html/js/compiler.js:2455
+	iteration 14 (18:16:03:292)
+  at public_html/js/compiler.js:2455
+	iteration 15 (18:16:05:048)
+  at public_html/js/compiler.js:2455
+	iteration 16 (18:16:06:751)
+  at public_html/js/compiler.js:2455
+	iteration 17 (18:16:07:225)
+  at public_html/js/compiler.js:2455
+	iteration 18 (18:16:07:233)
+  at public_html/js/compiler.js:2455
+	iteration 19 (18:16:07:274)
+  at public_html/js/compiler.js:2455
+	iteration 20 (18:16:07:502)
+  at public_html/js/compiler.js:2455
+	iteration 21 (18:16:07:507)
+  at public_html/js/compiler.js:2455
+	iteration 22 (18:16:07:517)
+  at public_html/js/compiler.js:2455
+	iteration 23 (18:16:07:838)
+  at public_html/js/compiler.js:2455
+	iteration 24 (18:16:08:465)
+  at public_html/js/compiler.js:2455
+	iteration 25 (18:16:09:721)
+  at public_html/js/compiler.js:2455
+	iteration 26 (18:16:09:863)
+  at public_html/js/compiler.js:2455
+	iteration 27 (18:16:09:908)
+  at public_html/js/compiler.js:2455
+	iteration 28 (18:16:10:076)
+  at public_html/js/compiler.js:2455
+	iteration 29 (18:16:10:085)
+  at public_html/js/compiler.js:2455
+	iteration 30 (18:16:10:094)
+  at public_html/js/compiler.js:2455
+	iteration 31 (18:16:10:103)
+  at public_html/js/compiler.js:2455
+	iteration 32 (18:16:10:348)
+  at public_html/js/compiler.js:2455
+	iteration 33 (18:16:11:664)
+  at public_html/js/compiler.js:2455
+	iteration 34 (18:16:11:683)
+  at public_html/js/compiler.js:2455
+	iteration 35 (18:16:13:403)
+  at public_html/js/compiler.js:2455
+	iteration 36 (18:16:13:421)
+  at public_html/js/compiler.js:2455
+	iteration 37 (18:16:13:423)
+  at public_html/js/compiler.js:2455
+	iteration 38 (18:16:14:034)
+  at public_html/js/compiler.js:2455
+	iteration 39 (18:16:14:329)
+  at public_html/js/compiler.js:2455
+	iteration 40 (18:16:14:742)
+  at public_html/js/compiler.js:2455
+	iteration 41 (18:16:14:751)
+  at public_html/js/compiler.js:2455
+	iteration 42 (18:16:14:766)
+  at public_html/js/compiler.js:2455
+	iteration 43 (18:16:15:351)
+  at public_html/js/compiler.js:2455
+	iteration 44 (18:16:16:550)
+  at public_html/js/compiler.js:2455
+	iteration 45 (18:16:16:559)
+  at public_html/js/compiler.js:2455
+	iteration 46 (18:16:17:167)
+  at public_html/js/compiler.js:2455
+	iteration 47 (18:16:17:632)
+  at public_html/js/compiler.js:2455
+	iteration 48 (18:16:18:198)
+  at public_html/js/compiler.js:2455
+	iteration 49 (18:16:19:390)
+  at public_html/js/compiler.js:2455
+	iteration 50 (18:16:19:491)
+  at public_html/js/compiler.js:2455
+	iteration 51 (18:16:20:069)
+  at public_html/js/compiler.js:2455
+	iteration 52 (18:16:20:221)
+  at public_html/js/compiler.js:2455
+	iteration 53 (18:16:21:949)
+  at public_html/js/compiler.js:2455
+	iteration 54 (18:16:23:143)
+  at public_html/js/compiler.js:2455
+	iteration 55 (18:16:24:970)
+  at public_html/js/compiler.js:2455
+	iteration 56 (18:16:26:712)
+  at public_html/js/compiler.js:2455
+	iteration 57 (18:16:26:777)
+  at public_html/js/compiler.js:2455
+	iteration 58 (18:16:27:028)
+  at public_html/js/compiler.js:2455
+	iteration 59 (18:16:27:086)
+  at public_html/js/compiler.js:2455
+	iteration 60 (18:16:27:778)
+  at public_html/js/compiler.js:2455
+	iteration 61 (18:16:28:891)
+  at public_html/js/compiler.js:2455
+	iteration 62 (18:16:29:134)
+  at public_html/js/compiler.js:2455
+	iteration 63 (18:16:30:261)
+  at public_html/js/compiler.js:2455
+	iteration 64 (18:16:30:268)
+  at public_html/js/compiler.js:2455
+	iteration 65 (18:16:31:343)
+  at public_html/js/compiler.js:2455
+	iteration 66 (18:16:31:995)
+  at public_html/js/compiler.js:2455
+	iteration 67 (18:16:32:335)
+  at public_html/js/compiler.js:2455
+	iteration 68 (18:16:33:507)
+  at public_html/js/compiler.js:2455
+	iteration 69 (18:16:33:514)
+  at public_html/js/compiler.js:2455
+	iteration 70 (18:16:34:108)
+  at public_html/js/compiler.js:2455
+	iteration 71 (18:16:34:119)
+  at public_html/js/compiler.js:2455
+	iteration 72 (18:16:34:750)
+  at public_html/js/compiler.js:2455
+	iteration 73 (18:16:34:763)
+  at public_html/js/compiler.js:2455
+	iteration 74 (18:16:34:916)
+  at public_html/js/compiler.js:2455
+	iteration 75 (18:16:34:940)
+  at public_html/js/compiler.js:2455
+	iteration 76 (18:16:35:064)
+  at public_html/js/compiler.js:2455
+	iteration 77 (18:16:35:072)
+  at public_html/js/compiler.js:2455
+	iteration 78 (18:16:36:256)
+  at public_html/js/compiler.js:2455
+	iteration 79 (18:16:36:922)
+  at public_html/js/compiler.js:2455
+	iteration 80 (18:16:37:002)
+  at public_html/js/compiler.js:2455
+	iteration 81 (18:16:37:286)
+  at public_html/js/compiler.js:2455
+	iteration 82 (18:16:37:670)
+  at public_html/js/compiler.js:2455
+	iteration 83 (18:16:38:352)
+  at public_html/js/compiler.js:2455
+	iteration 84 (18:16:38:438)
+  at public_html/js/compiler.js:2455
+	iteration 85 (18:16:38:449)
+  at public_html/js/compiler.js:2455
+	iteration 86 (18:16:38:464)
+  at public_html/js/compiler.js:2455
+	iteration 87 (18:16:39:629)
+  at public_html/js/compiler.js:2455
+	iteration 88 (18:16:40:808)
+  at public_html/js/compiler.js:2455
+	iteration 89 (18:16:41:937)
+  at public_html/js/compiler.js:2455
+	iteration 90 (18:16:41:959)
+  at public_html/js/compiler.js:2455
+	iteration 91 (18:16:42:447)
+  at public_html/js/compiler.js:2455
+	iteration 92 (18:16:43:090)
+  at public_html/js/compiler.js:2455
+	iteration 93 (18:16:43:489)
+  at public_html/js/compiler.js:2455
+	iteration 94 (18:16:43:633)
+  at public_html/js/compiler.js:2455
+	iteration 95 (18:16:46:841)
+  at public_html/js/compiler.js:2455
+	iteration 96 (18:16:47:540)
+  at public_html/js/compiler.js:2455
+	iteration 97 (18:16:47:556)
+  at public_html/js/compiler.js:2455
+	iteration 98 (18:16:48:029)
+  at public_html/js/compiler.js:2455
+	iteration 99 (18:16:48:107)
+  at public_html/js/compiler.js:2455
+	iteration 100 (18:16:48:661)
+  at public_html/js/compiler.js:2455
+current sd: 0.06639879591140045 ,average fitness: 0.5390492776493486 ,best fitness: 0.6859054519352245 ,min fitness: 0.3547272412725066 (18:16:48:661)
+  at public_html/js/compiler.js:2459
+Level 4: (18:16:48:662)
+  at public_html/js/compiler.js:2449
+################################### (18:16:48:664)
+  at public_html/js/compiler.js:2450
+	iteration 1 (18:16:49:904)
+  at public_html/js/compiler.js:2455
+	iteration 2 (18:16:59:480)
+  at public_html/js/compiler.js:2455
+	iteration 3 (18:17:02:015)
+  at public_html/js/compiler.js:2455
+	iteration 4 (18:17:11:406)
+  at public_html/js/compiler.js:2455
+	iteration 5 (18:17:14:799)
+  at public_html/js/compiler.js:2455
+	iteration 6 (18:17:17:203)
+  at public_html/js/compiler.js:2455
+	iteration 7 (18:17:23:127)
+  at public_html/js/compiler.js:2455
+	iteration 8 (18:17:25:922)
+  at public_html/js/compiler.js:2455
+	iteration 9 (18:17:27:458)
+  at public_html/js/compiler.js:2455
+	iteration 10 (18:17:28:093)
+  at public_html/js/compiler.js:2455
+	iteration 11 (18:17:28:429)
+  at public_html/js/compiler.js:2455
+	iteration 12 (18:17:38:095)
+  at public_html/js/compiler.js:2455
+	iteration 13 (18:17:39:687)
+  at public_html/js/compiler.js:2455
+	iteration 14 (18:17:43:278)
+  at public_html/js/compiler.js:2455
+	iteration 15 (18:17:52:912)
+  at public_html/js/compiler.js:2455
+	iteration 16 (18:17:54:406)
+  at public_html/js/compiler.js:2455
+	iteration 17 (18:17:55:873)
+  at public_html/js/compiler.js:2455
+	iteration 18 (18:18:04:564)
+  at public_html/js/compiler.js:2455
+	iteration 19 (18:18:14:307)
+  at public_html/js/compiler.js:2455
+	iteration 20 (18:18:23:826)
+  at public_html/js/compiler.js:2455
+	iteration 21 (18:18:25:746)
+  at public_html/js/compiler.js:2455
+	iteration 22 (18:18:29:883)
+  at public_html/js/compiler.js:2455
+	iteration 23 (18:18:31:435)
+  at public_html/js/compiler.js:2455
+	iteration 24 (18:18:31:440)
+  at public_html/js/compiler.js:2455
+	iteration 25 (18:18:35:723)
+  at public_html/js/compiler.js:2455
+	iteration 26 (18:18:40:588)
+  at public_html/js/compiler.js:2455
+	iteration 27 (18:18:50:053)
+  at public_html/js/compiler.js:2455
+	iteration 28 (18:18:50:519)
+  at public_html/js/compiler.js:2455
+	iteration 29 (18:19:00:042)
+  at public_html/js/compiler.js:2455
+	iteration 30 (18:19:09:378)
+  at public_html/js/compiler.js:2455
+	iteration 31 (18:19:13:358)
+  at public_html/js/compiler.js:2455
+	iteration 32 (18:19:17:277)
+  at public_html/js/compiler.js:2455
+	iteration 33 (18:19:17:831)
+  at public_html/js/compiler.js:2455
+	iteration 34 (18:19:27:346)
+  at public_html/js/compiler.js:2455
+	iteration 35 (18:19:36:748)
+  at public_html/js/compiler.js:2455
+	iteration 36 (18:19:37:785)
+  at public_html/js/compiler.js:2455
+	iteration 37 (18:19:47:273)
+  at public_html/js/compiler.js:2455
+	iteration 38 (18:19:48:056)
+  at public_html/js/compiler.js:2455
+	iteration 39 (18:19:48:365)
+  at public_html/js/compiler.js:2455
+	iteration 40 (18:19:57:874)
+  at public_html/js/compiler.js:2455
+	iteration 41 (18:20:04:229)
+  at public_html/js/compiler.js:2455
+	iteration 42 (18:20:05:211)
+  at public_html/js/compiler.js:2455
+	iteration 43 (18:20:08:147)
+  at public_html/js/compiler.js:2455
+	iteration 44 (18:20:17:708)
+  at public_html/js/compiler.js:2455
+	iteration 45 (18:20:19:802)
+  at public_html/js/compiler.js:2455
+	iteration 46 (18:20:29:414)
+  at public_html/js/compiler.js:2455
+	iteration 47 (18:20:30:282)
+  at public_html/js/compiler.js:2455
+	iteration 48 (18:20:31:106)
+  at public_html/js/compiler.js:2455
+	iteration 49 (18:20:36:365)
+  at public_html/js/compiler.js:2455
+	iteration 50 (18:20:37:296)
+  at public_html/js/compiler.js:2455
+	iteration 51 (18:20:38:370)
+  at public_html/js/compiler.js:2455
+	iteration 52 (18:20:38:804)
+  at public_html/js/compiler.js:2455
+	iteration 53 (18:20:39:195)
+  at public_html/js/compiler.js:2455
+	iteration 54 (18:20:39:732)
+  at public_html/js/compiler.js:2455
+	iteration 55 (18:20:43:465)
+  at public_html/js/compiler.js:2455
+	iteration 56 (18:20:44:685)
+  at public_html/js/compiler.js:2455
+	iteration 57 (18:20:54:056)
+  at public_html/js/compiler.js:2455
+	iteration 58 (18:21:03:528)
+  at public_html/js/compiler.js:2455
+	iteration 59 (18:21:04:815)
+  at public_html/js/compiler.js:2455
+	iteration 60 (18:21:07:740)
+  at public_html/js/compiler.js:2455
+	iteration 61 (18:21:12:650)
+  at public_html/js/compiler.js:2455
+	iteration 62 (18:21:22:376)
+  at public_html/js/compiler.js:2455
+	iteration 63 (18:21:32:154)
+  at public_html/js/compiler.js:2455
+	iteration 64 (18:21:34:019)
+  at public_html/js/compiler.js:2455
+	iteration 65 (18:21:43:783)
+  at public_html/js/compiler.js:2455
+	iteration 66 (18:21:53:995)
+  at public_html/js/compiler.js:2455
+	iteration 67 (18:21:54:994)
+  at public_html/js/compiler.js:2455
+	iteration 68 (18:21:55:711)
+  at public_html/js/compiler.js:2455
+	iteration 69 (18:21:59:728)
+  at public_html/js/compiler.js:2455
+	iteration 70 (18:22:00:462)
+  at public_html/js/compiler.js:2455
+	iteration 71 (18:22:00:812)
+  at public_html/js/compiler.js:2455
+	iteration 72 (18:22:01:785)
+  at public_html/js/compiler.js:2455
+	iteration 73 (18:22:04:637)
+  at public_html/js/compiler.js:2455
+	iteration 74 (18:22:04:743)
+  at public_html/js/compiler.js:2455
+	iteration 75 (18:22:05:257)
+  at public_html/js/compiler.js:2455
+	iteration 76 (18:22:12:081)
+  at public_html/js/compiler.js:2455
+	iteration 77 (18:22:19:578)
+  at public_html/js/compiler.js:2455
+	iteration 78 (18:22:29:416)
+  at public_html/js/compiler.js:2455
+	iteration 79 (18:22:30:237)
+  at public_html/js/compiler.js:2455
+	iteration 80 (18:22:39:942)
+  at public_html/js/compiler.js:2455
+	iteration 81 (18:22:41:794)
+  at public_html/js/compiler.js:2455
+	iteration 82 (18:22:51:640)
+  at public_html/js/compiler.js:2455
+	iteration 83 (18:22:53:418)
+  at public_html/js/compiler.js:2455
+	iteration 84 (18:22:55:217)
+  at public_html/js/compiler.js:2455
+	iteration 85 (18:23:05:150)
+  at public_html/js/compiler.js:2455
+	iteration 86 (18:23:12:178)
+  at public_html/js/compiler.js:2455
+	iteration 87 (18:23:22:037)
+  at public_html/js/compiler.js:2455
+	iteration 88 (18:23:22:200)
+  at public_html/js/compiler.js:2455
+	iteration 89 (18:23:23:295)
+  at public_html/js/compiler.js:2455
+	iteration 90 (18:23:29:724)
+  at public_html/js/compiler.js:2455
+	iteration 91 (18:23:30:368)
+  at public_html/js/compiler.js:2455
+	iteration 92 (18:23:40:307)
+  at public_html/js/compiler.js:2455
+	iteration 93 (18:23:50:068)
+  at public_html/js/compiler.js:2455
+	iteration 94 (18:23:50:614)
+  at public_html/js/compiler.js:2455
+	iteration 95 (18:23:53:317)
+  at public_html/js/compiler.js:2455
+	iteration 96 (18:23:53:916)
+  at public_html/js/compiler.js:2455
+	iteration 97 (18:23:55:096)
+  at public_html/js/compiler.js:2455
+	iteration 98 (18:23:55:767)
+  at public_html/js/compiler.js:2455
+	iteration 99 (18:24:00:358)
+  at public_html/js/compiler.js:2455
+	iteration 100 (18:24:06:847)
+  at public_html/js/compiler.js:2455
+current sd: 0.09603998302175557 ,average fitness: 0.5778541064659704 ,best fitness: 0.6858831786049283 ,min fitness: 0.29547796515504304 (18:24:06:848)
+  at public_html/js/compiler.js:2459
+Level 5: (18:24:06:848)
+  at public_html/js/compiler.js:2449
+################################### (18:24:06:848)
+  at public_html/js/compiler.js:2450
+	iteration 1 (18:24:18:603)
+  at public_html/js/compiler.js:2455
+	iteration 2 (18:24:30:359)
+  at public_html/js/compiler.js:2455
+	iteration 3 (18:24:42:187)
+  at public_html/js/compiler.js:2455
+	iteration 4 (18:24:53:960)
+  at public_html/js/compiler.js:2455
+	iteration 5 (18:24:55:442)
+  at public_html/js/compiler.js:2455
+	iteration 6 (18:25:07:621)
+  at public_html/js/compiler.js:2455
+	iteration 7 (18:25:20:080)
+  at public_html/js/compiler.js:2455
+	iteration 8 (18:25:20:451)
+  at public_html/js/compiler.js:2455
+	iteration 9 (18:25:32:614)
+  at public_html/js/compiler.js:2455
+	iteration 10 (18:25:33:947)
+  at public_html/js/compiler.js:2455
+	iteration 11 (18:25:34:692)
+  at public_html/js/compiler.js:2455
+	iteration 12 (18:25:47:083)
+  at public_html/js/compiler.js:2455
+	iteration 13 (18:25:59:259)
+  at public_html/js/compiler.js:2455
+	iteration 14 (18:26:11:003)
+  at public_html/js/compiler.js:2455
+	iteration 15 (18:26:23:253)
+  at public_html/js/compiler.js:2455
+	iteration 16 (18:26:32:507)
+  at public_html/js/compiler.js:2455
+	iteration 17 (18:26:40:386)
+  at public_html/js/compiler.js:2455
+	iteration 18 (18:26:43:953)
+  at public_html/js/compiler.js:2455
+	iteration 19 (18:26:44:528)
+  at public_html/js/compiler.js:2455
+	iteration 20 (18:26:57:275)
+  at public_html/js/compiler.js:2455
+	iteration 21 (18:27:09:978)
+  at public_html/js/compiler.js:2455
+	iteration 22 (18:27:22:539)
+  at public_html/js/compiler.js:2455
+	iteration 23 (18:27:35:175)
+  at public_html/js/compiler.js:2455
+	iteration 24 (18:27:47:099)
+  at public_html/js/compiler.js:2455
+	iteration 25 (18:27:59:793)
+  at public_html/js/compiler.js:2455
+	iteration 26 (18:28:00:823)
+  at public_html/js/compiler.js:2455
+	iteration 27 (18:28:15:483)
+  at public_html/js/compiler.js:2455
+	iteration 28 (18:28:27:435)
+  at public_html/js/compiler.js:2455
+	iteration 29 (18:28:40:309)
+  at public_html/js/compiler.js:2455
+	iteration 30 (18:28:52:169)
+  at public_html/js/compiler.js:2455
+	iteration 31 (18:29:04:382)
+  at public_html/js/compiler.js:2455
+	iteration 32 (18:29:16:901)
+  at public_html/js/compiler.js:2455
+	iteration 33 (18:29:28:662)
+  at public_html/js/compiler.js:2455
+	iteration 34 (18:29:40:413)
+  at public_html/js/compiler.js:2455
+	iteration 35 (18:29:52:960)
+  at public_html/js/compiler.js:2455
+	iteration 36 (18:30:05:570)
+  at public_html/js/compiler.js:2455
+	iteration 37 (18:30:17:421)
+  at public_html/js/compiler.js:2455
+	iteration 38 (18:30:29:585)
+  at public_html/js/compiler.js:2455
+	iteration 39 (18:30:42:215)
+  at public_html/js/compiler.js:2455
+	iteration 40 (18:30:54:764)
+  at public_html/js/compiler.js:2455
+	iteration 41 (18:31:06:615)
+  at public_html/js/compiler.js:2455
+	iteration 42 (18:31:19:473)
+  at public_html/js/compiler.js:2455
+	iteration 43 (18:31:32:209)
+  at public_html/js/compiler.js:2455
+	iteration 44 (18:31:44:709)
+  at public_html/js/compiler.js:2455
+	iteration 45 (18:31:57:150)
+  at public_html/js/compiler.js:2455
+	iteration 46 (18:32:08:905)
+  at public_html/js/compiler.js:2455
+	iteration 47 (18:32:10:378)
+  at public_html/js/compiler.js:2455
+	iteration 48 (18:32:11:553)
+  at public_html/js/compiler.js:2455
+	iteration 49 (18:32:23:094)
+  at public_html/js/compiler.js:2455
+	iteration 50 (18:32:34:726)
+  at public_html/js/compiler.js:2455
+	iteration 51 (18:32:36:290)
+  at public_html/js/compiler.js:2455
+	iteration 52 (18:32:38:406)
+  at public_html/js/compiler.js:2455
+	iteration 53 (18:32:50:391)
+  at public_html/js/compiler.js:2455
+	iteration 54 (18:33:03:150)
+  at public_html/js/compiler.js:2455
+	iteration 55 (18:33:14:979)
+  at public_html/js/compiler.js:2455
+	iteration 56 (18:33:27:193)
+  at public_html/js/compiler.js:2455
+	iteration 57 (18:33:32:981)
+  at public_html/js/compiler.js:2455
+	iteration 58 (18:33:44:597)
+  at public_html/js/compiler.js:2455
+	iteration 59 (18:33:55:560)
+  at public_html/js/compiler.js:2455
+	iteration 60 (18:34:07:616)
+  at public_html/js/compiler.js:2455
+	iteration 61 (18:34:08:785)
+  at public_html/js/compiler.js:2455
+	iteration 62 (18:34:21:474)
+  at public_html/js/compiler.js:2455
+	iteration 63 (18:34:22:494)
+  at public_html/js/compiler.js:2455
+	iteration 64 (18:34:34:558)
+  at public_html/js/compiler.js:2455
+	iteration 65 (18:34:47:010)
+  at public_html/js/compiler.js:2455
+	iteration 66 (18:34:58:862)
+  at public_html/js/compiler.js:2455
+	iteration 67 (18:35:10:866)
+  at public_html/js/compiler.js:2455
+	iteration 68 (18:35:16:089)
+  at public_html/js/compiler.js:2455
+	iteration 69 (18:35:28:450)
+  at public_html/js/compiler.js:2455
+	iteration 70 (18:35:41:046)
+  at public_html/js/compiler.js:2455
+	iteration 71 (18:35:42:209)
+  at public_html/js/compiler.js:2455
+	iteration 72 (18:35:50:127)
+  at public_html/js/compiler.js:2455
+	iteration 73 (18:36:01:940)
+  at public_html/js/compiler.js:2455
+	iteration 74 (18:36:14:130)
+  at public_html/js/compiler.js:2455
+	iteration 75 (18:36:22:359)
+  at public_html/js/compiler.js:2455
+	iteration 76 (18:36:34:803)
+  at public_html/js/compiler.js:2455
+	iteration 77 (18:36:35:072)
+  at public_html/js/compiler.js:2455
+	iteration 78 (18:36:47:211)
+  at public_html/js/compiler.js:2455
+	iteration 79 (18:36:59:352)
+  at public_html/js/compiler.js:2455
+	iteration 80 (18:37:11:750)
+  at public_html/js/compiler.js:2455
+	iteration 81 (18:37:24:165)
+  at public_html/js/compiler.js:2455
+	iteration 82 (18:37:36:609)
+  at public_html/js/compiler.js:2455
+	iteration 83 (18:37:48:586)
+  at public_html/js/compiler.js:2455
+	iteration 84 (18:37:48:725)
+  at public_html/js/compiler.js:2455
+	iteration 85 (18:38:01:157)
+  at public_html/js/compiler.js:2455
+	iteration 86 (18:38:12:931)
+  at public_html/js/compiler.js:2455
+	iteration 87 (18:38:16:734)
+  at public_html/js/compiler.js:2455
+	iteration 88 (18:38:28:517)
+  at public_html/js/compiler.js:2455
+	iteration 89 (18:38:29:393)
+  at public_html/js/compiler.js:2455
+	iteration 90 (18:38:40:997)
+  at public_html/js/compiler.js:2455
+	iteration 91 (18:38:53:073)
+  at public_html/js/compiler.js:2455
+	iteration 92 (18:39:05:061)
+  at public_html/js/compiler.js:2455
+	iteration 93 (18:39:17:666)
+  at public_html/js/compiler.js:2455
+	iteration 94 (18:39:18:010)
+  at public_html/js/compiler.js:2455
+	iteration 95 (18:39:30:129)
+  at public_html/js/compiler.js:2455
+	iteration 96 (18:39:41:820)
+  at public_html/js/compiler.js:2455
+	iteration 97 (18:39:46:118)
+  at public_html/js/compiler.js:2455
+	iteration 98 (18:39:58:510)
+  at public_html/js/compiler.js:2455
+	iteration 99 (18:40:10:283)
+  at public_html/js/compiler.js:2455
+	iteration 100 (18:40:22:664)
+  at public_html/js/compiler.js:2455
+current sd: 0.08445479708715711 ,average fitness: 0.5226565305041441 ,best fitness: 0.6769064673016028 ,min fitness: 0.3546534186105001 (18:40:22:665)
+  at public_html/js/compiler.js:2459
+Level 6: (18:40:22:666)
+  at public_html/js/compiler.js:2449
+################################### (18:40:22:666)
+  at public_html/js/compiler.js:2450
+	iteration 1 (18:40:33:305)
+  at public_html/js/compiler.js:2455
+	iteration 2 (18:40:44:347)
+  at public_html/js/compiler.js:2455
+	iteration 3 (18:40:44:376)
+  at public_html/js/compiler.js:2455
+	iteration 4 (18:40:55:527)
+  at public_html/js/compiler.js:2455
+	iteration 5 (18:41:06:094)
+  at public_html/js/compiler.js:2455
+	iteration 6 (18:41:09:849)
+  at public_html/js/compiler.js:2455
+	iteration 7 (18:41:21:171)
+  at public_html/js/compiler.js:2455
+	iteration 8 (18:41:32:399)
+  at public_html/js/compiler.js:2455
+	iteration 9 (18:41:43:503)
+  at public_html/js/compiler.js:2455
+	iteration 10 (18:41:54:576)
+  at public_html/js/compiler.js:2455
+	iteration 11 (18:42:05:890)
+  at public_html/js/compiler.js:2455
+	iteration 12 (18:42:17:150)
+  at public_html/js/compiler.js:2455
+	iteration 13 (18:42:28:485)
+  at public_html/js/compiler.js:2455
+	iteration 14 (18:42:39:943)
+  at public_html/js/compiler.js:2455
+	iteration 15 (18:42:51:063)
+  at public_html/js/compiler.js:2455
+	iteration 16 (18:43:01:800)
+  at public_html/js/compiler.js:2455
+	iteration 17 (18:43:01:820)
+  at public_html/js/compiler.js:2455
+	iteration 18 (18:43:13:182)
+  at public_html/js/compiler.js:2455
+	iteration 19 (18:43:26:159)
+  at public_html/js/compiler.js:2455
+	iteration 20 (18:43:37:607)
+  at public_html/js/compiler.js:2455
+	iteration 21 (18:43:48:815)
+  at public_html/js/compiler.js:2455
+	iteration 22 (18:43:50:766)
+  at public_html/js/compiler.js:2455
+	iteration 23 (18:44:02:130)
+  at public_html/js/compiler.js:2455
+	iteration 24 (18:44:13:254)
+  at public_html/js/compiler.js:2455
+	iteration 25 (18:44:23:871)
+  at public_html/js/compiler.js:2455
+	iteration 26 (18:44:35:514)
+  at public_html/js/compiler.js:2455
+	iteration 27 (18:44:41:932)
+  at public_html/js/compiler.js:2455
+	iteration 28 (18:44:53:016)
+  at public_html/js/compiler.js:2455
+	iteration 29 (18:45:04:030)
+  at public_html/js/compiler.js:2455
+	iteration 30 (18:45:14:686)
+  at public_html/js/compiler.js:2455
+	iteration 31 (18:45:15:733)
+  at public_html/js/compiler.js:2455
+	iteration 32 (18:45:21:225)
+  at public_html/js/compiler.js:2455
+	iteration 33 (18:45:32:732)
+  at public_html/js/compiler.js:2455
+	iteration 34 (18:45:44:012)
+  at public_html/js/compiler.js:2455
+	iteration 35 (18:45:45:610)
+  at public_html/js/compiler.js:2455
+	iteration 36 (18:45:56:741)
+  at public_html/js/compiler.js:2455
+	iteration 37 (18:45:58:897)
+  at public_html/js/compiler.js:2455
+	iteration 38 (18:46:09:195)
+  at public_html/js/compiler.js:2455
+	iteration 39 (18:46:19:739)
+  at public_html/js/compiler.js:2455
+	iteration 40 (18:46:30:414)
+  at public_html/js/compiler.js:2455
+	iteration 41 (18:46:30:803)
+  at public_html/js/compiler.js:2455
+	iteration 42 (18:46:41:735)
+  at public_html/js/compiler.js:2455
+	iteration 43 (18:46:52:126)
+  at public_html/js/compiler.js:2455
+	iteration 44 (18:46:56:998)
+  at public_html/js/compiler.js:2455
+	iteration 45 (18:47:07:447)
+  at public_html/js/compiler.js:2455
+	iteration 46 (18:47:08:145)
+  at public_html/js/compiler.js:2455
+	iteration 47 (18:47:08:154)
+  at public_html/js/compiler.js:2455
+	iteration 48 (18:47:17:224)
+  at public_html/js/compiler.js:2455
+	iteration 49 (18:47:17:361)
+  at public_html/js/compiler.js:2455
+	iteration 50 (18:47:17:786)
+  at public_html/js/compiler.js:2455
+	iteration 51 (18:47:17:891)
+  at public_html/js/compiler.js:2455
+	iteration 52 (18:47:17:920)
+  at public_html/js/compiler.js:2455
+	iteration 53 (18:47:18:085)
+  at public_html/js/compiler.js:2455
+	iteration 54 (18:47:23:613)
+  at public_html/js/compiler.js:2455
+	iteration 55 (18:47:33:940)
+  at public_html/js/compiler.js:2455
+	iteration 56 (18:47:45:079)
+  at public_html/js/compiler.js:2455
+	iteration 57 (18:47:56:059)
+  at public_html/js/compiler.js:2455
+	iteration 58 (18:47:56:409)
+  at public_html/js/compiler.js:2455
+	iteration 59 (18:48:00:193)
+  at public_html/js/compiler.js:2455
+	iteration 60 (18:48:10:919)
+  at public_html/js/compiler.js:2455
+	iteration 61 (18:48:17:476)
+  at public_html/js/compiler.js:2455
+	iteration 62 (18:48:22:048)
+  at public_html/js/compiler.js:2455
+	iteration 63 (18:48:33:081)
+  at public_html/js/compiler.js:2455
+	iteration 64 (18:48:44:011)
+  at public_html/js/compiler.js:2455
+	iteration 65 (18:48:55:064)
+  at public_html/js/compiler.js:2455
+	iteration 66 (18:49:05:977)
+  at public_html/js/compiler.js:2455
+	iteration 67 (18:49:12:590)
+  at public_html/js/compiler.js:2455
+	iteration 68 (18:49:23:425)
+  at public_html/js/compiler.js:2455
+	iteration 69 (18:49:33:815)
+  at public_html/js/compiler.js:2455
+	iteration 70 (18:49:44:742)
+  at public_html/js/compiler.js:2455
+	iteration 71 (18:49:55:541)
+  at public_html/js/compiler.js:2455
+	iteration 72 (18:50:06:208)
+  at public_html/js/compiler.js:2455
+	iteration 73 (18:50:16:479)
+  at public_html/js/compiler.js:2455
+	iteration 74 (18:50:17:433)
+  at public_html/js/compiler.js:2455
+	iteration 75 (18:50:28:525)
+  at public_html/js/compiler.js:2455
+	iteration 76 (18:50:39:395)
+  at public_html/js/compiler.js:2455
+	iteration 77 (18:50:49:895)
+  at public_html/js/compiler.js:2455
+	iteration 78 (18:50:56:580)
+  at public_html/js/compiler.js:2455
+	iteration 79 (18:51:07:054)
+  at public_html/js/compiler.js:2455
+	iteration 80 (18:51:12:615)
+  at public_html/js/compiler.js:2455
+	iteration 81 (18:51:23:594)
+  at public_html/js/compiler.js:2455
+	iteration 82 (18:51:33:682)
+  at public_html/js/compiler.js:2455
+	iteration 83 (18:51:44:584)
+  at public_html/js/compiler.js:2455
+	iteration 84 (18:51:44:778)
+  at public_html/js/compiler.js:2455
+	iteration 85 (18:51:55:825)
+  at public_html/js/compiler.js:2455
+	iteration 86 (18:52:06:552)
+  at public_html/js/compiler.js:2455
+	iteration 87 (18:52:17:483)
+  at public_html/js/compiler.js:2455
+	iteration 88 (18:52:28:142)
+  at public_html/js/compiler.js:2455
+	iteration 89 (18:52:39:274)
+  at public_html/js/compiler.js:2455
+	iteration 90 (18:52:50:225)
+  at public_html/js/compiler.js:2455
+	iteration 91 (18:53:00:644)
+  at public_html/js/compiler.js:2455
+	iteration 92 (18:53:00:656)
+  at public_html/js/compiler.js:2455
+	iteration 93 (18:53:10:821)
+  at public_html/js/compiler.js:2455
+	iteration 94 (18:53:21:598)
+  at public_html/js/compiler.js:2455
+	iteration 95 (18:53:32:461)
+  at public_html/js/compiler.js:2455
+	iteration 96 (18:53:43:322)
+  at public_html/js/compiler.js:2455
+	iteration 97 (18:53:47:485)
+  at public_html/js/compiler.js:2455
+	iteration 98 (18:53:58:331)
+  at public_html/js/compiler.js:2455
+	iteration 99 (18:53:58:344)
+  at public_html/js/compiler.js:2455
+	iteration 100 (18:54:09:379)
+  at public_html/js/compiler.js:2455
+current sd: 0.101291305497146 ,average fitness: 0.5259508264542151 ,best fitness: 0.702780786015532 ,min fitness: 0.2604949167414686 (18:54:09:379)
+  at public_html/js/compiler.js:2459
+Level 7: (18:54:09:385)
+  at public_html/js/compiler.js:2449
+################################### (18:54:09:386)
+  at public_html/js/compiler.js:2450
+	iteration 1 (18:54:09:691)
+  at public_html/js/compiler.js:2455
+	iteration 2 (18:54:11:939)
+  at public_html/js/compiler.js:2455
+	iteration 3 (18:54:19:369)
+  at public_html/js/compiler.js:2455
+	iteration 4 (18:54:19:478)
+  at public_html/js/compiler.js:2455
+	iteration 5 (18:54:31:650)
+  at public_html/js/compiler.js:2455
+	iteration 6 (18:54:44:243)
+  at public_html/js/compiler.js:2455
+	iteration 7 (18:54:57:018)
+  at public_html/js/compiler.js:2455
+	iteration 8 (18:55:08:920)
+  at public_html/js/compiler.js:2455
+	iteration 9 (18:55:10:976)
+  at public_html/js/compiler.js:2455
+	iteration 10 (18:55:23:036)
+  at public_html/js/compiler.js:2455
+	iteration 11 (18:55:29:156)
+  at public_html/js/compiler.js:2455
+	iteration 12 (18:55:33:239)
+  at public_html/js/compiler.js:2455
+	iteration 13 (18:55:47:077)
+  at public_html/js/compiler.js:2455
+	iteration 14 (18:55:52:099)
+  at public_html/js/compiler.js:2455
+	iteration 15 (18:56:03:352)
+  at public_html/js/compiler.js:2455
+	iteration 16 (18:56:07:201)
+  at public_html/js/compiler.js:2455
+	iteration 17 (18:56:20:288)
+  at public_html/js/compiler.js:2455
+	iteration 18 (18:56:32:600)
+  at public_html/js/compiler.js:2455
+	iteration 19 (18:56:32:799)
+  at public_html/js/compiler.js:2455
+	iteration 20 (18:56:44:715)
+  at public_html/js/compiler.js:2455
+	iteration 21 (18:56:44:972)
+  at public_html/js/compiler.js:2455
+	iteration 22 (18:56:56:848)
+  at public_html/js/compiler.js:2455
+	iteration 23 (18:57:09:382)
+  at public_html/js/compiler.js:2455
+	iteration 24 (18:57:13:555)
+  at public_html/js/compiler.js:2455
+	iteration 25 (18:57:22:217)
+  at public_html/js/compiler.js:2455
+	iteration 26 (18:57:33:860)
+  at public_html/js/compiler.js:2455
+	iteration 27 (18:57:45:730)
+  at public_html/js/compiler.js:2455
+	iteration 28 (18:57:57:419)
+  at public_html/js/compiler.js:2455
+	iteration 29 (18:58:09:620)
+  at public_html/js/compiler.js:2455
+	iteration 30 (18:58:21:666)
+  at public_html/js/compiler.js:2455
+	iteration 31 (18:58:35:546)
+  at public_html/js/compiler.js:2455
+	iteration 32 (18:58:47:087)
+  at public_html/js/compiler.js:2455
+	iteration 33 (18:58:56:759)
+  at public_html/js/compiler.js:2455
+	iteration 34 (18:59:00:573)
+  at public_html/js/compiler.js:2455
+	iteration 35 (18:59:00:752)
+  at public_html/js/compiler.js:2455
+	iteration 36 (18:59:01:031)
+  at public_html/js/compiler.js:2455
+	iteration 37 (18:59:09:022)
+  at public_html/js/compiler.js:2455
+	iteration 38 (18:59:20:867)
+  at public_html/js/compiler.js:2455
+	iteration 39 (18:59:32:513)
+  at public_html/js/compiler.js:2455
+	iteration 40 (18:59:44:253)
+  at public_html/js/compiler.js:2455
+	iteration 41 (18:59:44:450)
+  at public_html/js/compiler.js:2455
+	iteration 42 (18:59:44:602)
+  at public_html/js/compiler.js:2455
+	iteration 43 (18:59:56:295)
+  at public_html/js/compiler.js:2455
+	iteration 44 (19:00:07:994)
+  at public_html/js/compiler.js:2455
+	iteration 45 (19:00:19:456)
+  at public_html/js/compiler.js:2455
+	iteration 46 (19:00:31:109)
+  at public_html/js/compiler.js:2455
+	iteration 47 (19:00:43:370)
+  at public_html/js/compiler.js:2455
+	iteration 48 (19:00:54:890)
+  at public_html/js/compiler.js:2455
+	iteration 49 (19:01:06:393)
+  at public_html/js/compiler.js:2455
+	iteration 50 (19:01:18:749)
+  at public_html/js/compiler.js:2455
+	iteration 51 (19:01:31:001)
+  at public_html/js/compiler.js:2455
+	iteration 52 (19:01:43:225)
+  at public_html/js/compiler.js:2455
+	iteration 53 (19:01:43:529)
+  at public_html/js/compiler.js:2455
+	iteration 54 (19:01:43:855)
+  at public_html/js/compiler.js:2455
+	iteration 55 (19:01:48:824)
+  at public_html/js/compiler.js:2455
+	iteration 56 (19:01:50:042)
+  at public_html/js/compiler.js:2455
+	iteration 57 (19:02:02:393)
+  at public_html/js/compiler.js:2455
+	iteration 58 (19:02:14:001)
+  at public_html/js/compiler.js:2455
+	iteration 59 (19:02:14:280)
+  at public_html/js/compiler.js:2455
+	iteration 60 (19:02:20:735)
+  at public_html/js/compiler.js:2455
+	iteration 61 (19:02:20:866)
+  at public_html/js/compiler.js:2455
+	iteration 62 (19:02:33:075)
+  at public_html/js/compiler.js:2455
+	iteration 63 (19:02:44:760)
+  at public_html/js/compiler.js:2455
+	iteration 64 (19:02:56:463)
+  at public_html/js/compiler.js:2455
+	iteration 65 (19:03:08:977)
+  at public_html/js/compiler.js:2455
+	iteration 66 (19:03:20:719)
+  at public_html/js/compiler.js:2455
+	iteration 67 (19:03:32:516)
+  at public_html/js/compiler.js:2455
+	iteration 68 (19:03:44:493)
+  at public_html/js/compiler.js:2455
+	iteration 69 (19:03:44:738)
+  at public_html/js/compiler.js:2455
+	iteration 70 (19:03:45:348)
+  at public_html/js/compiler.js:2455
+	iteration 71 (19:03:57:641)
+  at public_html/js/compiler.js:2455
+	iteration 72 (19:04:09:364)
+  at public_html/js/compiler.js:2455
+	iteration 73 (19:04:21:544)
+  at public_html/js/compiler.js:2455
+	iteration 74 (19:04:33:284)
+  at public_html/js/compiler.js:2455
+	iteration 75 (19:04:33:710)
+  at public_html/js/compiler.js:2455
+	iteration 76 (19:04:45:466)
+  at public_html/js/compiler.js:2455
+	iteration 77 (19:04:57:485)
+  at public_html/js/compiler.js:2455
+	iteration 78 (19:04:58:579)
+  at public_html/js/compiler.js:2455
+	iteration 79 (19:05:10:382)
+  at public_html/js/compiler.js:2455
+	iteration 80 (19:05:15:751)
+  at public_html/js/compiler.js:2455
+	iteration 81 (19:05:27:274)
+  at public_html/js/compiler.js:2455
+	iteration 82 (19:05:27:446)
+  at public_html/js/compiler.js:2455
+	iteration 83 (19:05:39:136)
+  at public_html/js/compiler.js:2455
+	iteration 84 (19:05:50:990)
+  at public_html/js/compiler.js:2455
+	iteration 85 (19:06:03:146)
+  at public_html/js/compiler.js:2455
+	iteration 86 (19:06:05:075)
+  at public_html/js/compiler.js:2455
+	iteration 87 (19:06:16:912)
+  at public_html/js/compiler.js:2455
+	iteration 88 (19:06:28:991)
+  at public_html/js/compiler.js:2455
+	iteration 89 (19:06:40:681)
+  at public_html/js/compiler.js:2455
+	iteration 90 (19:06:52:394)
+  at public_html/js/compiler.js:2455
+	iteration 91 (19:06:52:475)
+  at public_html/js/compiler.js:2455
+	iteration 92 (19:07:04:610)
+  at public_html/js/compiler.js:2455
+	iteration 93 (19:07:16:248)
+  at public_html/js/compiler.js:2455
+	iteration 94 (19:07:16:540)
+  at public_html/js/compiler.js:2455
+	iteration 95 (19:07:28:143)
+  at public_html/js/compiler.js:2455
+	iteration 96 (19:07:40:542)
+  at public_html/js/compiler.js:2455
+	iteration 97 (19:07:41:474)
+  at public_html/js/compiler.js:2455
+	iteration 98 (19:07:42:754)
+  at public_html/js/compiler.js:2455
+	iteration 99 (19:07:55:177)
+  at public_html/js/compiler.js:2455
+	iteration 100 (19:07:57:557)
+  at public_html/js/compiler.js:2455
+current sd: 0.06989791985508512 ,average fitness: 0.5193263032068579 ,best fitness: 0.6595046992583387 ,min fitness: 0.33615811630181736 (19:07:57:559)
+  at public_html/js/compiler.js:2459
+Level 8: (19:07:57:563)
+  at public_html/js/compiler.js:2449
+################################### (19:07:57:564)
+  at public_html/js/compiler.js:2450
+	iteration 1 (19:08:09:258)
+  at public_html/js/compiler.js:2455
+	iteration 2 (19:08:21:028)
+  at public_html/js/compiler.js:2455
+	iteration 3 (19:08:32:969)
+  at public_html/js/compiler.js:2455
+	iteration 4 (19:08:44:570)
+  at public_html/js/compiler.js:2455
+	iteration 5 (19:08:56:428)
+  at public_html/js/compiler.js:2455
+	iteration 6 (19:08:59:171)
+  at public_html/js/compiler.js:2455
+	iteration 7 (19:09:12:520)
+  at public_html/js/compiler.js:2455
+	iteration 8 (19:09:24:582)
+  at public_html/js/compiler.js:2455
+	iteration 9 (19:09:37:524)
+  at public_html/js/compiler.js:2455
+	iteration 10 (19:09:49:200)
+  at public_html/js/compiler.js:2455
+	iteration 11 (19:10:01:279)
+  at public_html/js/compiler.js:2455
+	iteration 12 (19:10:16:201)
+  at public_html/js/compiler.js:2455
+	iteration 13 (19:10:28:218)
+  at public_html/js/compiler.js:2455
+	iteration 14 (19:10:41:314)
+  at public_html/js/compiler.js:2455
+	iteration 15 (19:10:53:309)
+  at public_html/js/compiler.js:2455
+	iteration 16 (19:11:05:263)
+  at public_html/js/compiler.js:2455
+	iteration 17 (19:11:18:370)
+  at public_html/js/compiler.js:2455
+	iteration 18 (19:11:30:847)
+  at public_html/js/compiler.js:2455
+	iteration 19 (19:11:35:981)
+  at public_html/js/compiler.js:2455
+	iteration 20 (19:11:49:524)
+  at public_html/js/compiler.js:2455
+	iteration 21 (19:11:49:542)
+  at public_html/js/compiler.js:2455
+	iteration 22 (19:12:01:829)
+  at public_html/js/compiler.js:2455
+	iteration 23 (19:12:14:423)
+  at public_html/js/compiler.js:2455
+	iteration 24 (19:12:23:761)
+  at public_html/js/compiler.js:2455
+	iteration 25 (19:12:27:013)
+  at public_html/js/compiler.js:2455
+	iteration 26 (19:12:31:723)
+  at public_html/js/compiler.js:2455
+	iteration 27 (19:12:44:539)
+  at public_html/js/compiler.js:2455
+	iteration 28 (19:12:57:026)
+  at public_html/js/compiler.js:2455
+	iteration 29 (19:12:57:035)
+  at public_html/js/compiler.js:2455
+	iteration 30 (19:13:11:311)
+  at public_html/js/compiler.js:2455
+	iteration 31 (19:13:23:637)
+  at public_html/js/compiler.js:2455
+	iteration 32 (19:13:38:600)
+  at public_html/js/compiler.js:2455
+	iteration 33 (19:13:53:154)
+  at public_html/js/compiler.js:2455
+	iteration 34 (19:14:05:534)
+  at public_html/js/compiler.js:2455
+	iteration 35 (19:14:18:154)
+  at public_html/js/compiler.js:2455
+	iteration 36 (19:14:31:812)
+  at public_html/js/compiler.js:2455
+	iteration 37 (19:14:45:165)
+  at public_html/js/compiler.js:2455
+	iteration 38 (19:14:58:705)
+  at public_html/js/compiler.js:2455
+	iteration 39 (19:15:06:336)
+  at public_html/js/compiler.js:2455
+	iteration 40 (19:15:19:360)
+  at public_html/js/compiler.js:2455
+	iteration 41 (19:15:23:373)
+  at public_html/js/compiler.js:2455
+	iteration 42 (19:15:36:146)
+  at public_html/js/compiler.js:2455
+	iteration 43 (19:15:48:836)
+  at public_html/js/compiler.js:2455
+	iteration 44 (19:16:01:318)
+  at public_html/js/compiler.js:2455
+	iteration 45 (19:16:15:693)
+  at public_html/js/compiler.js:2455
+	iteration 46 (19:16:30:286)
+  at public_html/js/compiler.js:2455
+	iteration 47 (19:16:31:210)
+  at public_html/js/compiler.js:2455
+	iteration 48 (19:16:44:345)
+  at public_html/js/compiler.js:2455
+	iteration 49 (19:16:57:390)
+  at public_html/js/compiler.js:2455
+	iteration 50 (19:17:09:168)
+  at public_html/js/compiler.js:2455
+	iteration 51 (19:17:21:066)
+  at public_html/js/compiler.js:2455
+	iteration 52 (19:17:24:006)
+  at public_html/js/compiler.js:2455
+	iteration 53 (19:17:36:290)
+  at public_html/js/compiler.js:2455
+	iteration 54 (19:17:50:433)
+  at public_html/js/compiler.js:2455
+	iteration 55 (19:17:56:778)
+  at public_html/js/compiler.js:2455
+	iteration 56 (19:18:09:759)
+  at public_html/js/compiler.js:2455
+	iteration 57 (19:18:24:098)
+  at public_html/js/compiler.js:2455
+	iteration 58 (19:18:36:309)
+  at public_html/js/compiler.js:2455
+	iteration 59 (19:18:48:315)
+  at public_html/js/compiler.js:2455
+	iteration 60 (19:19:00:113)
+  at public_html/js/compiler.js:2455
+	iteration 61 (19:19:12:139)
+  at public_html/js/compiler.js:2455
+	iteration 62 (19:19:24:480)
+  at public_html/js/compiler.js:2455
+	iteration 63 (19:19:39:133)
+  at public_html/js/compiler.js:2455
+	iteration 64 (19:19:52:599)
+  at public_html/js/compiler.js:2455
+	iteration 65 (19:20:04:651)
+  at public_html/js/compiler.js:2455
+	iteration 66 (19:20:18:724)
+  at public_html/js/compiler.js:2455
+	iteration 67 (19:20:31:407)
+  at public_html/js/compiler.js:2455
+	iteration 68 (19:20:43:198)
+  at public_html/js/compiler.js:2455
+	iteration 69 (19:20:55:114)
+  at public_html/js/compiler.js:2455
+	iteration 70 (19:21:06:780)
+  at public_html/js/compiler.js:2455
+	iteration 71 (19:21:19:008)
+  at public_html/js/compiler.js:2455
+	iteration 72 (19:21:31:189)
+  at public_html/js/compiler.js:2455
+	iteration 73 (19:21:33:419)
+  at public_html/js/compiler.js:2455
+	iteration 74 (19:21:46:110)
+  at public_html/js/compiler.js:2455
+	iteration 75 (19:21:57:960)
+  at public_html/js/compiler.js:2455
+	iteration 76 (19:22:11:175)
+  at public_html/js/compiler.js:2455
+	iteration 77 (19:22:12:907)
+  at public_html/js/compiler.js:2455
+	iteration 78 (19:22:25:658)
+  at public_html/js/compiler.js:2455
+	iteration 79 (19:22:38:754)
+  at public_html/js/compiler.js:2455
+	iteration 80 (19:22:50:568)
+  at public_html/js/compiler.js:2455
+	iteration 81 (19:23:03:023)
+  at public_html/js/compiler.js:2455
+	iteration 82 (19:23:14:961)
+  at public_html/js/compiler.js:2455
+	iteration 83 (19:23:27:076)
+  at public_html/js/compiler.js:2455
+	iteration 84 (19:23:39:481)
+  at public_html/js/compiler.js:2455
+	iteration 85 (19:23:42:072)
+  at public_html/js/compiler.js:2455
+	iteration 86 (19:23:54:781)
+  at public_html/js/compiler.js:2455
+	iteration 87 (19:24:06:985)
+  at public_html/js/compiler.js:2455
+	iteration 88 (19:24:16:135)
+  at public_html/js/compiler.js:2455
+	iteration 89 (19:24:17:914)
+  at public_html/js/compiler.js:2455
+	iteration 90 (19:24:30:994)
+  at public_html/js/compiler.js:2455
+	iteration 91 (19:24:43:162)
+  at public_html/js/compiler.js:2455
+	iteration 92 (19:24:56:424)
+  at public_html/js/compiler.js:2455
+	iteration 93 (19:25:08:624)
+  at public_html/js/compiler.js:2455
+	iteration 94 (19:25:20:631)
+  at public_html/js/compiler.js:2455
+	iteration 95 (19:25:26:374)
+  at public_html/js/compiler.js:2455
+	iteration 96 (19:25:39:118)
+  at public_html/js/compiler.js:2455
+	iteration 97 (19:25:51:626)
+  at public_html/js/compiler.js:2455
+	iteration 98 (19:26:04:046)
+  at public_html/js/compiler.js:2455
+	iteration 99 (19:26:16:064)
+  at public_html/js/compiler.js:2455
+	iteration 100 (19:26:28:309)
+  at public_html/js/compiler.js:2455
+current sd: 0.09035286796640184 ,average fitness: 0.527833495313203 ,best fitness: 0.681864924932915 ,min fitness: 0.24151138032989228 (19:26:28:310)
+  at public_html/js/compiler.js:2459
+Fitness for level 1: 0.6163621933646114 (19:26:28:310)
+  at public_html/js/compiler.js:2470
+Fitness for level 2: 0.6163621933646114 (19:26:28:310)
+  at public_html/js/compiler.js:2470
+Fitness for level 3: 0.6973467273301986 (19:26:28:311)
+  at public_html/js/compiler.js:2470
+Fitness for level 4: 0.6941143264156814 (19:26:28:311)
+  at public_html/js/compiler.js:2470
+Fitness for level 5: 0.6859054519352245 (19:26:28:313)
+  at public_html/js/compiler.js:2470
+Fitness for level 6: 0.67196529004132 (19:26:28:318)
+  at public_html/js/compiler.js:2470
+Fitness for level 7: 0.6858831786049283 (19:26:28:318)
+  at public_html/js/compiler.js:2470
+Fitness for level 8: 0.6781808033069533 (19:26:28:325)
+  at public_html/js/compiler.js:2470
+Fitness for level 9: 0.6769064673016028 (19:26:28:327)
+  at public_html/js/compiler.js:2470
+Fitness for level 10: 0.6724738247570994 (19:26:28:328)
+  at public_html/js/compiler.js:2470
+Fitness for level 11: 0.702780786015532 (19:26:28:329)
+  at public_html/js/compiler.js:2470
+Fitness for level 12: 0.698841933939165 (19:26:28:329)
+  at public_html/js/compiler.js:2470
+Fitness for level 13: 0.6595046992583387 (19:26:28:331)
+  at public_html/js/compiler.js:2470
+Fitness for level 14: 0.65302062511388 (19:26:28:332)
+  at public_html/js/compiler.js:2470
+Fitness for level 15: 0.681864924932915 (19:26:28:333)
+  at public_html/js/compiler.js:2470
+Fitness for level 16: 0.671696580208148 (19:26:28:335)
+  at public_html/js/compiler.js:2470
+Debugging session with browser was closed.
