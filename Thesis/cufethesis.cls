@@ -106,7 +106,7 @@
 \DeclareOption{nolistofalgorithms}{\@listofalgorithmsfalse}
 \DeclareOption{listofalgorithms}{\@listofalgorithmstrue}
 \ExecuteOptions{nopraise,nophero,infopage,comp,msc}
-\ExecuteOptions{listoftables,listoffigures,nolistofalgorithms}
+\ExecuteOptions{listoftables,listoffigures,listofalgorithms}
 \ProcessOptions
 \LoadClass[12pt,a4paper]{report}
 \setlength\oddsidemargin{10mm}
@@ -120,7 +120,7 @@
 \lefthyphenmin 62
 \righthyphenmin 62
 \usepackage{alltt}
-\usepackage[titlenotnumbered,boxruled]{algorithm2e}
+\usepackage[titlenotnumbered, boxruled]{algorithm2e}
 \usepackage[centertags]{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -276,7 +276,7 @@
     \textrm{By}\\[16pt]
     \textrm{\@EngineerName}\\[28pt]
     \large A Thesis Submitted to the\\
-        \faculty at \university\\
+        \faculty \ at \university\\
         in Partial Fulfillment of the\\
         Requirements for the Degree of\\
         \MakeTextUppercase{\@Degree}\\
