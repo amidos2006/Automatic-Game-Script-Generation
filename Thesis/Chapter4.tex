@@ -236,10 +236,22 @@ Same is done with Rule Objects in \algref{ruleObjects}. As random Rule Objects a
 \end{algorithm}
 
 \subsubsection{Genetic Approach}
-The second approach used to generate levels for Puzzle Script games. This method uses GA to evolve levels outlines to playable levels. The following points will determine how GA is used to evolve level outlines.\\\\
+The second approach used to generate levels for Puzzle Script games. This method uses GA to evolve levels outlines to playable levels. The following points will determine how GA is used to evolve level outlines. Elitism is used to ensure the best levels are sustained.\\\\
 \textbf{Chromosome Representation:} GA represents the levels as 2D matrix. The value at each location represents the objects at that location.\\\\
-\textbf{Initial Population:} Several techniques used to \\\\
-\textbf{Genetic Operators:}
+\textbf{Genetic Operators:} Crossover and Mutation are used to ensure better levels in the following generations. One point crossover used where a point (x, y) is selected from the first chromosome and all previous rows (having smaller x) are swapped with the second chromosome. Mutation is different from crossover as it changes any random selected tile using any of the following:
+\begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
+	\item \textbf{Creating an object:} where a random object is selected to replace any empty tile in the level.
+	\item \textbf{Deleting an object:} where a random object from the level is selected to be deleted.
+	\item \textbf{Changing the position of an object:} where a random empty tile is swapped with non empty one.
+\end{itemize}
+The mutation operation happens by subjecting the level to these 3 methods using different probabilities. Creating and deleting an object is subjected to the lowest probabilities compared to changing the position of an object.\\\\
+\textbf{Initial Population:} Three different techniques used to test the effect of different Initial Population on the generation process. These techniques are:
+\begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
+	\item \textbf{Random Initialization:} The population is initialized as a mutated versions of the empty level outline. This technique takes very long time to find a good designed level as it search in the whole space.
+	\item \textbf{Constructive Initialization:} The population is initialized using constructive approach algorithm. Using the algorithm tighten the search space so it will not take very long time to find a better level.
+	\item \textbf{Mixed Approach:} The population is initialized as a mixture between Random Initialization and Constructive Initialization. A portion of the population is created using the Constructive Approach Algorithm and some mutated versions from its output, while the other portion is the same like Random Initialization. Using that algorithm ensure more diversity than previous two runs.
+\end{itemize}
+More details about the results of each algorithm will be discussed in the upcoming \chref{Chapter5}.
 \subsection{Level Evaluator}
 Level Evaluator is responsible for evaluating the generated levels. Evaluating Puzzle Games are based on some heuristic measures. Heuristic measures are based on global knowledge about Puzzle Script games. The first idea was to ensure game playability. That is achieved by using an automated player which we are gonna discuss it later. \figref{diffLevelsSokoban} shows several levels designed for Sokoban game where all are playable but some of them are more interesting than other. The first level is very easy level which can be solve with one move. The second level need more moves which is more interesting than the first level but it is just straight forward toward the solution. The last level is not easy to solve need some prior thinking and trying some moves which is more interesting than previous two.
 
