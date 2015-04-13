@@ -1,80 +1,90 @@
-This chapter describes our approach for generating Puzzle Script levels using different methodologies. Based on the output we conducted our research for generating Puzzle Script rules. This chapter is divided mainly into two parts Level Generation conducted by Rule Generation.
+This chapter describes our approach for generating Puzzle Script levels and rules using different methodologies. This chapter is divided into two parts Level Generation and Rule Generation.
 
 \section{Level Generation}
-General Level Generation is not an easy task specially if the main rules can differ from one game. Most of previous work in Puzzle Level Generation (refer to \chref{Chapter3}) was limited for generating levels for a specific game, while the rest just suggest a general technique to be used that is based on designing a game specific fitness function. In this work, we suggest some global metrics for Puzzle Games that can help in generating levels with minimum prior knowledge.\\\par
+Level Generation is not an easy task specially when the game rules is not known before generation. Most of the previous work in the Puzzle Level Generation (refer to \chref{Chapter3}) was mostly limited for generating levels for a specific game. Although some research suggested a general technique to generate levels, it is still based on designing a game specific fitness function. In this work, we suggest some global metrics for Puzzle Games that can help in generating levels with the minimum prior knowledge.\\\par
 
-Our approach relies heavily on the current game rules and objects, and a minimum amount of prior knowledge about Puzzle Script language. \figref{levelGenBlockDiagram} shows a high level block diagram of the system. The following subsections will describe each block in details.
+Our approach relies heavily on understanding the current game rules and a minimum amount of prior knowledge about Puzzle Script language. \figref{levelGenBlockDiagram} shows a high level block diagram of the system. The following subsections will describe each block in details.
 
 \gfigure{High level system block diagram}{levelGenBlockDiagram}{width=5.5in}{Images/levelGenBlockDiagram}
 
-The system starts by analyzing the current game rules using the Rule Analyzer module. Rule Analyzer module utilize some basic information about Puzzle Script rules to understand the importance of each game object and its basic functionality.\\\par
+The system starts by analyzing the current game rules using a Rule Analyzer. The Rule Analyzer utilizes some basic information about Puzzle Script rules to understand the importance of each game object and its basic functionality.\\\par
 
-The output of the Rule Analyzer and the Level Outlines are fed to Level Generator module. Level Generator is responsible for generating initial level layouts. It utilizes the output of the Rule Analyzer to insert every game objects at a suitable position in the Level Outlines. Level Generator uses two different approaches: Constructive Approach and Genetic Approach. Constructive Approach is faster in generation but produce less diverse levels, while Genetic Approach requires more time but give access to a vast majority of levels.\\\par
+The output of the Rule Analyzer (Rule Analysis) and the Level Outlines are fed to a Level Generator. The Level Generator is responsible for generating initial level layouts. It utilizes the Rule Analysis to insert game objects at suitable positions in the Level Outlines. Level Generator uses two different approaches: a Constructive Approach and a Genetic Approach. The Constructive Approach is faster in generation but produce less diverse levels, while Genetic Approach requires more time but give access to a vast majority of levels.\\\par
 
-The generated levels are subjected to a Level Evaluator module. Level Evaluator uses an automated player to play the generated levels. Based on the result of each play, Level Evaluator gives a score for the level based on six different heuristic measures. These measures make sure the resulting level is playable and not trivial.\\\par
+The generated levels are subjected to a Level Evaluator. The Level Evaluator uses an automated player to play the generated levels. Based on the result of each play, the Level Evaluator gives a score for the level based on some heuristic measures. These measures make sure the resulting level is playable and not trivial.\\\par
 
-In case of Constructive Approach, the system selects the best scored levels to output them, while Genetic Approach, the system enhances the output levels using GA operators.
+In case of the Constructive Approach, the system selects the best scored levels to output them, while the Genetic Approach enhances the output levels using GA operators.
 
 \subsection{Rule Analyzer}
-Rule Analyzer is the first module in the system. It analyzes game rules and extract some useful information about each object. The extracted information is fed to Level Generator and Level Evaluator modules. Each object is assigned:
+The Rule Analyzer is the first module in our system. It analyzes game rules and extract some useful information about each object. The extracted information is fed to the Level Generator and the Level Evaluator. Each object is assigned:
 \begin{itemize}
-	\item \textbf{Type:} Each object is assigned a type according to its presence on the Puzzle Script file. There are 4 different types:
+	\item \textbf{Type:} Object type depends on its presence in the Puzzle Script file. There are 4 different types:
 	\begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
 		\item \textbf{Rule Object:} Any object that appears in a rule is defined as a rule object. Rule objects are essential for rules to be applied.
-		\item \textbf{Player Object:} It is defined by name "player" in the Puzzle Script. It is the main game entity. It can move freely without any restriction. Any level must have at least 1 player object to be playable. It must be a Rule Object as well.
-		\item \textbf{Winning Object:} They are two object types appearing in the winning condition. At least one of them must be a Rule Object or a Player Object.
-		\item \textbf{Solid Object:} All objects that doesn't appear in rules but on same collision layer with at least one Rule Object.
+		\item \textbf{Player Object:} It is defined by name "player" in the Puzzle Script. It is the main game entity. It can move freely without any restriction. Any level must have at least 1 player object. Player object is a Rule Object as well.
+		\item \textbf{Winning Object:} They are objects appearing in the winning condition. At least one of them is a Rule Object or a Player Object.
+		\item \textbf{Solid Object:} All objects that doesn't appear in any rule but on the same collision layer with a Rule Object.
 	\end{itemize}
-	\item \textbf{Subtype:} By more analysis on Rule Objects and its presence within rules, each Rule Object is assigned a Subtype:
+	\item \textbf{Subtype:} each Rule Object is assigned a Subtype based on its presence in game rules. These subtypes are:
 	\begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
-		\item \textbf{Critical Object:} If an object presented in a rule with a Player Object and presented with a Winning Object in the same or different rule, it is considered a Critical Object.
-		\item \textbf{Normal Object:} It same like Critical Object but only connected to one of them.
-		\item \textbf{Useless Object:} It is an object that is neither connected to a Player Object nor a Winning Object.
+		\item \textbf{Critical Object:} is an object that has appeared with Player object and one of the Winning Objects in rules.
+		\item \textbf{Normal Object:} same like the Critical Object but it is only connected to one of them.
+		\item \textbf{Useless Object:} is an object that is neither connected to a Player Object nor a Winning Object in any rule.
 	\end{itemize}
-	\item \textbf{Priority:} It reflects the number of times an object appeared in the game rules.
-	\item \textbf{Minimum Number:} The maximum number of times any object appeared in a single rule. For example consider the following group of rules:
+	\item \textbf{Priority:} It reflects the number of times each object appears in the rules.
+	\item \textbf{Behaviors:} Behavior are analyzed from the difference between the left hand side and the right hand side of each rule. Every object can have one or more behavior. There are 4 kinds of behaviors:
+		\begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
+			\item \textbf{Move:} If an object on the left hand side have different movement than the right hand side, this object has a Move behavior. For example, In the following rule Crate moves when Player approaches it.
+			\begin{center}
+				[ > Player | Crate ] -> [ > Player | > Crate ]
+			\end{center}
+			\item \textbf{Teleport:} An object is considered to have a Teleport behavior if its location in the rule changes from the left hand side to the right hand side. For example, In the following rule Crate changes position with Player on collision.
+			\begin{center}
+				[ > Player | Crate ] -> [ Crate | Player ]
+			\end{center}
+			\item \textbf{Create:} If the number of a certain object on the left hand side is less than its number on the right hand side, then this object has a Create behavior. For example, In the following rule, Crate is created when Player moves to an empty place.
+			\begin{center}
+				[ > Player | \ \ \ \ ] -> [ Crate | Player ]
+			\end{center}
+			\item \textbf{Destroy:} If the number of a certain object on the left hand side is greater than its number on the left hand side, then this object has a Destroy behavior. For example, In the following rule, the three Crates are destroyed when they are aligned beside each other.
+			\begin{center}
+				[ Crate | Crate | Crate ] -> [ \ \ \ \ | \ \ \ \ | \ \ \ \ ]
+			\end{center}
+		\end{itemize}
+	\item \textbf{Minimum Number:} is the maximum number of times for an object to appear in the left hand side of game rules. For example consider the following group of rules:
 	\begin{center}
 		[ > Player | Crate ] -> [ > Player | > Crate ]
 	\end{center}
 	\begin{center}
 		[ > Crate | Crate ] -> [ > Crate | > Crate ]
 	\end{center}
-	The Crate object appeared in both rules. The first rule the Crate object appeared once, while the second rule it appeared twice. That means the minimum number of Crates is 2.
-	\item \textbf{Behaviors:} Every object can have one or more behavior. Behavior are analyzed from the difference between left hand side and right hand side of each rule. There are 4 kinds of behaviors:
-		\begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
-			\item \textbf{Move:} If an object on the left hand side have different movement action associated with it compared to right hand side, this object has Move behavior. For example, In the following rule Crate moves when player approach it.
-			\begin{center}
-				[ > Player | Crate ] -> [ > Player | > Crate ]
-			\end{center}
-			\item \textbf{Teleport:} An object is considered to have Teleport behavior if its place in the rule change from left hand side to the right hand side. For example, In the following rule Crate change position with player when it approach it.
-			\begin{center}
-				[ > Player | Crate ] -> [ Crate | Player ]
-			\end{center}
-			\item \textbf{Create:} If the number of a certain object on left hand side is less than number of objects on right hand side, then this object have Create behavior. For example, In the following rule, the Crate object is created when Player moves to an empty tile.
-			\begin{center}
-				[ > Player | \ \ \ \ ] -> [ Crate | Player ]
-			\end{center}
-			\item \textbf{Destroy:} If the number of certain object on the right hand side is less than number of objects on left hand side, then this object have Destroy behavior. For example, In the following rule, the 3 Crates are destroyed when they are aligned vertically or horizontally.
-			\begin{center}
-				[ Crate | Crate | Crate ] -> [ \ \ \ \ | \ \ \ \ | \ \ \ \ ]
-			\end{center}
-		\end{itemize}
-	\item \textbf{Relations:} Each object have a list of Relations which contains all objects that appeared in any rule as that object exists. For example, In the following rules, Crate has relations with Player and Lava, Player has a relation with Crate, and Lava has a relation with Crate.
+	The Crate object appeared in both rules. The first rule the Crate object appeared once, while the second rule it appeared twice. This means the minimum number of Crates is 2. Create rules are responsible for generating objects. The Minimum Number of Create objects is updated to reflect the least number of appearances in the Create rules. For example the following rules have two Create rules (the first and the third).
+	\begin{center}
+		[ > Player | \ \ \ \ ] -> [ Crate | Player ]
+	\end{center}
+	\begin{center}
+		[ > Crate | Crate ] -> [ > Crate | > Crate ]
+	\end{center}
+	\begin{center}
+		[ Gem | Crate | Gem ] -> [ Crate | Crate | Crate ]
+	\end{center}
+	The number of Crate objects in each rule are 0, 2, 1 respectively. In normal case, the minimum number of Crate object will be 2. Since Crate object have Create behavior then the minimum number of objects will be zero instead.
+	\item \textbf{Relations:} is a list of all objects that appears in the same rule with a certain object. For example, In the following rules, Crate has relations with Player and Lava, Player has a relation with Crate, and Lava has a relation with Crate.
 	\begin{center}
 		[ > Player | Crate ] -> [ > Player | > Crate ]
 	\end{center}
 	\begin{center}
 		[ > Crate | Lava ] -> [ \ \ \ \ | \ \ \ \ ]
 	\end{center}
-	A special Relations list for left hand side only is also create at the same time.	
+	Each object has a special list for the left hand side only beside the main relations list.	
 \end{itemize}
 \subsection{Level Generator}
-Level Generator is responsible for formalizing a level with best possible way to ship it for evaluation. Two approach were used to generate levels.
+The Level Generator is responsible for creating a level in the best possible way. Two approaches were used to generate levels. The following sections will discuss every one of them.
 \subsubsection{Constructive Approach}
-Constructive Approach uses information from Rule Analyzer to modify the Level Outlines. In this approach, several levels are generated using an algorithm and the best levels are selected. A pseudo code for the algorithm is presented in \algref{constructiveApproach}.\\
+Constructive Approach uses information from the Rule Analyzer to modify the Level Outlines. In this approach, several levels are generated using a certain algorithm and the best levels are selected. A pseudo code for the algorithm is presented in \algref{constructiveApproach}.\\
 
 \begin{algorithm}[H]\floatsep20pt \textfloatsep20pt \intextsep20pt
-	\KwData{levelOutline, ruleAnalysis, coverPercentage}
+	\KwData{level outline, rule analysis}
 	\KwResult{modified level outline}
 	\BlankLine
 	numberObjects = Get the number of objects for each object type\;
@@ -86,28 +96,28 @@ Constructive Approach uses information from Rule Analyzer to modify the Level Ou
 	levelOutline = Insert Rule Objects in the level outline\;
 	\BlankLine
 	\textbf{return} levelOutline\;
-	\caption{Pseudo Algorithm for Constructive Approach}
+	\caption{Pseudo algorithm for the Constructive Approach}
 	\label{Algorithm:constructiveApproach}
 \end{algorithm}
-The algorithm is consist of two main part. The first part is responsible for determining the amount of objects that should be presented in the current level layout. The second part consists of 5 steps and is responsible for adding the game objects in an intelligent way to the current level.\\\par
+The algorithm consists of two main part. The first part is responsible for determining the amount of objects that should be presented in the current level outline. The second part is responsible for inserting game objects in an intelligent way to the current level outline. The order of the insertion algorithm places the most important game objects first to ensure playability.\\\par
 
-\algref{numberObjects} shows the process of calculating the amount of objects. The algorithm starts by determining the percentage that every type should cover from the total number of objects. Each object type must contribute by a percentage equal to the minimum number of objects needed to make all the rules valid. A cover percentage is calculated based on number of critical objects and winning objects. The value of cover percentage is smaller as the percentage of both of critical object and winning object increase and vice versa. Critical Object and Winning Object are the main game objects, without them game may not be playable at all. The increase in there number cause level to be more difficult and more complex. Having small cover percentage when they share huge part of objects, makes sure the game is not very complex.\\
+\algref{numberObjects} shows the process of calculating the amount of objects. The algorithm starts by determining the percentages for every object type. Every object type contributes by a percentage equal to the minimum number of objects to make sure that all rules are valid. A cover percentage is calculated based on the number of critical and winning objects. The value of the cover percentage is inversely proportional with the summation of both critical and winning objects. Critical and Winning Objects are the main game objects, without them game may not be playable at all. The increase in their numbers causes the level to be more difficult and more complex. Having a small cover percentage when they are huge, makes sure the game is not very complex.\\
 
 \begin{algorithm}[H]
-	\KwData{levelOutline, ruleAnalysis}
+	\KwData{level outline, rule analysis}
 	\KwResult{Number of Objects for each type}
 	\BlankLine
 	percentages[Winning Object] = Minimum Number[Winning Object 1] + Minimum Number[Winning Object 2]\;
 	\If{Player Object is a Winning Object}{
 		percentages[Winning Object] = 2\;
 	}
-	percentages[Solid Object] = Number of the different kinds of Solid Objects\;
-	percentages[Critical Object] = Summation of Minimum number of all Critical Objects\;
-	percentages[Rule Object] = Summation of Minimum number of all rule Objects\;
-	Divide all percentages by summation of all of them\;
+	percentages[Solid Object] = Number of different kinds of Solid Objects\;
+	percentages[Critical Object] = Summation of the minimum number of all Critical Objects\;
+	percentages[Rule Object] = Summation of the minimum number of all rule Objects\;
+	Divide all percentages by their total summation\;
 	\BlankLine
 	coverPercentage = 1 - percentages[Winning Object] - percentages[Critical Object]\;
-	totalNumber = coverPercentage * total free area in levelOutline\;
+	totalNumber = coverPercentage * total free area in the level outline\;
 	numberObjects = totalNumber * weights * percentages\;
 	numberObjects[Player] = 1\;
 	\BlankLine
@@ -116,30 +126,30 @@ The algorithm is consist of two main part. The first part is responsible for det
 	\label{Algorithm:numberObjects}
 \end{algorithm}
 
-The following algorithm all responsible for inserting objects based on numbers from previous part. Most of the Insertion Algorithms needs to find the most suitable empty locations to insert the new Object on it. The most suitable location is based on the object going to be inserted. If the object has a Move behavior, it should be inserted at spots with the most free locations around it. Otherwise any random free location is okay.\\\par
+The following algorithms are responsible for inserting objects based on the numbers resulted from the previous part. Most of them always need to find the most suitable empty locations to insert the new Object. The most suitable location is calculated based on the inserted object. If the object has a Move behavior, it should be inserted at spots with the most free locations around it. Otherwise any random free location is okay.\\\par
 
-\algref{solidObjects} shows the insertion algorithm for Solid Objects. This algorithm is the first step to modify the level outline. The algorithm just insert random solid objects at a random empty space in the level outline. The algorithm is repeated for several times based on the number calculated from previous step. The same idea is used for inserting Player Object in \algref{playerObject} but only one object is inserted.\\
+\algref{solidObjects} shows the insertion algorithm for Solid Objects. The algorithm inserts a random solid objects at a random empty space (as Solid Object has not a Move behavior) in the level outline. The algorithm is repeated for several times based on its number. The same idea is used for inserting Player Object in \algref{playerObject} but only one object is inserted.\\
 
 \begin{algorithm}[H]
-	\KwData{levelOutline, ruleAnalysis, numberObjects}
+	\KwData{level outline, rule analysis, number of objects}
 	\KwResult{modified level outlines}
 	\BlankLine
 	\While{numberObjects[Solid Object] > 0}{
-		object = get random solid object\;
-		location = Get Suitable Empty Location\;
+		object = Get a random solid object\;
+		location = Get a suitable empty location\;
 		levelOutline[location] = object\;
 		numberObjects[Solid Object] -= 1\;
 	}
 	\BlankLine
 	\textbf{return} levelOutline\;
-	\caption{Insert Solid Objects Algorithm}
+	\caption{Solid Objects Insertion Algorithm}
 	\label{Algorithm:solidObjects}
 \end{algorithm}
 
-Before inserting the Player to the level, Winning Objects should be inserted. \algref{winningObjects} is responsible for inserting Winning Objects into the level outline. The algorithm generate an equal amount of Winning Objects except if any of the Winning Objects have Create behavior. The amount of generate Winning Objects must be multiple of minimum number of these objects to ensure that all rules can be applied. The first winning object is inserted at a suitable empty location, while the other is inserted at the farthest suitable empty location. If the Winning Rule is No then the second object must be inserted at same location of the first object.\\
+Before inserting the Player to the level, Winning Objects should be inserted. \algref{winningObjects} is responsible for inserting Winning Objects into the level outline. The algorithm generates an equal amount of both objects except if any of the objects have a Create behavior. The amount of the generated Winning Objects must be a multiple of their minimum number to ensure that all rules can be applied. The first winning object is inserted at any suitable empty location, while the other must be inserted at the farthest suitable empty location. Inserting at a very far location ensures a more difficult level. If the Winning Rule is No then the second object will be inserted at the same location of the first object.\\
 
 \begin{algorithm}[H]
-	\KwData{levelOutline, ruleAnalysis, numberObjects}
+	\KwData{level outline, rule analysis, number of objects}
 	\KwResult{modified level outlines}
 	\BlankLine
 	\eIf{Winning Objects have Create beahvior}{
@@ -151,119 +161,119 @@ Before inserting the Player to the level, Winning Objects should be inserted. \a
 	}
 	\BlankLine
 	\While{numberObjects[Winning Object] > 0}{
-		location = Get Suitable Empty Location for Winning Object 1\;
 		\For{1 \KwTo minObject1}{
+			location = Get a suitable empty location for Winning Object 1\;
 			levelOutline[location] = Winning Object 1\;
 			numberObjects[Winning Object] -= 1\;
 		}
-		\BlankLine
-		\If{Winning Rule != No}{
-			location = Get the farthest suitable empty location for Winning Object 2\;
-		}
+		
 		\BlankLine
 		\For{1 \KwTo minObject2}{
-			levelOutline[location] = Winning Object 1\;
+			\If{Winning Rule != No}{
+				location = Get the farthest suitable empty location for Winning Object 2\;
+			}
+			levelOutline[location] = Winning Object 2\;
 			numberObjects[Winning Object] -= 1\;
 		}
 	}
 	\BlankLine
 	\textbf{return} levelOutline\;
-	\caption{Insert Winning Objects Algorithm}
+	\caption{Winning Objects Insertion Algorithm}
 	\label{Algorithm:winningObjects}
 \end{algorithm}
 
 \begin{algorithm}[H]
-	\KwData{levelOutline, ruleAnalysis, numberObjects}
+	\KwData{level outline, rule analysis, number of objects}
 	\KwResult{modified level outlines}
 	\BlankLine
-	location = GetSuitableEmptyLocation(Player Object, levelOutline, ruleAnalysis)\;
+	location = Get a suitable empty location for the Player Object\;
 	levelOutline[loction] = Player Object\;
 	\BlankLine
 	\textbf{return} levelOutline\;
-	\caption{Insert Player Object Algorithm}
+	\caption{Player Object Insertion Algorithm}
 	\label{Algorithm:playerObject}
 \end{algorithm}
 
-\algref{criticalObjects} is responsible for inserting Critical Objects to the level. Critical Objects are one of the most important objects in the game. As they are connected with both Player and Winning Objects. In some games, the game level won't be solvable without Critical Objects. For example, the following rules are from game called DestroyGame. The game goal is to destroy all Gem objects from the level. Gems can be destroyed if it is aligned with 2 other boxes. Boxes can be pushed by the player.
+\algref{criticalObjects} is responsible for inserting Critical Objects. Critical Objects are one of the most important objects in the game. As they are connected with both Player and Winning Objects. In some games, levels are not solvable without Critical Objects. For example, the following rules are from game called DestroyGame. The game goal is to destroy all the Gem objects. Gem objects can be destroyed if they are aligned with 2 Crate objects. Crate objects can be pushed by the Player object.
 \begin{center} [ > Player | Crate ] -> [ > Player | > Crate ]\end{center}
 \begin{center} [ Crate | Gem | Crate ] -> [ \ \ \ \ | \ \ \ \ | \ \ \ \ ]\end{center}
-From these rules Crate is a critical object and is the responsible for destroying the Gem. If there is no Crates in the level, the game will be unplayable. For that reason the algorithm ensures inserting Minimum Number of all critical objects. The algorithm adds more random critical objects according to the number required afterwards. Each critical appears based on its Priority feature.\\
+From these rules Crate is a critical object as it is connected with Gem and Player objects. If there is no Crates in the level, the game will be unplayable. For that reason the algorithm ensures inserting the minimum Number of all the critical objects. The algorithm adds more critical objects according to its number. Each critical object has a chance to appear directly proportional with its Priority.\\
 
 \begin{algorithm}[H]
-	\KwData{levelOutline, ruleAnalysis, numberObjects}
+	\KwData{level outline, rule analysis, number of objects}
 	\KwResult{modified level outlines}
 	\BlankLine
 	\ForEach{object in Critical Objects}{
 		\For{1 \KwTo Minimum Number of object}{
-			location = Get suitable empty location\;
+			location = Get a suitable empty location\;
 			levelOutline[location] = object\;
 			numberObjects[Critical Object] -= 1\;
 		}
 	}
 	\BlankLine
-	\While{numberObjects[Critical Object > 0]}{
-		object = choose random critical object based on its Priority\;
+	\While{numberObjects[Critical Object] > 0]}{
+		object = Choose a random Critical Object based on its priority\;
 		\For{1 \KwTo Minimum Number of object}{
-			location = Get suitable empty location\;
+			location = Get a suitable empty location\;
 			levelOutline[location] = object\;
 			numberObjects[Critical Object] -= 1\;
 		}
 	}
 	\BlankLine
 	\textbf{return} levelOutline\;
-	\caption{Insert Critical Objects Algorithm}
+	\caption{Critical Objects Insertion Algorithm}
 	\label{Algorithm:criticalObjects}
 \end{algorithm}
 
-Same is done with Rule Objects in \algref{ruleObjects}. As random Rule Objects are inserted to the map based on its priority feature.\\
+Same is done with Rule Objects in \algref{ruleObjects}. Random Rule Objects are inserted to the map based on their priority.\\
 
 \begin{algorithm}[H]
-	\KwData{levelOutline, ruleAnalysis, numberObjects}
+	\KwData{level outline, rule analysis, number of objects}
 	\KwResult{modified level outlines}
 	\BlankLine
 	\While{numberObjects[Rule Object > 0]}{
-		object = choose random rule object based on its priority\;
+		object = Choose a random Rule Object based on its priority\;
 		\For{1 \KwTo Minimum Number of object}{
-			location = Get suitable empty location\;
+			location = Get a suitable empty location\;
 			levelOutline[location] = object\;
 			numberObjects[Critical Object] -= 1\;
 		}
 	}
 	\BlankLine
 	\textbf{return} levelOutline\;
-	\caption{Insert Rule Objects Algorithm}
+	\caption{Rule Objects Insertion Algorithm}
 	\label{Algorithm:ruleObjects}
 \end{algorithm}
 
 \subsubsection{Genetic Approach}
-The second approach used to generate levels for Puzzle Script games. This method uses GA to evolve levels outlines to playable levels. The following points will determine how GA is used to evolve level outlines. Elitism is used to ensure the best levels are sustained.\\\\
-\textbf{Chromosome Representation:} GA represents the levels as 2D matrix. The value at each location represents the objects at that location.\\\\
-\textbf{Genetic Operators:} Crossover and Mutation are used to ensure better levels in the following generations. One point crossover used where a point (x, y) is selected from the first chromosome and all previous rows (having smaller x) are swapped with the second chromosome. Mutation is different from crossover as it changes any random selected tile using any of the following:
+This method uses GA to evolve level outlines to playable levels. Elitism is used to ensure the best levels are carried to the next generation.\\\\
+\textbf{Chromosome Representation:} In this technique levels are represented as 2D matrix. Each location value represents all the objects at that location.\\\\
+\textbf{Genetic Operators:} Crossover and Mutation are used to ensure better levels in the following generations. One point crossover is used where a point (x, y) is selected from the first chromosome and all previous rows (having smaller x) are swapped with the second chromosome. Mutation changes any random selected tile using the following:
 \begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
-	\item \textbf{Creating an object:} where a random object is selected to replace any empty tile in the level.
-	\item \textbf{Deleting an object:} where a random object from the level is selected to be deleted.
-	\item \textbf{Changing the position of an object:} where a random empty tile is swapped with non empty one.
+	\item \textbf{Creating an object:} a random object is selected to replace an empty tile in the level. In "No" winning rule, the two winning objects are created at same location.
+	\item \textbf{Deleting an object:} a random object from the level is deleted.
+	\item \textbf{Changing object position:} a random empty tile is swapped with a non-empty one.
 \end{itemize}
-The mutation operation happens by subjecting the level to these 3 methods using different probabilities. Creating and deleting an object is subjected to the lowest probabilities compared to changing the position of an object.\\\\
-\textbf{Initial Population:} Three different techniques used to test the effect of different Initial Population on the generation process. These techniques are:
+The mutation operation happens by subjecting the level outline to these 3 methods using different probabilities. The Creating and deleting an object have lower probability than the changing object position.\\\\
+\textbf{Initial Population:} Three different techniques are used to generate an initial population for the GA. These techniques are:
 \begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
-	\item \textbf{Random Initialization:} The population is initialized as a mutated versions of the empty level outline. This technique takes very long time to find a good designed level as it search in the whole space.
-	\item \textbf{Constructive Initialization:} The population is initialized using constructive approach algorithm. Using the algorithm tighten the search space so it will not take very long time to find a better level.
-	\item \textbf{Mixed Approach:} The population is initialized as a mixture between Random Initialization and Constructive Initialization. A portion of the population is created using the Constructive Approach Algorithm and some mutated versions from its output, while the other portion is the same like Random Initialization. Using that algorithm ensure more diversity than previous two runs.
+	\item \textbf{Random Initialization:} The population is initialized as mutated versions of the empty level outline. This technique takes very long time to find a good designed level as it search in the whole space.
+	\item \textbf{Constructive Initialization:} The population is initialized using the Constructive Approach algorithm. Using the algorithm tighten the search space so less time is required to find a better level.
+	\item \textbf{Mixed Approach:} The population is initialized as a mixture between the Random Initialization and the Constructive Initialization. A portion is initialized using the Constructive Approach Algorithm and some mutated versions from its output, while the other portion is the same like the Random Initialization. Using that algorithm ensure more diversity than the previous two approaches.
 \end{itemize}
-More details about the results of each algorithm will be discussed in the upcoming \chref{Chapter5}.
+More details about the results of each algorithm will be discussed in \chref{Chapter5}.
 \subsection{Level Evaluator}
-Level Evaluator is responsible for evaluating the generated levels. Evaluating Puzzle Games are based on some heuristic measures. Heuristic measures are based on global knowledge about Puzzle Script games. The first idea was to ensure game playability. That is achieved by using an automated player which we are gonna discuss it later. \figref{diffLevelsSokoban} shows several levels designed for Sokoban game where all are playable but some of them are more interesting than other. The first level is very easy level which can be solve with one move. The second level need more moves which is more interesting than the first level but it is just straight forward toward the solution. The last level is not easy to solve need some prior thinking and trying some moves which is more interesting than previous two.
+Level Evaluator is responsible for evaluating the generated levels. Level evaluation is based on some global knowledge about Puzzle Script and Puzzle Games. The trivial way to evaluate puzzle levels is to measure level playability. Level playability is achieved by using an automated player which will be discussed later. Playability is not enough to judge puzzle levels. Some other metrics must be used to ensure the solution have more moves with some thinking ahead. \figref{diffLevelsSokoban} shows several levels designed for Sokoban game where all are playable but some of them are more interesting than other. The first level is a very easy level which can be solved in one move. The second level need more moves which is more interesting, but it has a straight forward solution. The last level is not an easy to solve, it needs some prior thinking which is more interesting than the previous two.
 
 \gfigure{Examples on different levels for Sokoban game}{diffLevelsSokoban}{width=5.5in}{Images/diffLevelsSokoban}
 
-The above example proves that playability is not enough to judge puzzle levels. Some other metrics must be used to ensure the solution have more moves with some thinking ahead. Six heuristics measures are applied on the output of the automated player to capture this feature.
+The example shows the need for using heuristic measures to ensure more interesting levels.
 
 \subsubsection{Automated Player}
-Our Level Evaluator uses a modified version of the BestFS Algorithm as automated player. BestFS Algorithm was introduced in Lim et al.\cite{puzzleScriptGeneration} work. BestFS is similar to BFS algorithm but instead of exploring states sequentially, it sorts them according to fitness function. This causes the algorithm to explore the more important nodes first helping it to reach the solution faster. As explained in \chref{Chapter3}, Lim et al. algorithm uses two metrics to evaluate each game state:
+Our Level Evaluator uses a modified version of the BestFS Algorithm as the automated player. BestFS Algorithm was introduced in Lim et al.\cite{puzzleScriptGeneration} work. BestFS is similar to BFS algorithm but instead of exploring states sequentially, it sorts them according to a score generated from a fitness function. This causes the algorithm to explore more important nodes first, helping it to reach the solution faster. As explained in \chref{Chapter3}, Lim et al. algorithm uses two metrics (as a fitness function) to evaluate each game state:
 \begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
 	\item \textbf{Distance between winning objects:} BestFS tries to either increase or decrease the distance between the winning objects according to the winning rule. The "No" rule is the only rule that need to increase the distance, while the others need to decrease it. \figref{bestFS1} shows an example from Sokoban, where the distance between crates and targets is highlighted.
-	\item \textbf{Distance between player and winning objects:} BestFS always tries to minimize the distance between the player and the winning objects. In order to affect the distance between the winning objects, player should come near toward them. \figref{bestFS2} shows same level from Sokoban, where the distance between player and winning objects (crates and targets) is highlighted.
+	\item \textbf{Distance between player and winning objects:} BestFS always tries to minimize the distance between the player and the winning objects. To achieve the first metric, the player should be near the winning objects. \figref{bestFS2} shows the same level from Sokoban, where the distance between player and winning objects (crates and targets) is highlighted.
 \end{itemize}
 
 \begin{hcfigure}
@@ -271,83 +281,85 @@ Our Level Evaluator uses a modified version of the BestFS Algorithm as automated
 	\begin{minipage}{0.45\textwidth}
 		\centering
   		\includegraphics[width=\linewidth]{Images/firstScoreBestFS}
-  		\caption{Example of distance between winning objects metric}\label{Figure:bestFS1}
+  		\caption{Example of distance between winning objects metric}
+  		\label{Figure:bestFS1}
 	\end{minipage}\hfill
 	\begin{minipage}{0.45\textwidth}
 		\centering
   		\includegraphics[width=\linewidth]{Images/secondScoreBestFS}
-  		\caption{Example of distance between player and winning objects metric}\label{Figure:bestFS2}
+  		\caption{Example of distance between player and winning objects metric}
+  		\label{Figure:bestFS2}
 	\end{minipage}
 \end{hcfigure}
 
-That metric works fine for all games where player is not one of the winning objects. In that case, the two metrics behaves in the same way so the player always try to move towards goal regardless of other game objects. For example, \figref{lavaGame} shows a level from a game called LavaGame. LavaGame is a puzzle game where the goal is to make the player reaches the exit. The path to the exit is usually stuck by lava which can be destroyed by pushing a crate over it. According to the metrics, the player will try to move nearer to the exit by either going left. These movement will not help him to reach the goal, so the player will start wandering aimlessly trying to stumble about a sequence help him reach the goal.
+These metrics works fine for all games where player is not one of the winning objects. When the player is one of the winning objects, the two metrics behaves in the same way. The player always try to move towards the winning objects regardless of any other game objects. For example, \figref{lavaGame} shows a level from a game called LavaGame. LavaGame is a puzzle game where the goal is to make the player reaches the exit. The path towards the exit is usually stuck by lava which can be destroyed by pushing a crate over it. According to the Lim et al. metrics, the player will try to move nearer to the exit by going left. This movement will not help the player to reach the exit, so the player will start wandering aimlessly trying to stumble across a movement sequence that can solve the level.
 
 \gfigure{Example level from LavaGame showing the problem in the old metrics}{lavaGame}{width=3.0in}{Images/lavaGame}
 
-Player's aim is to move crates towards lava to unblock his path towards the exit. This aim is somehow explained in the game rules, so by further analysis the game rules we can know which objects need to be closer. Returning to our example about LavaGame, the game rules are stated in the following order:
+Player's aim is to move crates towards the lava to unblock his path towards the exit. This aim is somehow explained in the game rules, so by further analysis the game rules we can know which objects need to be closer. Returning to our example about LavaGame, the game rules are stated in the following order:
 \begin{center}{[> Player | Crate] -> [> Player | > Crate]}\end{center}
 \begin{center}{[> Crate | Lava] -> [ \ \ \ \ | \ \ \ \ ]}\end{center}
-The first rule says if there is a player and crate beside each other and the player moves toward it, the crate will also move. The second rule says if there is a crate and lava beside each other and the crate moves toward it, both crate and lava will be destroyed. In any proper game, rules must be applied before achieving the winning condition. Based on that fact, the distance between objects on the left hand side of the rules must be decreased. The new heuristic is the distance between objects in the left hand side of the rules. The relation between objects in the left hand side of the rules is captured by the Rule Analyzer module.\\\par
+The first rule says if there is a player and crate beside each other and the player moves toward it, the crate will also move. The second rule says if there is a crate and lava beside each other and the crate moves toward it, both crate and lava will be destroyed. In any proper game, rules must be applied before achieving the winning condition. Based on that fact, the distance between objects on the left hand side of the rules must be decreased. The relation between objects in the left hand side of the rules is captured by the Rule Analyzer Relations list for each game object. This distance is used as the new heuristic measure beside the original ones. The three metrics are weighted with respect to each other and used as a new fitness function to evaluate game states. The weights are chosen by experimentation to ensure the best results.\\\par
 
-The three metrics are weighted with respect to each other and used as a new function to evaluate each game state. The weights are chosen by experimentation to ensure best results. The automated player returns four different values that are analyzed and used in the Heuristic measures in the next section. These four values are:
+The output of the automated player is essential in evaluating the level quality. Four different values are returned to capture the way it plays the level. These four values are:
 \begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
-	\item The score for the best reached state so far. The score is calculated using the first metric (Distance between winning objects). The score value is in range between [0, 1], where the score is equal 1 when a solution is found.
-	\item The sequence of movements to reach the best state. The automated player saves up all the movement happens to reach each state.
-	\item The number of states explored while searching for the solutions. The automated player increment a variable whenever it explore a new state.
-	\item The number of rules that the game engine applied to reach the best state. The game engine increment a variable whenever any of the game rules is applied.
+	\item \textbf{The score for the best reached state so far:} The score is calculated using the first metric (Distance between winning objects). The score value is in range between [0, 1], where 0 means there is no winning objects, while 1 means the player reached the solution.
+	\item \textbf{The movement sequence to reach the best state:} The automated player saves up all the movement happens to reach each state and returns the sequence that leads to the best state.
+	\item \textbf{The number of states explored while searching for the solutions:} The automated player saves the number of states that it explores before terminating.
+	\item \textbf{The number of rules that the game engine applies to reach the best state:} With each movement, some rules may apply through the game engine. This metric returns the number of rules applied by the game engine to reach the best state.
 \end{itemize}
-The modified BestFS find solution faster than before. More details will be expressed in \chref{Chapter5}.\\\par
+The modified BestFS finds the solution faster than before. More details will be expressed in \chref{Chapter5}.\\\par
 
 \subsubsection{Heuristic Measures}
-Heuristic Measure are calculated using a weighted function of six attributes. The function is described as the following:
+Heuristic measures are calculated using a weighted function of six attributes. The function is described as the following:
 \begin{center}$F_{score} = 0.3 * P_{score} + 0.2 * L_{score} + 0.15 * N_{score} + 0.12 * B_{score} + 0.12 * R_{score} + 0.11 * E_{score}$\end{center}
-where $P_{score}$ is Playing Score, $L_{score}$ is Solution Length Score, $N_{score}$ is Object Number Score, $B_{score}$ is Box Line Score, $R_{score}$ is Applied Rule Score, and $E_{score}$ is Exploration Score. The weights for each attribute are measured experimentally to reflect the importance of some features with respect to the others.
+where $P_{score}$ is the Playing Score, $L_{score}$ is the Solution Length Score, $N_{score}$ is the Object Number Score, $B_{score}$ is the Box Line Score, $R_{score}$ is the Applied Rule Score, and $E_{score}$ is the Exploration Score. The weights for each attribute are measured experimentally to reflect the importance of each features with respect to the others. The following points will further explain each of these scores.
 \begin{itemize}
-	\item \textbf{Playing Score ($P_{score}$):} Playing score is used to ensure playability of the level. Instead of using a boolean value for playable or not. Score is assigned a value for how much you are near the solution. Automated player is used to play the game and return a value from [0, 1] where 0 means there is no objects at all, while 1 which means the agent reached the solution. Making the domain more continuous helps in measuring the percentage of the level playability. Instead of using it as a constraint to be satisfied.\\\par
+	\item \textbf{Playing Score ($P_{score}$):} Playing score is used to ensure playability of the level. Instead of using a boolean value for playable or not. A float value is assigned for how much you are near the solution. The first output of the automated player is used. Making the domain more continuous helps in measuring the percentage of the level playability instead of using it as a constraint.\\\par
 	
-	Based on the work by Nielsen et al.\cite{gvgpPerformanceProfiles} which proved that Do Nothing player is an important measure for good designed games. A score is calculated for the initial level state and subtracted from the result of the automated player. The heuristic measure can be expressed by the following equation:
+	Based on the work by Nielsen et al.\cite{gvgpPerformanceProfiles} which proved that Do Nothing player is an important measure for good designed games. A score is calculated for the initial level state and subtracted from the previous score. The heuristic measure can be expressed by the following equation:
 	\begin{center}$ P_{total} = P_{score} - N_{score}$\end{center}
 	where $P_{score}$ is the automated player score and $N_{score}$ is the Do Nothing player score.
 	
-	\item\textbf{Solution Length Score ($L_{score}$):} \figref{diffLevelsSokoban} shows that interesting levels usually have more steps than trivial ones. The first idea was to use the length of best movement sequence the automated player has reached and compare it with a required value. This idea will not work as expected because solution length depends on the size of the level. For example, \figref{sokobanLenghtArea} shows different levels from Sokoban and the corresponding solution length. Its obvious that the seconds level have longer solution length than the first one because it have huger area.
+	\item\textbf{Solution Length Score ($L_{score}$):} \figref{diffLevelsSokoban} shows that interesting levels usually have more steps than trivial ones. The first idea is to compare the length of the best movement sequence with a required value. This idea will not work as expected because solution length depends on the size of the level. For example, \figref{sokobanLenghtArea} shows different levels from Sokoban and the corresponding solution length. Its obvious that the seconds level have longer solution because it has bigger area.
 	
 	\gfigure{Examples of two sokoban levels with different area and solution lengths}{sokobanLenghtArea}{width=4.5in}{Images/sokobanLenghtArea}
 	
-	From the previous example we can conclude that the solution length depends on the level area. Instead of using the solution length as the metric we used the ratio between the solution length and the level area. A mapping function is need to convert that number to a value in the range [0, 1]. We analyzed 40 hand crafted levels with different area from 5 different games. A histogram is plotted on the collected values of the ratio between the solution length and the level area.
+	From the previous example we can conclude that the solution length depends on the level area. Instead of using the solution length as the metric we used the ratio between the solution length and the level area. A mapping function is need to convert that number to a value in the range [0, 1]. We analyzed 40 hand crafted levels with different area from 5 different games. A histogram was plotted on the ratio between the solution length and the level area and shown in \figref{solutionLengthHistogram}.
 	
 	\gfigure{Histogram for the ratio between the solution length and the level area}{solutionLengthHistogram}{width=5.5in}{Images/solutionLengthHistogram}
 	
-	The histogram in \figref{solutionLengthHistogram} seems to follow a Normal Distribution with $\mu = 1.221$ and $\sigma = 0.461$. Based on that, the Solution Length Score is expressed by the following equation:
+	The histogram seems to follow a Normal Distribution with $\mu = 1.221$ and $\sigma = 0.461$. Based on that, the Solution Length Score is expressed by the following equation:
 	\begin{center}$L_{score} = Normal(\dfrac{L}{A}, 1.221, 0.461)$\end{center}
-	where $Normal(ratio, \mu, \sigma)$ is a normal distribution, $L$ is the solution length score, and $A$ is the level area.
+	where $Normal(ratio, \mu, \sigma)$ is a normal distribution function, $L$ is the solution length, and $A$ is the level area.
 	
 	\item \textbf{Object Number Score ($N_{score}$):} It is divided into 3 parts:
 	\begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
-		\item \textbf{Number of Rule Objects:} In a good designed level, most of the rule objects should appear in the level to ensure there is a possibility of applying each rule. The minimum number of times the object should appear in the level must be greater than or equal his minimum number property from Rule Analyzer.
-		\item \textbf{Number of Players:} The game should have only one player. If the level have any other value, this part pf the score will be zero.
-		\item \textbf{Number of Winning Objects:} The number of the winning objects should be equal, unless one of the winning objects have "Create" behavior. Based on the previous condition, the score is set either to one or zero.
+		\item \textbf{Number of Rule Objects:} In a good designed level, most of the rule objects should appear in the level to ensure there is a possibility of applying every rule. The minimum number of times the object should appear in the level must be greater than or equal his minimum number property from the Rule Analyzer. A ratio is calculated between the number of objects following previous rule and the total number rule objects. 
+		\item \textbf{Number of Players:} The game should have only one player. If any level have a different value, the score will be zero.
+		\item \textbf{Number of Winning Objects:} The number of the winning objects should be equal, unless one of the winning objects have "Create" behavior. Based on the previous condition, the score is set to either one or zero.
 	\end{itemize}
 	Object Number Score is calculated using the following equation:
 	\begin{center}$N_{score} = 0.4 * N_{rule} + 0.3 * N_{player} + 0.3 * N_{winning}$\end{center}
-	where $N_{rule}$ is the Number of Rule Objects, $N_{player}$ is the Number of Players, and $N_{winning}$ is the Number of Winning Objects.
+	where $N_{rule}$ is the Number of Rule Objects ratio, $N_{player}$ is the Number of Players value, and $N_{winning}$ is the Number of Winning Objects value.
 	
-	\item \textbf{Box Line Score ($B_{score}$):} It is similar to Taylor and Parberry\cite{sokobanLevelGenerationNew} metric used to find the farthest state. This metric calculates the number of unrepeated moves found in the solution and divide it by total length of the solution. The following equation represents the metric:
+	\item \textbf{Box Line Score ($B_{score}$):} It is similar to Taylor and Parberry\cite{sokobanLevelGenerationNew} metric to find the farthest state. This metric calculates the number of unrepeated moves found in the solution and divide it by the solution length. The following equation represents the metric:
 	\begin{center}$B_{score} = \dfrac{L_{unique}}{L}$\end{center}
 	where $L_{unique}$ is the number of unrepeated moves in the solution and $L$ is the solution length.
 	
-	\item \textbf{Applied Rule Score ($R_{score}$):} Good level design involves applying game rules number of times to solve a level. The ratio between number of applied rules and solution length should be used for indicting good level design. Exaggerating in applying the rules results in boring level. Same can be said for very low amount of applying. \figref{sokobanRuleScore} shows two levels from Sokoban with different solution. The left level needs to apply Sokoban rule one time to solve the level, while the right needs to apply Sokoban rule with every step.
+	\item \textbf{Applied Rule Score ($R_{score}$):} Good level design involves applying game rules for a number of times to solve any level. The ratio between the number of applied rules to the solution length should be used for indicting good level design. Exaggerating in applying the rules results in boring level. Same can be said for very low amount of applying. \figref{sokobanRuleScore} shows two levels from Sokoban with different solution. The left level needs to apply Sokoban rule one time to solve the level, while the right needs to apply Sokoban rule with every single step.
 	
 	\gfigure{Example for two boring levels from Sokoban}{sokobanRuleScore}{width=4.5in}{Images/sokobanRuleScore}
 	
-	To get the calculate the best ratio, We analyzed 40 hand crafted levels with different area from 5 different games. A histogram is plotted on the collected values of the ratio between the number of rules applied and the solution length.
+	To find the best ratio between both, We analyzed 40 hand crafted levels from 5 different games. A histogram is plotted on the ratio between the number of applied rules and the solution length and shown in \figref{rulesSolutionLengthHistogram}.
 	
 	\gfigure{Histogram for the number of rules applied to the solution length}{rulesSolutionLengthHistogram}{width=5.5in}{Images/rulesSolutionLengthHistogram}
 	
-	The histogram in \figref{rulesSolutionLengthHistogram} seems to follow  Normal Distribution with $\mu = 0.417$ and $\sigma = 0.128$. Based on that the Applied Rule Score can be expressed by the following equation:
+	The histogram seems to follow a Normal Distribution with $\mu = 0.417$ and $\sigma = 0.128$. Based on that the Applied Rule Score can be expressed by the following equation:
 	\begin{center}$R_{score} = Normal(\dfrac{R_{applied}}{L}, 0.417, 0.128)$\end{center}
-	where $Normal(ration, \mu, \sigma)$ is a normal distribution, $R_{applied}$ is the number of applied rules, and $L$ is the solution length.
+	where $Normal(ration, \mu, \sigma)$ is a normal distribution function, $R_{applied}$ is the number of applied rules, and $L$ is the solution length.
 	
-	\item \textbf{Exploration Score ($E_{score}$):} As the number of explored states increase before reaching goal state this means the level solution is not obvious with the general heuristic. This does not mean exploring huge space without finding a solution is better than exploring small number of states with solution. The following equation express this idea:
+	\item \textbf{Exploration Score ($E_{score}$):} The increase in number of explored states by the automated player means that the current level is not obvious to be solved with the automated player heuristics. This does not mean exploring huge space without finding a solution is better than exploring small number of states with solution. The following equation express this idea:
 	\begin{center}
 	$E_{score}= \begin{cases}
 	               0.75 + \dfrac{N_{explored}}{N_{max}} & \text{solution exists}\\
@@ -361,28 +373,3 @@ where $P_{score}$ is Playing Score, $L_{score}$ is Solution Length Score, $N_{sc
 \section{Rule Generation}
 \subsection{Chromosome Representation}
 \subsection{Fitness Function}
-
-\tabref{l1}
-
-\tabref{3.1}~demonstrates $\ldots$.
-
-\gtable{Example table for demonstration}{3.1}{width=5.0in}{Table3-1}
-
-\begin{table}[!ht]
-	\label{Table:l1}
-	\centering
-	\begin{tabular}{|c|c|c|}
-		\hline
-		xxxx & 1233 & ccccc \\
-		\hline
-		uuuuu & 2323 & gggggg \\
-		\hline
-	\end{tabular}
-	\caption{Example table for demonstration}
-\end{table}
-
-\tabref{3.2}.
-
-\begin{landscape}
-\gtable{Another example wide table for demonstration}{3.2}{width=9.0in}{Table3-2}
-\end{landscape}
