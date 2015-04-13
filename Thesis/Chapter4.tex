@@ -5,7 +5,7 @@ Level Generation is not an easy task specially when the game rules is not known 
 
 Our approach relies heavily on understanding the current game rules and a minimum amount of prior knowledge about Puzzle Script language. \figref{levelGenBlockDiagram} shows a high level block diagram of the system. The following subsections will describe each block in details.
 
-\gfigure{High level system block diagram}{levelGenBlockDiagram}{width=5.5in}{Images/levelGenBlockDiagram}
+\gfigure{High level system block diagram for Level Generation}{levelGenBlockDiagram}{width=5.5in}{Images/levelGenBlockDiagram}
 
 The system starts by analyzing the current game rules using a Rule Analyzer. The Rule Analyzer utilizes some basic information about Puzzle Script rules to understand the importance of each game object and its basic functionality.\\\par
 
@@ -371,5 +371,25 @@ where $P_{score}$ is the Playing Score, $L_{score}$ is the Solution Length Score
 \end{itemize}
 
 \section{Rule Generation}
-\subsection{Chromosome Representation}
-\subsection{Fitness Function}
+As stated in the previous chapters, Rule Generation is the most difficult task. In this work, we try to explore the idea behind generating new rule for Puzzle Script. Unlike the work by Lim et al.\cite{puzzleScriptGeneration} we are going to explore Puzzle Script rules without restriction of the current level layout and using modified fitness function. \figref{ruleGeneratorBlockDiagram} shows a high level block diagram for the system. The system is a bit similar to the level generation because level generation is a step for generating rules.
+
+\gfigure{High level system block diagram for Rule Generation}{ruleGeneratorBlockDiagram}{width=5.8in}{Images/ruleGeneratorBlockDiagram}
+
+The system starts by generating random rules for different games. These rules are analyzed using Rule Analyzer found in the level generator. The output of Rule Analyzer (Rule Analysis) with level layout are fed to a Constructive Approach Level Generator. The game rules and the resulted levels are subjected to a similar Evaluator. The system evolves over time using GA operators same like Lim et al. work\cite{puzzleScriptGeneration}.\\\par
+
+In the following subsections we are going to discuss every module of the Rule Generation technique.
+
+\subsection{Rule Generator}
+Rule Generator is responsible for generating new game rules and evolve them to find better games. Rule generator uses GA for evolving game rules. It is the same system used by Lim et al.\cite{puzzleScriptGeneration} in his work.
+\textbf{Chromosome Representation:}
+\textbf{Genetic Operators:}
+\textbf{Initial Population:}
+
+\subsection{Rule Analyzer}
+Rule Analyzer is responsible for analyzing suggested rules by Rule Generator and assigning features to each game object. The same rule Analyzer from the Level Generation process is used in Rule Generation.
+
+\subsection{Level Generator}
+Level Generator is responsible for generating several random levels for the suggested rules. It uses the Constructive Approach algorithm. The best scored level is used in the final evaluation score.
+
+\subsection{Rule and Level Evaluator}
+Rule and Level Evaluator is responsible for giving score for generated games (rules and levels). It is a mixture between the Level Evaluator from the Level Generation process and Lim et al.\cite{puzzleScriptGeneration} Evaluator used in Rule Generation. 
