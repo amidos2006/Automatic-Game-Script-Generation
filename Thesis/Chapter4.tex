@@ -269,7 +269,7 @@ Level Evaluator is responsible for evaluating the generated levels. Level evalua
 
 The example shows the need for using heuristic measures to ensure more interesting levels.
 
-\subsubsection{Automated Player}
+\subsubsection{Automated Player}\seclbl{automatedPlayer}
 Our Level Evaluator uses a modified version of the BestFS Algorithm as the automated player. BestFS Algorithm was introduced in Lim et al.\cite{puzzleScriptGeneration} work. BestFS is similar to BFS algorithm but instead of exploring states sequentially, it sorts them according to a score generated from a fitness function. This causes the algorithm to explore more important nodes first, helping it to reach the solution faster. As explained in \chref{Chapter3}, Lim et al. algorithm uses two metrics (as a fitness function) to evaluate each game state:
 \begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
 	\item \textbf{Distance between winning objects:} BestFS tries to either increase or decrease the distance between the winning objects according to the winning rule. The "No" rule is the only rule that need to increase the distance, while the others need to decrease it. \figref{bestFS1} shows an example from Sokoban, where the distance between crates and targets is highlighted.
@@ -310,7 +310,7 @@ The output of the automated player is essential in evaluating the level quality.
 \end{itemize}
 The modified BestFS finds the solution faster than before. More details will be expressed in \chref{Chapter5}.\\\par
 
-\subsubsection{Heuristic Measures}
+\subsubsection{Heuristic Measures}\seclbl{levelScoreEquation}
 Heuristic measures are calculated using a weighted function of six attributes. The function is described as the following:
 \begin{center}$F_{score} = 0.3 * P_{score} + 0.2 * L_{score} + 0.15 * N_{score} + 0.12 * B_{score} + 0.12 * R_{score} + 0.11 * E_{score}$\end{center}
 where $P_{score}$ is the Playing Score, $L_{score}$ is the Solution Length Score, $N_{score}$ is the Object Number Score, $B_{score}$ is the Box Line Score, $R_{score}$ is the Applied Rule Score, and $E_{score}$ is the Exploration Score. The weights for each attribute are measured experimentally to reflect the importance of each features with respect to the others. The following points will further explain each of these scores.
@@ -371,19 +371,29 @@ where $P_{score}$ is the Playing Score, $L_{score}$ is the Solution Length Score
 \end{itemize}
 
 \section{Rule Generation}
-As stated in the previous chapters, Rule Generation is the most difficult task. In this work, we try to explore the idea behind generating new rule for Puzzle Script. Unlike the work by Lim et al.\cite{puzzleScriptGeneration} we are going to explore Puzzle Script rules without restriction of the current level layout and using modified fitness function. \figref{ruleGeneratorBlockDiagram} shows a high level block diagram for the system. The system is a bit similar to the level generation because level generation is a step for generating rules.
+As stated in the previous chapters, Rule Generation is the most difficult task. In this work, we try to explore the idea behind generating new rule for Puzzle Script. Unlike the work by Lim et al.\cite{puzzleScriptGeneration} we are going to explore Puzzle Script rules without fixing a certain level or a winning condition and using modified fitness function. \figref{ruleGeneratorBlockDiagram} shows a high level block diagram for the system. The system is a bit similar to the level generation because level generation is a step for generating rules.
 
 \gfigure{High level system block diagram for Rule Generation}{ruleGeneratorBlockDiagram}{width=5.8in}{Images/ruleGeneratorBlockDiagram}
 
-The system starts by generating random rules for different games. These rules are analyzed using Rule Analyzer found in the level generator. The output of Rule Analyzer (Rule Analysis) with level layout are fed to a Constructive Approach Level Generator. The game rules and the resulted levels are subjected to a similar Evaluator. The system evolves over time using GA operators same like Lim et al. work\cite{puzzleScriptGeneration}.\\\par
-
-In the following subsections we are going to discuss every module of the Rule Generation technique.
+The system starts by generating random rules for different games. These rules are analyzed using Rule Analyzer found in the level generator. The output of Rule Analyzer (Rule Analysis) with level layout are fed to a Constructive Approach Level Generator. The game rules and the resulted levels are subjected to a similar Evaluator. The system evolves over time using GA operators same like Lim et al. work\cite{puzzleScriptGeneration}. In the following subsections we are going to discuss every module from the above block diagram.
 
 \subsection{Rule Generator}
-Rule Generator is responsible for generating new game rules and evolve them to find better games. Rule generator uses GA for evolving game rules. It is the same system used by Lim et al.\cite{puzzleScriptGeneration} in his work.
-\textbf{Chromosome Representation:}
-\textbf{Genetic Operators:}
-\textbf{Initial Population:}
+Rule Generator is responsible for generating new game rules and evolve them to find better games. Rule generator uses GA for evolving game rules. It is the same system used by Lim et al.\cite{puzzleScriptGeneration} in his work.\\\\
+\textbf{Chromosome Representation:} The chromosome is just a list of rules of maximum of four and a minimum of one.\\\\
+\textbf{Genetic Operators:} Crossover and Mutation are used to evolve the rules from one generation to another. Crossover take place if the two chromosomes possess the same number of rules, the same number of tuples within each rule, and the same number of objects per tuple. If that condition was satisfied crossover take place. There is two kind of crossover any of them can take place:
+\begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
+	\item \textbf{Hand Side Crossover:} Single point crossover is used to swap the whole right hand side between rules of different chromosomes.
+	\item \textbf{Element Crossover:} Two point crossover is used to swap a single object from first parent with the second one.
+\end{itemize}
+Mutation has not any preconditions to take place. There is five different mutation operators (mutators). The chromosome can be subjected to each one based on a certain probability. The five mutators are:
+\begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
+	\item \textbf{Rule size mutator:} changes the size of game rules either by adding an empty rule or removing a rule.
+	\item \textbf{Object mutator:} changes a random object in a rule to any other object.
+	\item \textbf{Direction mutator:} changes direction of a random object in a rule. It also can add or remove a direction.
+	\item \textbf{Tuple size mutator:} change the number of objects inside the tuple by either deleting a random object or adding a random object with a random direction.
+	\item \textbf{Hand size swap mutator:} swaps the left hand side with the right hand side of a rule.
+\end{itemize}
+\textbf{Initial Population:} The population is initialized by mutated versions of an empty rule.
 
 \subsection{Rule Analyzer}
 Rule Analyzer is responsible for analyzing suggested rules by Rule Generator and assigning features to each game object. The same rule Analyzer from the Level Generation process is used in Rule Generation.
@@ -392,4 +402,84 @@ Rule Analyzer is responsible for analyzing suggested rules by Rule Generator and
 Level Generator is responsible for generating several random levels for the suggested rules. It uses the Constructive Approach algorithm. The best scored level is used in the final evaluation score.
 
 \subsection{Rule and Level Evaluator}
-Rule and Level Evaluator is responsible for giving score for generated games (rules and levels). It is a mixture between the Level Evaluator from the Level Generation process and Lim et al.\cite{puzzleScriptGeneration} Evaluator used in Rule Generation. 
+Rule and Level Evaluator is responsible for giving score for generated games (rules and levels). It is a mixture between the Level Evaluator from the Level Generation process and Lim et al.\cite{puzzleScriptGeneration} Evaluator used in Rule Generation. The game evaluation score can be expressed by the following equation:
+\begin{center}
+$RL_{score} = 0.5 * L_{score} + 0.5 * R_{score}$
+\end{center}
+where $L_{score}$ is the level score and $R_{score}$ are the rule score.
+
+\subsubsection{Level Score}
+It uses automated player described in \secref{automatedPlayer} to measure each level score and the best score is reported. Level score is calculated using the same equation in \secref{levelScoreEquation} except for Playability Score where the Do Nothing Score is removed from calculations. The removing of Do Nothing Score is to give equal chance to all Winning Rule Conditions. As No Rule always have Do Nothing Score equal to zero compared to other rules.
+
+\subsubsection{Rule Score}
+It is divided into 2 different parts rule heuristics score and rule validity score. The rule score can be expressed by the following equation:
+\begin{center}
+$R_{score} = 0.5 * H_{score} + 0.5 * V_{score}$
+\end{center}
+where $H_{score}$ is rule heuristic score and $V_{score}$ is rule validity score.\\\\
+\textbf{Rule Heuristics Score ($H_{score}$):} It is a group of heuristics used to ensure better formulated games. Rule Heuristic Score can be expressed using the following equation.
+\begin{center}
+$H_{score} = \dfrac{1}{8} * (P_{score} + C_{score} + U_{score} + W_{score} + WO_{score} + PL_{score} + M_{score} + D_{score})$
+\end{center}
+where $P_{score}$ is player exists score, $C_{score}$ is critical path exists score, $U_{score}$ is useless objects score, $W_{score}$ is winning condition validity score, $WO_{score}$ is winning object in rules score, $L_{score}$ is player in LHS score, $M_{score}$ is player movement score, and $D_{score}$ is direction consistency score.
+\begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
+	\item \textbf{Player exists score ($P_{score}$):} It ensures that player exists in any of the game rules. It can be expressed using the following equation:
+	\begin{center}
+		$P_{score}= \begin{cases}
+		               1 & \text{player exists in the rules}\\
+		               0 & \text{otherwise}
+		           \end{cases}$
+		\end{center}
+	\item \textbf{Critical path exists score ($C_{score}$):} It ensures the existence of a path between the player object and at least one of the winning objects in the rules in the Relations list. It can be expressed using the following equation:
+	\begin{center}
+	$C_{score}= \begin{cases}
+	               1 & \text{citical path exists}\\
+	               0 & \text{otherwise}
+	           \end{cases}$
+	\end{center}
+	\item \textbf{Useless objects score ($U_{score}$):} The amount of useless objects found in the game rules. Useless objects are rule objects that are neither connected to a player or a winning condition in the Relations list. The score can be expressed using the following equation:
+	\begin{center}
+	$U_{score} = \dfrac{1}{N_{useless} + 1}$
+	\end{center}
+	where $N_{useless}$ is the number of useless objects.
+	\item \textbf{Winning condition validity score($W_{score}$):} Winning objects related to winning condition should have some features to ensure game playability. Features differ according the type of Winning condition. No rule requires at least one of winning object having a Delete, Move, or Teleport behavior, while other rules (All and Some) requires Create, Move, or Teleport behavior. This score can be expressed by the following equation:
+	\begin{center}
+	$W_{score}= \begin{cases}
+	               1 & \text{winning object have the required features}\\
+	               0 & \text{otherwise}
+	           \end{cases}$
+	\end{center}	
+	\item \textbf{Winning object in rules score ($WO_{score}$):} At least one of the two winning objects appear in game rules. This score can be expressed using the following equation:
+	\begin{center}
+	$WO_{score}= \begin{cases}
+	               1 & \text{at least one winning object exists in the rules}\\
+	               0 & \text{otherwise}
+	           \end{cases}$
+	\end{center}
+	\item \textbf{Player in LHS score ($PL_{score}$):} Player should exists on the left hand side of at least one rule. This score can be expressed using the following equation:
+	\begin{center}
+	$PL_{score}= \begin{cases}
+	               1 & \text{player exists in LHS of at least one rule}\\
+	               0 & \text{otherwise}
+	           \end{cases}$
+	\end{center}	
+	\item \textbf{Player Movement ($M_{score}$):} Player object should have a movement action associated with it to affect other game objects based on his actions. This score can be expressed using the following equation:
+	\begin{center}
+	$M_{score}= \begin{cases}
+	               1 & \text{player movement exists}\\
+	               0 & \text{otherwise}
+	           \end{cases}$
+	\end{center}	
+	\item \textbf{Direction consistency ($D_{score}$):} To have understandable rules, rules should have same movement action across the whole rule. The score is inversely proportional to the number of different movements in the rules. This score can be expressed using the following equation:
+	\begin{center}
+	$D_{score} = \dfrac{1}{D_{unique}}$
+	\end{center}
+	where $D_{unique}$ is the average number of unique movement for all rules.
+\end{itemize}
+\textbf{Rule Validity Score ($V_{score}$):} It ensures no error found in the generated rules. It can be expressed using the following equation:
+\begin{center}
+$V_{score}= \begin{cases}
+               1 & \text{no errors}\\
+               0 & \text{otherwise}
+           \end{cases}$
+\end{center}
