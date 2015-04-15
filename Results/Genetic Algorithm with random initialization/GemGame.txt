@@ -1,0 +1,777 @@
+>>>> loading curlevel from localStorage (18:53:38:698)
+  at public_html/js/globalVariables.js:12
+>>>> compile(), command=%s (18:53:50:149)
+  at public_html/js/compiler.js:2358
+>>>> loadFile (18:53:50:159)
+  at public_html/js/compiler.js:2279
+>>>> setGameState(), _state=%o, command=%s (18:53:54:240)
+  at public_html/js/engine.js:550
+####################################### (18:53:55:370)
+  at public_html/js/compiler.js:2764
+Generating level: 1 (18:53:55:370)
+  at public_html/js/compiler.js:2765
+####################################### (18:53:55:371)
+  at public_html/js/compiler.js:2766
+Generation number: 1 (18:53:55:371)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02330929353818861 ,average fitness: 0.2341665138345504 ,best fitness: 0.28951138032989227 ,min fitness: 0.22051138032989226 (18:53:55:587)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 2 (18:53:55:588)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02713654698331454 ,average fitness: 0.2459093994307846 ,best fitness: 0.28951138032989227 ,min fitness: 0.22051138032989226 (18:53:57:111)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 3 (18:53:57:120)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.027706361617624607 ,average fitness: 0.25557715152236066 ,best fitness: 0.28951138032989227 ,min fitness: 0.22051138032989226 (18:53:58:813)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 4 (18:53:58:813)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.027770148788048083 ,average fitness: 0.2581485943204777 ,best fitness: 0.28951138032989227 ,min fitness: 0.22051138032989226 (18:54:00:738)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 5 (18:54:00:739)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.027442803882349213 ,average fitness: 0.2520542659261265 ,best fitness: 0.28951138032989227 ,min fitness: 0.22051138032989226 (18:54:01:999)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 6 (18:54:02:000)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02683159114582418 ,average fitness: 0.25547426592612654 ,best fitness: 0.28951138032989227 ,min fitness: 0.22051138032989226 (18:54:03:318)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 7 (18:54:03:319)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02640055658040379 ,average fitness: 0.25603138032989237 ,best fitness: 0.28951138032989227 ,min fitness: 0.22051138032989226 (18:54:04:256)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 8 (18:54:04:256)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.025610074548258272 ,average fitness: 0.25447138032989236 ,best fitness: 0.28951138032989227 ,min fitness: 0.22051138032989226 (18:54:05:176)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 9 (18:54:05:177)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02621659390383059 ,average fitness: 0.2599313803298924 ,best fitness: 0.28951138032989227 ,min fitness: 0.22051138032989226 (18:54:06:109)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 10 (18:54:06:110)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.025805623497246338 ,average fitness: 0.26173138032989235 ,best fitness: 0.28951138032989227 ,min fitness: 0.22051138032989226 (18:54:07:136)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 11 (18:54:07:136)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.024267060062595804 ,average fitness: 0.26425138032989237 ,best fitness: 0.28951138032989227 ,min fitness: 0.22051138032989226 (18:54:08:231)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 12 (18:54:08:232)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.019919675433795477 ,average fitness: 0.2701913803298924 ,best fitness: 0.28951138032989227 ,min fitness: 0.22051138032989226 (18:54:09:499)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 13 (18:54:09:500)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.0177936127040358 ,average fitness: 0.27265138032989245 ,best fitness: 0.28951138032989227 ,min fitness: 0.22051138032989226 (18:54:10:719)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 14 (18:54:10:721)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.015851466165368953 ,average fitness: 0.27493138032989245 ,best fitness: 0.28951138032989227 ,min fitness: 0.22051138032989226 (18:54:11:875)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 15 (18:54:11:876)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.01679414534125727 ,average fitness: 0.2737236282383165 ,best fitness: 0.28951138032989227 ,min fitness: 0.22051138032989226 (18:54:13:175)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 16 (18:54:13:176)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.019361077803150203 ,average fitness: 0.2718558761467405 ,best fitness: 0.28951138032989227 ,min fitness: 0.22051138032989226 (18:54:14:449)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 17 (18:54:14:450)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.022636390655220624 ,average fitness: 0.26580362823831644 ,best fitness: 0.28951138032989227 ,min fitness: 0.22051138032989226 (18:54:15:630)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 18 (18:54:15:632)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02192518819875944 ,average fitness: 0.26449138032989244 ,best fitness: 0.28951138032989227 ,min fitness: 0.22051138032989226 (18:54:16:882)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 19 (18:54:16:883)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.01876496953455168 ,average fitness: 0.2692313803298924 ,best fitness: 0.28951138032989227 ,min fitness: 0.23251138032989227 (18:54:18:139)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 20 (18:54:18:140)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.022144829405252933 ,average fitness: 0.2653913803298924 ,best fitness: 0.28951138032989227 ,min fitness: 0.22051138032989226 (18:54:19:361)
+  at public_html/js/geneticAlgorithm.js:164
+####################################### (18:54:20:525)
+  at public_html/js/compiler.js:2771
+Best level 1 Fitness are: (18:54:20:526)
+  at public_html/js/compiler.js:2772
+0.28951138032989227 (18:54:20:528)
+  at public_html/js/compiler.js:2774
+0.28951138032989227 (18:54:20:531)
+  at public_html/js/compiler.js:2774
+####################################### (18:54:20:532)
+  at public_html/js/compiler.js:2777
+####################################### (18:54:20:534)
+  at public_html/js/compiler.js:2764
+Generating level: 2 (18:54:20:536)
+  at public_html/js/compiler.js:2765
+####################################### (18:54:20:538)
+  at public_html/js/compiler.js:2766
+Generation number: 1 (18:54:20:545)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.025641048278236822 ,average fitness: 0.2314837843896406 ,best fitness: 0.2852678457746755 ,min fitness: 0.21626784577467548 (18:54:25:908)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 2 (18:54:25:909)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.029506684767445016 ,average fitness: 0.24119522718775774 ,best fitness: 0.2852678457746755 ,min fitness: 0.21626784577467548 (18:54:29:815)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 3 (18:54:29:818)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02935970174306878 ,average fitness: 0.24875603229806473 ,best fitness: 0.2852678457746755 ,min fitness: 0.21626784577467548 (18:54:32:990)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 4 (18:54:32:992)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02944248003776583 ,average fitness: 0.24574052811491282 ,best fitness: 0.2852678457746755 ,min fitness: 0.21626784577467548 (18:54:38:462)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 5 (18:54:38:462)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.028462184506084887 ,average fitness: 0.25032790952799516 ,best fitness: 0.2852678457746755 ,min fitness: 0.21626784577467548 (18:54:47:765)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 6 (18:54:47:767)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.027557117932190744 ,average fitness: 0.24972790952799517 ,best fitness: 0.2852678457746755 ,min fitness: 0.21626784577467548 (18:54:58:012)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 7 (18:54:58:012)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.027160170975342367 ,average fitness: 0.2474830430326534 ,best fitness: 0.2852678457746755 ,min fitness: 0.21626784577467548 (18:55:08:679)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 8 (18:55:08:680)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02745218230294891 ,average fitness: 0.2491054583635743 ,best fitness: 0.2852678457746755 ,min fitness: 0.21626784577467548 (18:55:18:072)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 9 (18:55:18:073)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.028907397999173193 ,average fitness: 0.25410710441768825 ,best fitness: 0.2852678457746755 ,min fitness: 0.21626784577467548 (18:55:29:072)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 10 (18:55:29:073)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.026446335611288 ,average fitness: 0.25890790952799525 ,best fitness: 0.2852678457746755 ,min fitness: 0.21626784577467548 (18:55:39:322)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 11 (18:55:39:323)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02614425313756891 ,average fitness: 0.2603899900139225 ,best fitness: 0.2852678457746755 ,min fitness: 0.21626784577467548 (18:55:55:925)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 12 (18:55:55:926)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02505128187830742 ,average fitness: 0.2542356616195712 ,best fitness: 0.2852678457746755 ,min fitness: 0.21626784577467548 (18:56:07:526)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 13 (18:56:07:526)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.024636719202344576 ,average fitness: 0.25347116580272305 ,best fitness: 0.2852678457746755 ,min fitness: 0.21626784577467548 (18:56:19:816)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 14 (18:56:19:818)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.026614255033339182 ,average fitness: 0.25402586487556805 ,best fitness: 0.2852678457746755 ,min fitness: 0.21626784577467548 (18:56:34:210)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 15 (18:56:34:210)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.0266148127360956 ,average fitness: 0.2550287504718021 ,best fitness: 0.2852678457746755 ,min fitness: 0.21626784577467548 (18:56:47:863)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 16 (18:56:47:863)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.028060007914651727 ,average fitness: 0.26227928857279265 ,best fitness: 0.2852678457746755 ,min fitness: 0.21626784577467548 (18:56:53:180)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 17 (18:56:53:181)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.025675971455897874 ,average fitness: 0.2669078457746756 ,best fitness: 0.2852678457746755 ,min fitness: 0.21626784577467548 (18:56:56:281)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 18 (18:56:56:281)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.0243752048657011 ,average fitness: 0.2700878457746756 ,best fitness: 0.2852678457746755 ,min fitness: 0.21626784577467548 (18:56:59:536)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 19 (18:56:59:537)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.025477034899725182 ,average fitness: 0.26984009368309964 ,best fitness: 0.2852678457746755 ,min fitness: 0.21626784577467548 (18:57:02:732)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 20 (18:57:02:734)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.015867101120216758 ,average fitness: 0.2797478457746757 ,best fitness: 0.2852678457746755 ,min fitness: 0.21626784577467548 (18:57:05:528)
+  at public_html/js/geneticAlgorithm.js:164
+####################################### (18:57:08:584)
+  at public_html/js/compiler.js:2771
+Best level 2 Fitness are: (18:57:08:586)
+  at public_html/js/compiler.js:2772
+0.2852678457746755 (18:57:08:588)
+  at public_html/js/compiler.js:2774
+0.2852678457746755 (18:57:08:590)
+  at public_html/js/compiler.js:2774
+####################################### (18:57:08:591)
+  at public_html/js/compiler.js:2777
+####################################### (18:57:08:593)
+  at public_html/js/compiler.js:2764
+Generating level: 3 (18:57:08:594)
+  at public_html/js/compiler.js:2765
+####################################### (18:57:08:596)
+  at public_html/js/compiler.js:2766
+Generation number: 1 (18:57:08:604)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.025565889963883925 ,average fitness: 0.2314430976923177 ,best fitness: 0.2842602120960834 ,min fitness: 0.2152602120960834 (18:57:11:299)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 2 (18:57:11:299)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.023125707931800476 ,average fitness: 0.23050021209608348 ,best fitness: 0.2842602120960834 ,min fitness: 0.2152602120960834 (18:57:12:577)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 3 (18:57:12:578)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.025103020389050046 ,average fitness: 0.23230021209608348 ,best fitness: 0.2842602120960834 ,min fitness: 0.2152602120960834 (18:57:14:013)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 4 (18:57:14:014)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.028659927225508235 ,average fitness: 0.24184021209608342 ,best fitness: 0.2842602120960834 ,min fitness: 0.2152602120960834 (18:57:16:035)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 5 (18:57:16:036)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.028499097795446515 ,average fitness: 0.24159165489420054 ,best fitness: 0.2842602120960834 ,min fitness: 0.2152602120960834 (18:57:19:708)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 6 (18:57:19:709)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.029537500136752482 ,average fitness: 0.2426639028026246 ,best fitness: 0.2842602120960834 ,min fitness: 0.2152602120960834 (18:57:23:413)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 7 (18:57:23:414)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.029479154897573245 ,average fitness: 0.24610967399509293 ,best fitness: 0.2842602120960834 ,min fitness: 0.2152602120960834 (18:57:31:829)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 8 (18:57:31:831)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.029393569700562623 ,average fitness: 0.2537467883988587 ,best fitness: 0.2842602120960834 ,min fitness: 0.2152602120960834 (18:57:39:892)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 9 (18:57:39:893)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.027612597677131288 ,average fitness: 0.25564886888478594 ,best fitness: 0.2842602120960834 ,min fitness: 0.2152602120960834 (18:57:50:207)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 10 (18:57:50:209)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.027254793615863793 ,average fitness: 0.25678111679321 ,best fitness: 0.2842602120960834 ,min fitness: 0.2152602120960834 (18:58:01:179)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 11 (18:58:01:180)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.025121432682604628 ,average fitness: 0.25640722283067185 ,best fitness: 0.2842602120960834 ,min fitness: 0.2152602120960834 (18:58:11:404)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 12 (18:58:11:404)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.026720161724416172 ,average fitness: 0.24876759350916575 ,best fitness: 0.2842602120960834 ,min fitness: 0.2152602120960834 (18:58:18:193)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 13 (18:58:18:194)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.027306257975200834 ,average fitness: 0.25193742608666886 ,best fitness: 0.2842602120960834 ,min fitness: 0.2152602120960834 (18:58:29:261)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 14 (18:58:29:261)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02815097471923612 ,average fitness: 0.2545611167932099 ,best fitness: 0.2842602120960834 ,min fitness: 0.2152602120960834 (18:58:43:229)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 15 (18:58:43:229)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.029611666300864457 ,average fitness: 0.2504459832885518 ,best fitness: 0.2842602120960834 ,min fitness: 0.2152602120960834 (18:58:48:406)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 16 (18:58:48:406)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.027668426358969524 ,average fitness: 0.24595454049043472 ,best fitness: 0.2842602120960834 ,min fitness: 0.2152602120960834 (18:58:53:194)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 17 (18:58:53:195)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02905439852146901 ,average fitness: 0.2527953456007416 ,best fitness: 0.2842602120960834 ,min fitness: 0.2152602120960834 (18:59:02:847)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 18 (18:59:02:849)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02729997124332316 ,average fitness: 0.25584598328855174 ,best fitness: 0.2842602120960834 ,min fitness: 0.2152602120960834 (18:59:12:174)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 19 (18:59:12:175)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.027010188610226638 ,average fitness: 0.26103165489420055 ,best fitness: 0.2842602120960834 ,min fitness: 0.2152602120960834 (18:59:15:571)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 20 (18:59:15:572)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.026524728546957758 ,average fitness: 0.2599602120960835 ,best fitness: 0.2842602120960834 ,min fitness: 0.2152602120960834 (18:59:18:409)
+  at public_html/js/geneticAlgorithm.js:164
+####################################### (18:59:21:848)
+  at public_html/js/compiler.js:2771
+Best level 3 Fitness are: (18:59:21:849)
+  at public_html/js/compiler.js:2772
+0.2842602120960834 (18:59:21:849)
+  at public_html/js/compiler.js:2774
+0.2842602120960834 (18:59:21:849)
+  at public_html/js/compiler.js:2774
+####################################### (18:59:21:850)
+  at public_html/js/compiler.js:2777
+####################################### (18:59:21:850)
+  at public_html/js/compiler.js:2764
+Generating level: 4 (18:59:21:850)
+  at public_html/js/compiler.js:2765
+####################################### (18:59:21:850)
+  at public_html/js/compiler.js:2766
+Generation number: 1 (18:59:21:862)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.026127682337764514 ,average fitness: 0.23120534656812525 ,best fitness: 0.29005010506089707 ,min fitness: 0.21447796515504305 (18:59:37:772)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 2 (18:59:37:773)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.028672476106198615 ,average fitness: 0.23769390377000807 ,best fitness: 0.29005010506089707 ,min fitness: 0.21447796515504305 (18:59:56:429)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 3 (18:59:56:430)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.028472521924343297 ,average fitness: 0.23672048007278343 ,best fitness: 0.29005010506089707 ,min fitness: 0.21447796515504305 (19:00:32:665)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 4 (19:00:32:667)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.030761014929422244 ,average fitness: 0.23869400335682767 ,best fitness: 0.29005010506089707 ,min fitness: 0.21447796515504305 (19:01:58:625)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 5 (19:01:58:626)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.03187506614196501 ,average fitness: 0.24525977454929593 ,best fitness: 0.29005010506089707 ,min fitness: 0.21447796515504305 (19:03:57:279)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 6 (19:03:57:280)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.031155923473254594 ,average fitness: 0.24334138476990985 ,best fitness: 0.29005010506089707 ,min fitness: 0.21447796515504305 (19:05:24:309)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 7 (19:05:24:311)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.0302588013145539 ,average fitness: 0.2538895712932992 ,best fitness: 0.29005010506089707 ,min fitness: 0.21447796515504305 (19:07:15:123)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 8 (19:07:15:124)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.026808108303896433 ,average fitness: 0.2666970522932012 ,best fitness: 0.29005010506089707 ,min fitness: 0.21447796515504305 (19:10:14:782)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 9 (19:10:14:783)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.03002044619371387 ,average fitness: 0.2634232937509826 ,best fitness: 0.29005010506089707 ,min fitness: 0.21447796515504305 (19:14:12:430)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 10 (19:14:12:432)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.027182795760152718 ,average fitness: 0.26834698445752386 ,best fitness: 0.29005010506089707 ,min fitness: 0.21447796515504305 (19:18:25:296)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 11 (19:18:25:297)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02764353162237309 ,average fitness: 0.27015879793413466 ,best fitness: 0.2934779651550431 ,min fitness: 0.21447796515504305 (19:22:45:826)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 12 (19:22:45:826)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.020585446358958603 ,average fitness: 0.27696537423691003 ,best fitness: 0.2934779651550431 ,min fitness: 0.22647796515504307 (19:28:07:661)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 13 (19:28:07:663)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02586643709892803 ,average fitness: 0.2726665500257107 ,best fitness: 0.335050105060897 ,min fitness: 0.21447796515504305 (19:31:57:829)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 14 (19:31:57:830)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.0275390011909585 ,average fitness: 0.27252702029102394 ,best fitness: 0.335050105060897 ,min fitness: 0.21447796515504305 (19:35:56:117)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 15 (19:35:56:118)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02581902090498431 ,average fitness: 0.2779735965937993 ,best fitness: 0.335050105060897 ,min fitness: 0.21447796515504305 (19:40:21:785)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 16 (19:40:21:786)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.025748198462643472 ,average fitness: 0.2792580924106474 ,best fitness: 0.335050105060897 ,min fitness: 0.22647796515504307 (19:44:46:899)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 17 (19:44:46:900)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.027919477209261172 ,average fitness: 0.2804911454293783 ,best fitness: 0.335050105060897 ,min fitness: 0.21447796515504305 (19:50:26:629)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 18 (19:50:26:630)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.020688141539077567 ,average fitness: 0.2849038636031156 ,best fitness: 0.335050105060897 ,min fitness: 0.21447796515504305 (19:57:17:324)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 19 (19:57:17:325)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02260019459789701 ,average fitness: 0.28730305849280874 ,best fitness: 0.335050105060897 ,min fitness: 0.22647796515504307 (20:03:51:792)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 20 (20:03:51:792)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.023563828299942448 ,average fitness: 0.28434295890598915 ,best fitness: 0.335050105060897 ,min fitness: 0.22647796515504307 (20:08:55:636)
+  at public_html/js/geneticAlgorithm.js:164
+####################################### (20:14:54:099)
+  at public_html/js/compiler.js:2771
+Best level 4 Fitness are: (20:14:54:100)
+  at public_html/js/compiler.js:2772
+0.335050105060897 (20:14:54:100)
+  at public_html/js/compiler.js:2774
+0.335050105060897 (20:14:54:100)
+  at public_html/js/compiler.js:2774
+####################################### (20:14:54:100)
+  at public_html/js/compiler.js:2777
+####################################### (20:14:54:101)
+  at public_html/js/compiler.js:2764
+Generating level: 5 (20:14:54:101)
+  at public_html/js/compiler.js:2765
+####################################### (20:14:54:104)
+  at public_html/js/compiler.js:2766
+Generation number: 1 (20:14:54:124)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.024195751701054004 ,average fitness: 0.23131690675443528 ,best fitness: 0.2826095253413534 ,min fitness: 0.2136095253413534 (20:15:28:974)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 2 (20:15:28:974)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.025675103095049435 ,average fitness: 0.23379690675443532 ,best fitness: 0.2826095253413534 ,min fitness: 0.2136095253413534 (20:16:21:491)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 3 (20:16:21:491)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.025442803233703914 ,average fitness: 0.23424754444224535 ,best fitness: 0.2926095253413534 ,min fitness: 0.2136095253413534 (20:17:04:001)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 4 (20:17:04:004)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.025842743118981527 ,average fitness: 0.23376915466285933 ,best fitness: 0.2926095253413534 ,min fitness: 0.2136095253413534 (20:17:47:019)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 5 (20:17:47:020)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02894119926880706 ,average fitness: 0.24199123514878657 ,best fitness: 0.2926095253413534 ,min fitness: 0.2136095253413534 (20:18:49:790)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 6 (20:18:49:805)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.028539685743474135 ,average fitness: 0.2457438537357044 ,best fitness: 0.2926095253413534 ,min fitness: 0.2136095253413534 (20:19:41:228)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 7 (20:19:41:229)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.032035324221427845 ,average fitness: 0.24891690675443548 ,best fitness: 0.3221816652472074 ,min fitness: 0.2136095253413534 (20:21:08:593)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 8 (20:21:08:594)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.03198077206778608 ,average fitness: 0.25064385373570447 ,best fitness: 0.3221816652472074 ,min fitness: 0.2136095253413534 (20:22:26:345)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 9 (20:22:26:351)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.03474673048953619 ,average fitness: 0.2484352965338215 ,best fitness: 0.3221816652472074 ,min fitness: 0.2136095253413534 (20:24:01:047)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 10 (20:24:01:061)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.03462341246605944 ,average fitness: 0.25334673933193863 ,best fitness: 0.3221816652472074 ,min fitness: 0.2136095253413534 (20:26:12:814)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 11 (20:26:12:816)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.03658063551234331 ,average fitness: 0.26006106772628984 ,best fitness: 0.3221816652472074 ,min fitness: 0.2136095253413534 (20:29:04:078)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 12 (20:29:04:091)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.03037936449031072 ,average fitness: 0.26598106772628993 ,best fitness: 0.3221816652472074 ,min fitness: 0.2136095253413534 (20:32:28:729)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 13 (20:32:28:730)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.033210442096167976 ,average fitness: 0.26838395332252407 ,best fitness: 0.3221816652472074 ,min fitness: 0.2136095253413534 (20:36:14:375)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 14 (20:36:14:376)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.0362193429629295 ,average fitness: 0.26947539612064125 ,best fitness: 0.3341816652472074 ,min fitness: 0.2136095253413534 (20:39:45:343)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 15 (20:39:45:345)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.036722443912246966 ,average fitness: 0.28379838130369484 ,best fitness: 0.3341816652472074 ,min fitness: 0.2136095253413534 (20:45:07:823)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 16 (20:45:07:841)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.03538038448482738 ,average fitness: 0.28764126689992897 ,best fitness: 0.3341816652472074 ,min fitness: 0.2136095253413534 (20:50:36:730)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 17 (20:50:36:731)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.03221466857502339 ,average fitness: 0.28772415249616323 ,best fitness: 0.3341816652472074 ,min fitness: 0.2136095253413534 (20:56:38:848)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 18 (20:56:38:859)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.028424046753595444 ,average fitness: 0.2967013664867486 ,best fitness: 0.3341816652472074 ,min fitness: 0.22560952534135342 (21:03:17:201)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 19 (21:03:17:202)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.03214345284476151 ,average fitness: 0.30216146607356814 ,best fitness: 0.3341816652472074 ,min fitness: 0.2136095253413534 (21:11:11:854)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 20 (21:11:11:854)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.03518565629576852 ,average fitness: 0.29890227118387513 ,best fitness: 0.3342219207625557 ,min fitness: 0.2136095253413534 (21:19:15:509)
+  at public_html/js/geneticAlgorithm.js:164
+####################################### (21:27:55:975)
+  at public_html/js/compiler.js:2771
+Best level 5 Fitness are: (21:27:56:003)
+  at public_html/js/compiler.js:2772
+0.3461816652472074 (21:27:56:004)
+  at public_html/js/compiler.js:2774
+0.3342219207625557 (21:27:56:013)
+  at public_html/js/compiler.js:2774
+####################################### (21:27:56:025)
+  at public_html/js/compiler.js:2777
+####################################### (21:27:56:026)
+  at public_html/js/compiler.js:2764
+Generating level: 6 (21:27:56:026)
+  at public_html/js/compiler.js:2765
+####################################### (21:27:56:026)
+  at public_html/js/compiler.js:2766
+Generation number: 1 (21:27:56:026)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02583157427740124 ,average fitness: 0.2313546654349276 ,best fitness: 0.28296808913215243 ,min fitness: 0.21396808913215243 (21:28:18:645)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 2 (21:28:18:658)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.026891354013691394 ,average fitness: 0.23367466543492757 ,best fitness: 0.28296808913215243 ,min fitness: 0.21396808913215243 (21:28:34:352)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 3 (21:28:34:354)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.029718928292455944 ,average fitness: 0.24220241752650343 ,best fitness: 0.28296808913215243 ,min fitness: 0.21396808913215243 (21:28:48:677)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 4 (21:28:48:678)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02926956330630356 ,average fitness: 0.24400322263681037 ,best fitness: 0.28296808913215243 ,min fitness: 0.21396808913215243 (21:28:58:723)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 5 (21:28:58:724)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.029767210700294505 ,average fitness: 0.24971097472838633 ,best fitness: 0.28296808913215243 ,min fitness: 0.21396808913215243 (21:29:05:466)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 6 (21:29:05:466)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.030597245254727574 ,average fitness: 0.24779953193026924 ,best fitness: 0.28296808913215243 ,min fitness: 0.21396808913215243 (21:29:12:404)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 7 (21:29:12:405)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.029863833836742605 ,average fitness: 0.24618808913215223 ,best fitness: 0.28296808913215243 ,min fitness: 0.21396808913215243 (21:29:22:067)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 8 (21:29:22:070)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02829869831866145 ,average fitness: 0.24216808913215224 ,best fitness: 0.28296808913215243 ,min fitness: 0.21396808913215243 (21:29:38:732)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 9 (21:29:38:734)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.03008656897442881 ,average fitness: 0.24828808913215222 ,best fitness: 0.28296808913215243 ,min fitness: 0.21396808913215243 (21:29:51:761)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 10 (21:29:51:762)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.029344846225529977 ,average fitness: 0.24828808913215228 ,best fitness: 0.28296808913215243 ,min fitness: 0.21396808913215243 (21:30:05:352)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 11 (21:30:05:353)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.029670083881765827 ,average fitness: 0.25014808913215225 ,best fitness: 0.28296808913215243 ,min fitness: 0.21396808913215243 (21:30:18:709)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 12 (21:30:18:711)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.028938506230577005 ,average fitness: 0.24342808913215222 ,best fitness: 0.28296808913215243 ,min fitness: 0.21396808913215243 (21:30:30:273)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 13 (21:30:30:280)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02986801579192932 ,average fitness: 0.2439080891321522 ,best fitness: 0.28296808913215243 ,min fitness: 0.21396808913215243 (21:30:40:682)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 14 (21:30:40:683)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.029597131686729942 ,average fitness: 0.24960808913215224 ,best fitness: 0.28296808913215243 ,min fitness: 0.21396808913215243 (21:30:49:755)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 15 (21:30:49:756)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02901153183807842 ,average fitness: 0.2515880891321522 ,best fitness: 0.28296808913215243 ,min fitness: 0.21396808913215243 (21:30:57:422)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 16 (21:30:57:423)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.026901247979548147 ,average fitness: 0.2623880891321523 ,best fitness: 0.28296808913215243 ,min fitness: 0.21396808913215243 (21:31:06:518)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 17 (21:31:06:537)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.028363529327613095 ,average fitness: 0.2541680891321522 ,best fitness: 0.28296808913215243 ,min fitness: 0.21396808913215243 (21:31:23:267)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 18 (21:31:23:269)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02655683931279689 ,average fitness: 0.2601080891321523 ,best fitness: 0.28296808913215243 ,min fitness: 0.21396808913215243 (21:31:43:551)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 19 (21:31:43:553)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.026932637055726842 ,average fitness: 0.2569880891321523 ,best fitness: 0.28296808913215243 ,min fitness: 0.21396808913215243 (21:32:07:464)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 20 (21:32:07:467)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02782059140497285 ,average fitness: 0.2558480891321523 ,best fitness: 0.28296808913215243 ,min fitness: 0.21396808913215243 (21:32:28:307)
+  at public_html/js/geneticAlgorithm.js:164
+####################################### (21:32:37:792)
+  at public_html/js/compiler.js:2771
+Best level 6 Fitness are: (21:32:37:805)
+  at public_html/js/compiler.js:2772
+0.28296808913215243 (21:32:37:806)
+  at public_html/js/compiler.js:2774
+0.28296808913215243 (21:32:37:808)
+  at public_html/js/compiler.js:2774
+####################################### (21:32:37:810)
+  at public_html/js/compiler.js:2777
+####################################### (21:32:37:812)
+  at public_html/js/compiler.js:2764
+Generating level: 7 (21:32:37:814)
+  at public_html/js/compiler.js:2765
+####################################### (21:32:37:816)
+  at public_html/js/compiler.js:2766
+Generation number: 1 (21:32:37:818)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.028348000747256925 ,average fitness: 0.23583598954943052 ,best fitness: 0.2825502183569621 ,min fitness: 0.21355021835696214 (21:32:52:839)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 2 (21:32:52:840)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.027022661833559277 ,average fitness: 0.23429598954943054 ,best fitness: 0.2825502183569621 ,min fitness: 0.21355021835696214 (21:33:23:969)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 3 (21:33:23:983)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.029999399340830644 ,average fitness: 0.24732823745785462 ,best fitness: 0.2891223582628161 ,min fitness: 0.21355021835696214 (21:34:05:926)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 4 (21:34:05:926)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02900371960834852 ,average fitness: 0.2532711230540888 ,best fitness: 0.2891223582628161 ,min fitness: 0.21355021835696214 (21:34:58:078)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 5 (21:34:58:080)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.029052386910899702 ,average fitness: 0.2509911230540888 ,best fitness: 0.2891223582628161 ,min fitness: 0.21355021835696214 (21:35:54:293)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 6 (21:35:54:293)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.028955759247568547 ,average fitness: 0.24858743234754765 ,best fitness: 0.2891223582628161 ,min fitness: 0.21355021835696214 (21:36:35:490)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 7 (21:36:35:509)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02930212352467432 ,average fitness: 0.25125320354001607 ,best fitness: 0.3221223582628161 ,min fitness: 0.21355021835696214 (21:38:00:586)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 8 (21:38:00:587)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.034602660375871896 ,average fitness: 0.26043897473248434 ,best fitness: 0.33412235826281605 ,min fitness: 0.21355021835696214 (21:39:45:918)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 9 (21:39:45:919)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.03358733834933496 ,average fitness: 0.2656876315211867 ,best fitness: 0.33412235826281605 ,min fitness: 0.21355021835696214 (21:42:07:317)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 10 (21:42:07:319)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.03914900132075991 ,average fitness: 0.2735277311080064 ,best fitness: 0.33412235826281605 ,min fitness: 0.21355021835696214 (21:45:39:556)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 11 (21:45:39:579)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.03528095756353442 ,average fitness: 0.2767820595023575 ,best fitness: 0.33412235826281605 ,min fitness: 0.21355021835696214 (21:48:52:056)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 12 (21:48:52:057)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.03373348253798329 ,average fitness: 0.2764428646126645 ,best fitness: 0.33412235826281605 ,min fitness: 0.21355021835696214 (21:52:07:344)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 13 (21:52:07:345)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.03902398841183837 ,average fitness: 0.2753722269248544 ,best fitness: 0.34612235826281607 ,min fitness: 0.21355021835696214 (21:55:40:000)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 14 (21:55:40:001)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.041802201325113995 ,average fitness: 0.27784773110800637 ,best fitness: 0.34612235826281607 ,min fitness: 0.21355021835696214 (21:59:57:340)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 15 (21:59:57:342)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.042960340180941026 ,average fitness: 0.28759927349294284 ,best fitness: 0.34612235826281607 ,min fitness: 0.21355021835696214 (22:05:22:925)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 16 (22:05:22:927)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.043914640055328275 ,average fitness: 0.28801430741078154 ,best fitness: 0.34612235826281607 ,min fitness: 0.21355021835696214 (22:10:15:677)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 17 (22:10:15:678)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.04490490695064357 ,average fitness: 0.28092773110800634 ,best fitness: 0.34612235826281607 ,min fitness: 0.21355021835696214 (22:14:47:460)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 18 (22:14:47:461)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.04088004334818073 ,average fitness: 0.29054494509859147 ,best fitness: 0.34612235826281607 ,min fitness: 0.21355021835696214 (22:19:56:871)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 19 (22:19:56:872)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.10662934093722137 ,average fitness: 0.3110248103924908 ,best fitness: 0.843449656242588 ,min fitness: 0.21355021835696214 (22:25:46:858)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 20 (22:25:46:860)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.19498896152859174 ,average fitness: 0.3859337314251896 ,best fitness: 0.843449656242588 ,min fitness: 0.21355021835696214 (22:32:26:461)
+  at public_html/js/geneticAlgorithm.js:164
+####################################### (22:40:56:707)
+  at public_html/js/compiler.js:2771
+Best level 7 Fitness are: (22:40:56:740)
+  at public_html/js/compiler.js:2772
+0.8438745346811305 (22:40:56:755)
+  at public_html/js/compiler.js:2774
+0.843449656242588 (22:40:56:766)
+  at public_html/js/compiler.js:2774
+####################################### (22:40:56:766)
+  at public_html/js/compiler.js:2777
+####################################### (22:40:56:767)
+  at public_html/js/compiler.js:2764
+Generating level: 8 (22:40:56:790)
+  at public_html/js/compiler.js:2765
+####################################### (22:40:56:790)
+  at public_html/js/compiler.js:2766
+Generation number: 1 (22:40:56:818)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.02749381018784695 ,average fitness: 0.23723887514566466 ,best fitness: 0.2891223582628161 ,min fitness: 0.21355021835696214 (22:41:45:838)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 2 (22:41:45:839)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.028394647598955495 ,average fitness: 0.23721887514566467 ,best fitness: 0.2891223582628161 ,min fitness: 0.21355021835696214 (22:43:03:164)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 3 (22:43:03:176)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.031209655574130007 ,average fitness: 0.24590464633813303 ,best fitness: 0.2891223582628161 ,min fitness: 0.21355021835696214 (22:44:48:470)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 4 (22:44:48:471)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.030998814214163638 ,average fitness: 0.25143608913625015 ,best fitness: 0.2891223582628161 ,min fitness: 0.21355021835696214 (22:46:17:200)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 5 (22:46:17:201)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.031497084026013956 ,average fitness: 0.24705608913625013 ,best fitness: 0.2891223582628161 ,min fitness: 0.21355021835696214 (22:48:12:379)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 6 (22:48:12:438)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.03214365335889167 ,average fitness: 0.25106753193436726 ,best fitness: 0.29255021835696216 ,min fitness: 0.21355021835696214 (22:50:26:604)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 7 (22:50:26:728)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.03275956983652847 ,average fitness: 0.2545989747324844 ,best fitness: 0.3221223582628161 ,min fitness: 0.21355021835696214 (22:53:25:782)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 8 (22:53:25:795)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.03484347219280683 ,average fitness: 0.25911041753060143 ,best fitness: 0.33412235826281605 ,min fitness: 0.21355021835696214 (22:56:26:741)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 9 (22:56:26:741)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.0575735608404164 ,average fitness: 0.26360719643850317 ,best fitness: 0.5612448839403438 ,min fitness: 0.21355021835696214 (23:02:47:674)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 10 (23:02:47:869)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.055099350089613724 ,average fitness: 0.2619815248328544 ,best fitness: 0.5612448839403438 ,min fitness: 0.21355021835696214 (23:04:23:088)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 11 (23:04:23:088)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.07775488211966504 ,average fitness: 0.27855947887868654 ,best fitness: 0.5612448839403438 ,min fitness: 0.21355021835696214 (23:08:23:817)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 12 (23:08:23:833)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.06654149749919058 ,average fitness: 0.27399702836513595 ,best fitness: 0.5612448839403438 ,min fitness: 0.21355021835696214 (23:12:04:514)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 13 (23:12:04:515)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.09735215530144302 ,average fitness: 0.2956849226064761 ,best fitness: 0.5995958547725608 ,min fitness: 0.21355021835696214 (23:16:50:396)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 14 (23:16:50:411)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.11125171022913175 ,average fitness: 0.31375272446514946 ,best fitness: 0.5995958547725608 ,min fitness: 0.21355021835696214 (23:22:39:216)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 15 (23:22:39:218)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.13521816392815073 ,average fitness: 0.3480222389535323 ,best fitness: 0.5995958547725608 ,min fitness: 0.21355021835696214 (23:29:49:001)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 16 (23:29:49:002)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.15408633130230334 ,average fitness: 0.3785968202531029 ,best fitness: 0.6103852972965089 ,min fitness: 0.21355021835696214 (23:38:25:084)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 17 (23:38:25:085)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.15750962397556434 ,average fitness: 0.4411124847660033 ,best fitness: 0.6103852972965089 ,min fitness: 0.21355021835696214 (23:47:21:467)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 18 (23:47:21:474)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.1665069030123311 ,average fitness: 0.4669769233901199 ,best fitness: 0.8665987837037182 ,min fitness: 0.21355021835696214 (23:56:11:636)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 19 (23:56:11:657)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.16927606799201234 ,average fitness: 0.514824244858174 ,best fitness: 0.9033146829732764 ,min fitness: 0.21355021835696214 (00:05:18:918)
+  at public_html/js/geneticAlgorithm.js:164
+Generation number: 20 (00:05:18:928)
+  at public_html/js/geneticAlgorithm.js:158
+current sd: 0.20097379297635523 ,average fitness: 0.5220021087155313 ,best fitness: 0.9033146829732764 ,min fitness: 0.23755021835696213 (00:13:36:626)
+  at public_html/js/geneticAlgorithm.js:164
+####################################### (00:21:46:624)
+  at public_html/js/compiler.js:2771
+Best level 8 Fitness are: (00:21:47:028)
+  at public_html/js/compiler.js:2772
+0.9085517924922316 (00:21:47:029)
+  at public_html/js/compiler.js:2774
+0.9033146829732764 (00:21:47:029)
+  at public_html/js/compiler.js:2774
+####################################### (00:21:47:030)
+  at public_html/js/compiler.js:2777
+> 
