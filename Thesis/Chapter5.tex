@@ -1,8 +1,113 @@
-This chapter shows the results of the level generation and the rule generation techniques. We also compares the computer results with collected human statistics.
+This chapter shows the results of the different techniques of level generation and rule generation. The resulted levels and games of the system are published on a website \footnote{http://www.amidos-games.com/puzzlescript-pcg/} to collect human feedback. It shows also a comparison between the system results with collected human statistics. In the following sections we start describing the input for level and rule generation followed by description of our experiments. By the end  compare its results with collected human statistics.
 
-\section{Data Description}
-\section{Level Generation Problem}
-\section{Rule Generation Problem}
+\section{Automated Player}
+\secref{automatedPlayer} introduces new metric to solve the problem of having Player as one of the winning objects. Several experiments are done to detect the best possible weights for the three metrics and comparing the results with Lim et al.\cite{puzzleScriptGeneration} previous metrics.\\\par
+
+The new player give different weights to each one of the three metrics. The distance between winning objects metric is the most important metric, other metrics contributes with less score (50\% decrease). The distance between player and winning objects metric contributes with a lower percentage than the new metric (50\% lower). This decrease is due to the fact that one of the winning objects is a rule object. The new metric measures the distance between the rule objects. This means this object contributes in both metrics at same time.\\\par
+
+The following section will describe the different games and levels used to test both metrics followed by different experiments to measure the difference between both metrics.
+
+\subsection{Input Description}\seclbl{gameDescription}
+Forty handcrafted levels from five different games were used to test our the introduction of the new metric. The five games where completely different to ensure covering most of behaviors. Levels are also designed with different sizes and different ideas to cover different design aspect.\\\par
+
+The five games are Sokoban, LavaGame, BlockFaker, GemGame, and DestroyGame.
+\begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
+	\item \textbf{Sokoban:} The goal of the game is to place every single crate over a certain position. Player is supposed to push crates to achieve that goal.
+	\item \textbf{LavaGame:} The goal of the game is to reach the exit. Most of the time the path towards the exit is blocked by lava. Player is supposed to move crates over lava to clear his way.
+	\item \textbf{BlockFaker:} The goal of the game is to reach the exit. The path towards the exit is blocked by lots of crates. Player should push the crates to align them vertically or horizontally. Every three aligned crates are removed clearing the path towards the exit.
+	\item \textbf{GemGame:} The goal of the game is to place at least one gem over one of several locations. Player can create gems by pushing crates. Every three aligned crates are replaced with a single diamond instead of the middle crate.
+	\item \textbf{DestroyGame:} The goal of the game is to clear every single gem. Gems can be destroyed when they are aligned with two other crates vertically or horizontally. Player should push crates to reach that goal.
+\end{itemize}
+
+Each of the previous games have different rules, goals, and objects.
+\subsection{Comparing Different Players}
+Lim et al.\cite{puzzleScriptGeneration} automated player plays all the forty levels and it is compared with the introduced automated player in this work. \figref{automatedPlayerPerformance} shows the average number of states each player explored in each game before reaching goal.
+
+\gfigure{Comparison between the number of explored states for different automated players}{automatedPlayerPerformance}{width=6.0in}{Images/automatedPlayerPerformance}
+
+The new player outperforms original player in Sokoban game and Gem game but its almost the similar in the rest of the games. In games where the player is one of the winning objects, the new player just performed slightly better in BlockFaker, while LavaGame is slightly worse. The same happens with DestroyGame. The main reason behind that is the presence of Destroy behavior as the core of the game. For example, \figref{automatedPlayerProblem} have two crates and two lava, the metric measures the average distance between each crate and all lava. If the lower lava is destroyed first that remain us with one box with one lava which makes the metric a little bit worse than before (only long distance remains). The system will explore more states that will not lead to destroy of the lower lava.
+
+\gfigure{LavaGame level cause the new player to do worse}{automatedPlayerProblem}{width=2.5in}{Images/automatedPlayerProblem}
+
+Another drawback of the new metric is when levels have lots of unused objects. The new metric will make the player explores these objects which increase the number of explored states before reaching the goal object. This drawback is not so important as the main goal is to generate levels not solve them. The presence of unused objects may cause increase of the difficulty of generated levels.\\\par
+
+The average solution length of each game is presented in \figref{automatedPlayerLength}. The new player produces slightly an overall shorter solutions than the original player. Comparing both \figref{automatedPlayerPerformance} and \figref{automatedPlayerLength} there is a correlation between the average number of explored states and the average solution length except for Sokoban. Sokoban doesn't follow same pattern due to being abstract with very small amount of objects and just one rule. This abstraction is the main reason both players can reach the goal in almost the same amount of steps.
+
+\gfigure{Comparison between the average solution length for different automated players}{automatedPlayerLength}{width=6.0in}{Images/automatedPlayerLength}
+
+\tabref{playerCorrelation} shows the correlation value between the average solution length and the average explored states by the two different players and the correlation is calculated at the bottom of the table. The values in the table is the difference between the original player and the new player. Positive values indicates the new player is better than the original and vice versa.
+
+\begin{table}[!ht]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{The average solution length} & \textbf{The average explored states}\\
+		\hline
+		-0.875 & 11127.625\\
+		\hline
+		-1 & -3914\\
+		\hline
+		5 & 2736.625\\
+		\hline
+		12.875 & 16763.625\\
+		\hline
+		-4.75 & -6696.75\\
+		\hline
+		\textbf{Correlation} & 0.77127\\
+		\hline
+	\end{tabular}
+	\caption{Correlation between the average explored states and the average solution length}
+	\label{Table:playerCorrelation}
+\end{table}
+
+\section{Level Generation}
+This section shows the results of different techniques introduced in \chref{Chapter4} for generating different levels. Automated player is used with fixed number of iteration. Automated player takes very long time to play the level. The automated player is limited to 5000 explored states to ensure fast execution and level quality.\\\par
+
+The following section will discuss the required input data for the system to work, followed by the results for each of different approach used.
+
+\subsection{Input Description}
+From \chref{Chapter4}, level generation needs a game description and some level layouts. Five different games were tested with eight different level layouts.
+
+\subsubsection{Game Descriptions}
+The five different games are the same games described in \secref{gameDescription}. Sticking with same games as they covers different behaviors and winning rules.
+\begin{itemize}
+	\item \textbf{Sokoban:} The game have four main objects (Player, Crate, Target, and Wall). Crate and Target are the winning objects with Crate having a Move behavior. Wall is a solid object. The game has an All winning rule.
+	
+	\item \textbf{LavaGame:} The game has five main objects (Player, Lava, Crate, Target, and Wall). Player and Target are the winning objects. Lava and Crate are normal rule objects with Destroy behavior. Crate has a Move behavior too. Wall is solid object. The game has an All winning rule.
+	
+	\item \textbf{BlockFaker:} The game has five main objects (Player, Crate, Stopper, Target, and Wall). Player and Target are the winning objects. Stopper and Crate are normal rule objects with Crate having Move and Destroy behaviors. Wall is solid object. The game has an All winning rule.
+	
+	\item \textbf{GemGame:} The game has five main objects (Player, Crate, Gem, Target, and Wall). Gem and Target are the winning objects with Gem having Create behavior. Crate is a critical rule object with Move and Destroy behaviors. Wall is a solid Object. The game has a Some winning rule.
+	
+	\item \textbf{DestroyGame:} The game has five main objects (Player, Crate, Gem, Target, and Wall). Gem and Target are the winning objects with Gem having Destroy behavior. Crate is a critical rule object with Move and Destroy behaviors. Wall is a solid object. The game has a No winning rule.
+\end{itemize}
+
+\subsubsection{Level Layouts}
+The second input for the system is the level layouts. Eight different level layouts are used to generate levels. \figref{levelLayouts} shows these layouts. The layouts have different sizes and different internal structure to test the generator with different inputs. The biggest level layout is $8x8$ tiles because as the level size increase, the system takes longer time to generate a good level. The generation time is restricted so less interesting levels are generated. Human statistics proves this point in certain games.
+
+\gfigure{Different level layouts for level generation}{levelLayouts}{width=5.5in}{Images/levelLayouts}
+
+\subsection{Constructive Approach Results}
+Hundred level is generated using Constructive Algorithm. These levels are evaluated and the best two levels are selected. This approach is repeated for the five different games and applied over the eight different layouts. The total amount of generated levels are 80 levels. \figref{constructiveExamples} shows examples of some of generated levels for different games. All the generated levels can be played online\footnote{http://www.amidos-games.com}.\\\par
+
+\gfigure{Examples of the generated levels using constructive approach}{constructiveExamples}{width=5.5in}{Images/constructiveExamples}
+
+The constructive technique is a very fast technique that can be used for level generation in real time depending on the time of the automated player used. Although the algorithm ensures high level playability, it limits the search space for potential levels producing similar generated levels. The search space is limited due to the following:
+\begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
+	\item The number of objects are always limited by the size of the free areas in the map. That's why the two generated levels always have same number of objects.
+	\item The moving object should be placed at the most free place. That's why the moving objects are always placed at certain places in a certain order.
+	\item The second winning object is always at the farthest distance from the first object. That's why the second winning object is always aligned with level borders refer to \figref{constructiveExamples}.
+\end{itemize}
+
+\subsection{Genetic Approach Results}
+
+\subsubsection{Initialization Methods Results}
+
+\subsubsection{Human Comparison}
+
+\subsection{Different Approach Comparison}
+
+\section{Rule Generation}
 
 \tabref{l1}
 
