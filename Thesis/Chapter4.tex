@@ -247,7 +247,7 @@ Same is done with Rule Objects in \algref{ruleObjects}. Random Rule Objects are 
 	\label{Algorithm:ruleObjects}
 \end{algorithm}
 
-\subsubsection{Genetic Approach}
+\subsubsection{Genetic Approach}\seclbl{geneticApproach}
 This method uses GA to evolve level outlines to playable levels. Elitism is used to ensure that the best levels are carried to the next generation.\\\\
 \textbf{Chromosome Representation:} In this technique levels are represented as 2D matrix. Each location value represents all the objects at that location.\\\\
 \textbf{Genetic Operators:} Crossover and Mutation are used to ensure better levels in the following generations. One point crossover is used where a point (x, y) is selected from the first chromosome and all previous rows (having smaller x) are swapped with the second chromosome. Mutation changes any random selected position using the following:
@@ -374,8 +374,8 @@ where $P_{score}$ is the Playing Score, $L_{score}$ is the Solution Length Score
 	\gfigure{Histogram for the number of rules applied to the solution length}{rulesSolutionLengthHistogram}{width=5.5in}{Images/rulesSolutionLengthHistogram}
 	
 	The histogram seems to follow a Normal Distribution with $\mu = 0.417$ and $\sigma = 0.128$. Based on that the Applied Rule Score can be expressed by the following equation:
-	\begin{center}$R_{score} = Normal(\dfrac{R_{applied}}{L}, 0.417, 0.128)$\end{center}
-	where $Normal(ration, \mu, \sigma)$ is a normal distribution function, $R_{applied}$ is the number of applied rules, and $L$ is the solution length.
+	\begin{center}$R_{score} = Normal(\dfrac{R_{applied} \pm R_{none}}{L}, 0.417, 0.128)$\end{center}
+	where $Normal(ration, \mu, \sigma)$ is a normal distribution function, $R_{applied}$ is the number of applied rules, $R_{none}$ is the number of applied rules with no action associated, and $L$ is the solution length. The $R_{none}$ is used to decrease the normal distribution value according to amount of rules applied at the beginning of the game with no action associated to decrease them from happening.
 	
 	\item \textbf{Exploration Score ($E_{score}$):} The increase in the number of explored states by the automated player means that the current level is not obvious to be solved directly by the automated player heuristics. This does not mean exploring huge space without finding a solution is better than exploring small number of states with a solution. The following equation express this idea:
 	\begin{center}
