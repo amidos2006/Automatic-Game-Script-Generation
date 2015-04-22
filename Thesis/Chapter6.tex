@@ -1,9 +1,17 @@
-This research presented a system to generate levels and rules for Puzzle Script engine. Also, it proposes several features to evaluate puzzle levels and games based on its solution sequence. Levels are generated regardless of the game rules. Two different techniques (Constructive and Genetic Approach) are tested for level generation. Based on the results, the constructive approach is used in rule generation. The rule generation is an extension to the work by Lim et al.\cite{puzzleScriptGeneration} without fixing the current level layout.\\\par
+This research presented a system to generate levels and rules for Puzzle Script. Also, it proposed several metrics to evaluate puzzle levels and games based on their solution sequence.\\\par
 
-The constructive approach resulted in only 90\% playable levels which is enhanced using GA to reach 100\%. GA is tested using three different initialization methods (Random Initialization, Constructive Initialization, and Mixed Initialization). Random initialization produces different configuration than constructive algorithm but with lower playability equals to 75\%. The best two levels in GA approach are most of the time identical.\\\par
+The proposed system generates levels regardless of the game rules. It uses two different techniques (Constructive and Genetic approach). The constructive approach resulted in 90\% playable levels which is enhanced in the genetic approach to reach 100\%, but it needs more time. Genetic approach uses GA with three different initialization methods (Random initialization, Constructive initialization, and Mixed initialization). Random initialization produces levels with different configuration from the constructive approach, but with low playability equals to 75\%.  The constructive approach produces levels with playability reaching 100\%, but with similar structure to the constructive approach. The mixed initialization is similar to constructive initialization in terms of playability but it expands the search space.\\\par
 
-The levels are test against human players\footnote{http://www.amidos-games.com/puzzlescript-pcg/} and there is a correlation between the automated level score and human player score specially in BlockFaker and Sokoban. The high correlation in these games is the result of high performance of automated player in these games. This high correlation is a good indication that the proposed features measures the game playability and challenge.\\\par
+The generated levels are tested using human players\footnote{http://www.amidos-games.com/puzzlescript-pcg/} and a score is given for each level. Comparing the human scores with the system scores indicate a high correlation. This high correlation is a good indication that the proposed metrics can actually measure game playability and challenge. The correlation is higher in some games such as BlockFaker and Sokoban due to the high performance of the automated player in playing them.\\\par
 
-Rule generation produced a group of rules that.....\\\par
+Based on these results, the constructive approach is used in rule generation. The rule generation is an extension to the work by Lim et al.\cite{puzzleScriptGeneration} without fixing the current level layout. .....to be continued\\\par
 
-As for future work, we aim to use our features to analyze the search space of puzzle level generators. Testing better optimization techniques instead of plan GA to increase level diversity. Testing our system with very huge level layouts. Improving the time of the quality of the automated player by trying. Testing Answer Set Programming as a way to speed up level generation time. Measuring level difficulty before generation. More tests to be made on rule generation.
+This work is a first stone in general level and rule generation. There is a plenty to be done to expand and enhance it. As for future work, we aim to:
+\begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
+	\item utilize the metrics to analyze the search space for level generation.
+	\item test different techniques rather than plan GA to increase the level diversity like in Sorenson and Pasquier work\cite{genericLevelFramework}.
+	\item improve the time and the quality of the automated player to decrease the generation time.
+	\item generate levels with a specific difficulty.
+	\item generate rules with specific properties.
+	\item understand rule generation search space.
+\end{itemize}

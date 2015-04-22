@@ -1,41 +1,42 @@
-This chapter shows the results of the different techniques of level generation and rule generation. The resulted levels and games of the system are published on a website \footnote{http://www.amidos-games.com/puzzlescript-pcg/} to collect human feedback. It shows also a comparison between the system results with collected human statistics. In the following sections we start describing the input for level and rule generation followed by description of our experiments. By the end  compare its results with collected human statistics.
+This chapter shows the results of the different techniques used in the level generation and the rule generation. The generated levels and games are all published on a website \footnote{http://www.amidos-games.com/puzzlescript-pcg/} to collect human feedbacks. The collected feedbacks is compared with the system scores. The following section analyzes the results of the new automated player and compares it with the original one, followed by showing results of the level generation techniques. The last section shows the results of the rule generation.\\\par
 
 \section{Automated Player}
-\secref{automatedPlayer} introduces new metric to solve the problem of having Player as one of the winning objects. Several experiments are done to detect the best possible weights for the three metrics and comparing the results with Lim et al.\cite{puzzleScriptGeneration} previous metrics.\\\par
+\secref{automatedPlayer} introduces new metric to solve the problem of having Player as one of the winning objects. Different weights were given to each one of the three metrics. The distance between winning objects metric is the most important metric if this metric equals to maximum then the level is solved. That is why other metrics have contributes with lower weights equals to 50\%. The distance between the player and the winning objects metric is weighted 50\% compared with the new metric. The reason behind that is at least one of the winning object is a rule object. New metric measures the distance between every two rule objects found in left hand side of any rule. This means one of the winning objects already contributing in the new metric. The following equation shows the final weights:
+\begin{center}$d_{total} = d_{winning} + 0.5 * (d_{rules} + 0.5 * d_{player})$\end{center}
+where $d_{winning}$ is the distance between winning objects metric, $d_{rules}$ is the distance between rule objects (new metric), and $d_{player}$ is the distance between the player and the winning objects.\\\par
 
-The new player give different weights to each one of the three metrics. The distance between winning objects metric is the most important metric, other metrics contributes with less score (50\% decrease). The distance between player and winning objects metric contributes with a lower percentage than the new metric (50\% lower). This decrease is due to the fact that one of the winning objects is a rule object. The new metric measures the distance between the rule objects. This means this object contributes in both metrics at same time.\\\par
-
-The following section will describe the different games and levels used to test both metrics followed by different experiments to measure the difference between both metrics.
+The following section will describe the different games and levels used to test both automated players, followed by a comparison between their results.
 
 \subsection{Input Description}\seclbl{gameDescription}
-Forty handcrafted levels from five different games were used to test our the introduction of the new metric. The five games where completely different to ensure covering most of behaviors. Levels are also designed with different sizes and different ideas to cover different design aspect.\\\par
+Forty handcrafted levels from five different games were used to test the different players. The five games are completely different to cover different object behaviors. Levels are also designed with different sizes and ideas to cover different design aspects. \figref{designedLevels} shows different levels from these games.
+
+\gfigure{Examples for handcrafted levels from different games}{designedLevels}{width=5.5in}{Images/designedLevels}
 
 The five games are Sokoban, LavaGame, BlockFaker, GemGame, and DestroyGame.
 \begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
-	\item \textbf{Sokoban:} The goal of the game is to place every single crate over a certain position. Player is supposed to push crates to achieve that goal.
-	\item \textbf{LavaGame:} The goal of the game is to reach the exit. Most of the time the path towards the exit is blocked by lava. Player is supposed to move crates over lava to clear his way.
-	\item \textbf{BlockFaker:} The goal of the game is to reach the exit. The path towards the exit is blocked by lots of crates. Player should push the crates to align them vertically or horizontally. Every three aligned crates are removed clearing the path towards the exit.
-	\item \textbf{GemGame:} The goal of the game is to place at least one gem over one of several locations. Player can create gems by pushing crates. Every three aligned crates are replaced with a single diamond instead of the middle crate.
+	\item \textbf{Sokoban:} The goal of the game is to place every single crate over a certain position. Player can push crates to achieve that goal.
+	\item \textbf{LavaGame:} The goal of the game is to reach the exit. Most of the time the path towards the exit is always blocked by a lava. Player should push crates over the lava to clear his way.
+	\item \textbf{BlockFaker:} The goal of the game is to reach the exit. The path towards the exit is always blocked by lots of crates. Player should push these crates to align them vertically or horizontally. Every three aligned crates are destroyed which clear the path towards the exit.
+	\item \textbf{GemGame:} The goal of the game is to place at least one gem over one of several locations. Player can create gems by pushing crates. Every three aligned crates are replaced with a single gem instead of the middle crate.
 	\item \textbf{DestroyGame:} The goal of the game is to clear every single gem. Gems can be destroyed when they are aligned with two other crates vertically or horizontally. Player should push crates to reach that goal.
 \end{itemize}
 
-Each of the previous games have different rules, goals, and objects.
 \subsection{Comparing Different Players}
-Lim et al.\cite{puzzleScriptGeneration} automated player plays all the forty levels and it is compared with the introduced automated player in this work. \figref{automatedPlayerPerformance} shows the average number of states each player explored in each game before reaching goal.
+Lim et al.\cite{puzzleScriptGeneration} automated player is compared with the new automated player. Both of them plays all the forty levels and reports the solution length and number of states explored. \figref{automatedPlayerPerformance} shows the average number of states each player explored in each game to reach the goal.
 
 \gfigure{Comparison between the number of explored states for different automated players}{automatedPlayerPerformance}{width=6.0in}{Images/automatedPlayerPerformance}
 
-The new player outperforms original player in Sokoban game and Gem game but its almost the similar in the rest of the games. In games where the player is one of the winning objects, the new player just performed slightly better in BlockFaker, while LavaGame is slightly worse. The same happens with DestroyGame. The main reason behind that is the presence of Destroy behavior as the core of the game. For example, \figref{automatedPlayerProblem} have two crates and two lava, the metric measures the average distance between each crate and all lava. If the lower lava is destroyed first that remain us with one box with one lava which makes the metric a little bit worse than before (only long distance remains). The system will explore more states that will not lead to destroy of the lower lava.
+The new player outperforms the original player in Sokoban and GemGame, but its almost the similar in the rest of the games. In games where the player is one of the winning objects, the new player just performed slightly better in BlockFaker, while LavaGame is slightly worse. The new players also performed badly in DestroyGame. The main reason behind the bad performance in these games is the presence of the Destroy behavior as the core mechanic of the game. For example, \figref{automatedPlayerProblem} have two crates and two lava, the metric measures the average distance between each crate and all lava. If the lower lava is destroyed first, the metric will be very long distance between crate and lava which is a little bit worse than before (only long distance is in consideration). Based on that, the player will explore more states that will not lead to the destroy of the lower lava.
 
 \gfigure{LavaGame level cause the new player to do worse}{automatedPlayerProblem}{width=2.5in}{Images/automatedPlayerProblem}
 
-Another drawback of the new metric is when levels have lots of unused objects. The new metric will make the player explores these objects which increase the number of explored states before reaching the goal object. This drawback is not so important as the main goal is to generate levels not solve them. The presence of unused objects may cause increase of the difficulty of generated levels.\\\par
+Another drawback of the new metric is when levels have lots of unused objects. The new metric will make the player explores the unused objects aiming to reach the goal which increase the total number of explored states. This drawback is not so important as the main goal is to generate levels not to solve them. The presence of unused objects leads to an increase in the level difficulty.\\\par
 
-The average solution length of each game is presented in \figref{automatedPlayerLength}. The new player produces slightly an overall shorter solutions than the original player. Comparing both \figref{automatedPlayerPerformance} and \figref{automatedPlayerLength} there is a correlation between the average number of explored states and the average solution length except for Sokoban. Sokoban doesn't follow same pattern due to being abstract with very small amount of objects and just one rule. This abstraction is the main reason both players can reach the goal in almost the same amount of steps.
+\figref{automatedPlayerLength} shows the average solution length for each game for the different players. The new player produces slightly an overall shorter solutions than the original player. Comparing both \figref{automatedPlayerPerformance} and \figref{automatedPlayerLength} a correlation can be noticed between both of them except for Sokoban. Sokoban does not follow the same pattern due to being abstract with a very small amount of objects and just one rule. This abstraction is the main reason both players can reach the goal in almost the same amount of steps.
 
 \gfigure{Comparison between the average solution length for different automated players}{automatedPlayerLength}{width=6.0in}{Images/automatedPlayerLength}
 
-\tabref{playerCorrelation} shows the correlation value between the average solution length and the average explored states by the two different players and the correlation is calculated at the bottom of the table. The values in the table is the difference between the original player and the new player. Positive values indicates the new player is better than the original and vice versa.
+\tabref{playerCorrelation} shows the correlation value between the average solution length and the average explored states by the two players at the bottom. The values in the table is the difference between the original player and the new player. Positive values indicates the new player is better than the original and vice versa.
 
 \begin{table}[!ht]
 	\centering
@@ -390,3 +391,4 @@ The following figures shows comparison between different techniques to generate 
 From the previous figures its clear that Constructive Algorithm always generate a very high level quality levels regardless of the input rules. That point is the main reason behind using constructive algorithm to generate levels in Rule Generation beside being a fast generation technique.
 
 \section{Rule Generation}
+to be written.
