@@ -77,7 +77,7 @@ Level Generation is not an easy task specially when the game rules are not known
     \label{Figure:levelGenBlockDiagram}
 \end{figure*}
 
-The system starts by analyzing the current game rules using a Rule Analyzer. The output of the Rule Analyzer (Rule Analysis) and the Level Outlines are fed to a Level Generator. The Level Generator generates some initial level layouts using Genetic Algorithm(GA) or Constructive Algorithm. The generated levels are subjected to a Level Evaluator. The Level Evaluator measures level playability and challenge using an automated player. The following subsections describe each of these components in details.\\\par
+The system starts by analyzing the current game rules using a Rule Analyzer. The output of the Rule Analyzer (Rule Analysis) and the Level Outlines are fed to a Level Generator. The Level Generator generates some initial level layouts using Genetic Algorithm(GA) or Constructive Algorithm. The generated levels are subjected to a Level Evaluator. The Level Evaluator measures level playability and challenge using an automated player. The following subsections describe each of these components in details.
 
 \subsection{Rule Analyzer}
 The Rule Analyzer is the first module in our system. It analyzes game rules and extract some useful information about each object. The extracted information is fed to the Level Generator and the Level Evaluator. Each object is assigned:
@@ -223,13 +223,96 @@ Heuristic measures are calculated using a weighted function of six measures.
 \end{itemize}
 
 \section{Results and Evaluation}
+The generated levels are published on a website \footnote{\url{http://www.amidos-games.com/puzzlescript-pcg/}} to collect human feedbacks. The following subsection analyzes the results of the new automated player and compares its results with the original one, followed by the results of the level generation techniques and comparing it with human feedbacks.
+
+\subsection{Tested Games}
+Our system is tested against five different games. The five games are completely different to cover different object behaviors and winning conditions. These games are:
+\begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
+	\item \emph{Sokoban:} The goal of the game is to place every single crate over a certain position. Player can push crates to achieve that goal.
+	\item \emph{LavaGame:} The goal of the game is to reach the exit. The path towards the exit is always blocked by a lava. Player should push crates over the lava to clear his way.
+	\item \emph{BlockFaker:} The goal of the game is to reach the exit. The path towards the exit is always blocked by lots of crates. Player should push these crates to align them vertically or horizontally. Every three aligned crates are destroyed which clear the path towards the exit.
+	\item \emph{GemGame:} The goal of the game is to place at least one gem over one of several locations. Player can create gems by pushing crates. Every three aligned crates are replaced with a single gem instead of the middle crate.
+	\item \emph{DestroyGame:} The goal of the game is to clear every single gem. Gems can be destroyed when they are aligned with two other crates vertically or horizontally. Player should push crates to reach that goal.
+\end{itemize}
+
+\subsection{Automated Player}
+Forty handcrafted levels from the five different games were used to compare the new player with original one. Levels are designed with different sizes and ideas to cover different design aspects. Both players plays all the forty levels and reports the solution length and the number of states explored. \figref{automatedPlayerPerformance} shows the average number of states each player explores in each game to reach the goal. The new player outperforms the original player in Sokoban and GemGame, but its almost the similar in the rest of the games. The new players performed badly in DestroyGame and LavaGame. The main reason behind the bad performance in these games is the presence of the Destroy behavior as the core mechanic of the game.\\\par
+
+\begin{figure}
+  	\centering
+    \includegraphics[width=0.5\textwidth]{Images/automatedPlayerPerformance}
+    \caption{Comparison between the number of explored states for different automated players}
+    \label{Figure:automatedPlayerPerformance}
+\end{figure}
+
+\figref{automatedPlayerLength} shows the average solution length for each game for the different players. The new player produces  a slightly shorter solutions than the original player. Comparing both \figref{automatedPlayerPerformance} and \figref{automatedPlayerLength} a correlation can be noticed between both of them except for Sokoban. Sokoban does not follow the same pattern due to being abstract as the game has a very small amount of objects and just one rule. This abstraction is the main reason both players can reach the goal in almost the same amount of steps.
+
+\begin{figure}
+  	\centering
+    \includegraphics[width=0.5\textwidth]{Images/automatedPlayerLength}
+    \caption{Comparison between the average solution length for different automated players}
+    \label{Figure:automatedPlayerLength}
+\end{figure}
+
+\subsection{Level Generation}
+This section shows the results of the level generation techniques. The new automated player is used with a limit of 5000 explored states to ensure fast execution. \figref{levelLayouts} shows the eight different level layouts are used to generate levels which are the same like handcrafted games.\\\par
+\begin{figure}
+  	\centering
+    \includegraphics[width=0.45\textwidth]{Images/levelLayouts}
+    \caption{Different level layouts for level generation}
+    \label{Figure:levelLayouts}
+\end{figure}
+
+All the scores are from all the following techniques are combined and a general correlation is calculated. \figref{totalCorrelation} shows the correlation between the system score and human score for all games and techniques.
+
+\begin{figure}
+  	\centering
+    \includegraphics[width=0.5\textwidth]{Images/sokobanCorrelation}
+    \caption{Correlation between all automated player score and human scores for all games}
+    \label{Figure:totalCorrelation}
+\end{figure}
+
+\subsubsection{Constructive Approach}
+One hundred level are generated using the constructive algorithm described in \secref{constructiveApproach}. Each level is evaluated and the best two levels are selected. Out of the 80 levels only 15\% are reported as unplayable by the system. By testing these levels by human players only 10\% are completely unplayable while the remaining levels are very difficult levels (needs more states to be explored).
+
+\subsubsection{Genetic Approach}
+The genetic approach gives the system the ability to modify the generated levels to improve their playability and challenge. GA is used for 20 generations with a population equal to 50 chromosomes. The crossover rate is around 70\% and the mutation rate is around 10\%. GA is applied on each level layout and the best two chromosomes from each layout are selected. Elitism is used with probability equals to 2\% to ensure best chromosome doesn't disappear with generations.
+\begin{itemize}
+	\item \emph{Random Initialization:} Out of the 80 levels only 75\% of the generated levels are playable although the automated player reported only 73.75\%.
+	\item \emph{Constructive Initialization:} Using constructive algorithm to initialize the GA increase the overall level playability from 90\% to reach 100\% by expanding the search space to find better levels than the constructive approach.
+	\item \emph{Mixed Initialization:} Same like constructive initialization with 100\% playability and more diverse levels.
+\end{itemize}
+
+\subsubsection{Fitness Comparison}
+The following figures shows a comparison between the max fitness of the all presented techniques for Sokoban(\figref{sokobanComparison}), LavaGame(\figref{lavaGameComparisonmparison}), and BlockFaker(\figref{blockFakerComparison}). GA with constructive initialization have the highest score in almost all games, followed by GA with mixed initialization which is almost the same as GA with constructive initialization. The worst of them all is the GA with random initialization as it need more generations to find a good playable levels. Sokoban scores in \figref{sokobanComparison} are almost the similar with all techniques due to simplicity of the game rules and the small number of objects needed to have a playable level.
+
+\begin{figure}
+  	\centering
+    \includegraphics[width=0.5\textwidth]{Images/sokobanComparison}
+    \caption{Max fitness of all proposed techniques for Sokoban}
+    \label{Figure:sokobanComparison}
+\end{figure}
+
+\begin{figure}
+  	\centering
+    \includegraphics[width=0.5\textwidth]{Images/lavaGameComparison}
+    \caption{Max fitness of all proposed techniques for LavaGame}
+    \label{Figure:lavaGameComparisonmparison}
+\end{figure}
+
+\begin{figure}
+  	\centering
+    \includegraphics[width=0.5\textwidth]{Images/blockFakerComparison}
+    \caption{Max fitness of all proposed techniques for BlockFaker}
+    \label{Figure:blockFakerComparison}
+\end{figure}
 
 \section{Conclusion and Future Work}
 This research presented a system to generate levels and rules for Puzzle Script. Also, it proposed several metrics to evaluate puzzle levels and games based on their solution sequence.\\\par
 
 The proposed system generates levels regardless of the game rules. It uses two different techniques (Constructive and Genetic approach). The constructive approach resulted in 90\% playable levels which is enhanced in the genetic approach to reach 100\%, but it needs more time. Genetic approach uses GA with three different initialization methods (Random initialization, Constructive initialization, and Mixed initialization). Random initialization produces levels with different configuration from the constructive approach, but with low playability equals to 75\%.  The constructive approach produces levels with playability reaching 100\%, but with similar structure to the constructive approach. The mixed initialization is similar to constructive initialization in terms of playability but it expands the search space.\\\par
 
-The generated levels are tested using human players\footnote{\url{http://www.amidos-games.com/puzzlescript-pcg/}} and a score is given for each level. Comparing the human scores with the system scores indicate a high correlation. This high correlation is a good indication that the proposed metrics can actually measure game playability and challenge. The correlation is higher in some games such as BlockFaker and Sokoban due to the high performance of the automated player in playing them.\\\par
+The generated levels are tested using human players and a score is given for each level. Comparing the human scores with the system scores indicate a high correlation. This high correlation is a good indication that the proposed metrics can actually measure game playability and challenge. The correlation is higher in some games such as BlockFaker and Sokoban due to the high performance of the automated player in playing them.\\\par
 
 This work is a first stone in general level and rule generation. There is a plenty to be done to expand and enhance it. As for future work, we aim to:
 \begin{itemize}
