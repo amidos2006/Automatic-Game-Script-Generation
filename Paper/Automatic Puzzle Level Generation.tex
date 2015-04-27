@@ -8,7 +8,7 @@
 \usepackage[ruled]{algorithm2e}
 \usepackage{amsmath}
 \usepackage[T1]{fontenc}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 \urlstyle{same}
 
 \pdfinfo{
@@ -39,36 +39,36 @@ amidos2002@hotmail.com, magdafayek@ieee.org\\
 \begin{document} 
 \maketitle
 \begin{abstract}
-In this paper, we present a general technique to evaluate and generate puzzle levels made by \emph{Puzzle Script}, a videogame description language for scripting puzzle games, which was created by Stephen Lavelle\cite{puzzleScript}. In this work, we propose a system to help in generating levels for Puzzle Script. Levels are generated without any restriction on the rules. Two different approaches are used with a trade off between speed (Constructive approach) and playability (Genetic approach). These two approaches use a level evaluator that calculates the scores of the generated levels based on their playability and challenge. The generated levels are assessed by human players statistically, and the results show that the constructive approach is capable of generating playable levels up to 90\%, while genetic approach can reach up to 100\%. The results also show a high correlation between the system scores and the human scores.
+In this paper, we present a general technique to evaluate and generate puzzle levels made by Puzzle Script, a videogame description language for scripting puzzle games, which was created by Stephen Lavelle\cite{puzzleScript}. We propose a system to help in generating levels for Puzzle Script without any restriction on the rules. Two different approaches are used with a trade off between speed (Constructive approach) and playability (Genetic approach). These two approaches use a level evaluator that calculates the scores of the generated levels based on their playability and challenge. The generated levels are assessed by human players statistically, and the results show that the constructive approach is capable of generating playable levels up to 90\%, while genetic approach can reach up to 100\%. The results also show a high correlation between the system scores and the human scores.
 \end{abstract}
 
 \section{Introduction}
 During the early days of Video Games, games were created by few people in their spare time. Most of the time was spent in programming the game, while a small portion was dedicated for graphics, sounds, and music because of the technical limitations of the devices at that time. As these limitation are no more, producing a game takes more time than before. Most of that time is spent on creating content for the game (graphics, music, sounds, levels, and ...etc)\cite{budgetAAA}; for example creating graphics for a huge main stream game may take hundreds of artist working for a year or two. That is why the production cost of a huge game reaches millions of dollars\cite{gameCost}.\\\par
 
-That huge production cost is one of the reasons for the use of Procedural Content Generation(PCG). PCG means generating game content using a computer. It was first developed due to technical limitations (small disk space) and the need to provide a huge amount of content\cite{pcgFirstGame}. Although technical difficulties become history and storage is no longer a problem, PCG is still one of the hot topics in Video Games Industry and Research. PCG helps us reduce development time and cost, be creative, and understand the process of creating game content. PCG can be used to generate different game aspects for example Textures, Sounds, Music, Levels, Rules, and ...etc.\\\par
+This huge production cost is one of the reasons for the use of Procedural Content Generation(PCG). PCG means generating game content using a computer. It was first developed due to technical limitations (small disk space) and the need to provide a huge amount of content\cite{pcgFirstGame}. Although technical difficulties become history and storage is no longer a problem, PCG is still one of the hot topics in Video Games Industry and Research. PCG helps us reduce development time and cost, be creative, and understand the process of creating game content. PCG can be used to generate different game aspects for example Textures, Sounds, Music, Levels, Rules, and ...etc.\\\par
 
-Level Generation has been in industry since dawn of games in order to decrease the game size, but it is now used to introduce huge amount of levels that humans can not generate manually in reasonable time. Level Generation has always been done for a specific game using lots of hacks to improve the output result. These hacks cause the output levels to follow certain guidelines which may cause elimination of huge amounts of possible levels but on the other hand these guidelines ensure that the output levels are all playable (can reach goal of the game) and satisfactory by all players\cite{mcGenerateEverything}.\\\par
+Level Generation is used to introduce a huge amount of levels that humans can not generate manually in a reasonable time. Level Generation has always been done for a specific game using lots of hacks to improve the output result. These hacks cause the output levels to follow certain guidelines which may cause elimination of huge amounts of possible levels but on the other hand these guidelines ensure that the output levels are all playable (can reach goal of the game) and satisfactory by all players\cite{mcGenerateEverything}.\\\par
 
-In this paper, we propose a system to generate playable puzzle levels without any restrictions or hacks. we utilize small prior knowledge about puzzle script to ensure playability and challenge.
+In this paper, we propose a system to generate playable puzzle levels without any restrictions or hacks. we utilize small prior knowledge about Puzzle Script to ensure playability and challenge.
 
 \section{Background}
 We can not generate general levels without having a methodology to describe the games. Video Game Description Language(VGDL) was originally invented to help on the work for General Video Game Playing(GVGP)\cite{gvgp} at Standford University. Puzzle Script(PS) is a VGDL created by Stephan Lavelle to help game designers and developers to create puzzle games\cite{puzzleScript}. Games generated by PS are time stepped games similar to Sokoban\cite{sokoban}. PS file starts with some meta data like game name, author name, and website then it is divided into 7 sections objects, legend, sounds, collision layers, rules, win conditions, and levels.\\\par
 
-In this work, we focus on rules, win conditions, and levels section. Rules are a set of production rules that govern how the game will be played. For example, \textbf{[> Player | Crate] -> [> Player | > Crate]} means if there is a Player and Crate beside each other, and the Player moves towards the Crate, then both the Player and the Crate will move in the same direction. Win conditions are group of rules that identify when the level should end. Levels are 2D matrices showing the current configuration for each game level using objects identified in objects section.
+In this work, we focus on rules, win conditions, and levels section. Rules are a set of production rules that govern how the game will be played. For example, \begin{center}[> Player | Crate] -> [> Player | > Crate]\end{center} means if there is a Player and Crate beside each other, and the Player moves towards the Crate, then both the Player and the Crate will move in the same direction. Win conditions are group of rules that identify when the level should end. Levels are 2D matrices showing the current configuration for each game level using objects identified in objects section.
 
 \section{Literature Review}
-As there is nothing before like this work, this section will show all previous work that can be slightly related to our problem. One of the earliest research in Puzzle Games was by Murase et al.\cite{sokobanLevelGenerationOld}. Murase et al. work focused on generating well designed solvable levels for Sokoban\cite{sokoban}. Breadth First Search(BFS) is used to check playability. Results show that for every 500 generated levels only 14 are considered as good levels. These levels are characterized by having a short solution sequence. Taylor and Parberry\cite{sokobanLevelGenerationNew} followed Yoshio Murase et al.\cite{sokobanLevelGenerationOld} work to improve generated level quality. Their system places the crates at the farthest possible location using a similar algorithm to BFS. The generated levels are not suffering from the problem of short solution sequences presented in Yoshio Murase et al.\cite{sokobanLevelGenerationOld} work.\\\par
+As there is nothing before like this work, this section will show all previous work that can be slightly related to our problem. One of the earliest research in Puzzle Games was by Murase et al.\cite{sokobanLevelGenerationOld}. Murase et al. work focused on generating well designed solvable levels for Sokoban\cite{sokoban}. Breadth First Search(BFS) is used to check playability. Results show that for every 500 generated levels only 14 are considered as good levels. These levels are characterized by having a short solution sequence. Taylor and Parberry\cite{sokobanLevelGenerationNew} followed Yoshio Murase et al. work\cite{sokobanLevelGenerationOld} to improve generated level quality. Their system places the crates at the farthest possible location from the target using a similar algorithm to BFS. The generated levels are not suffering from the problem of short solution sequences presented in Yoshio Murase et al. work\cite{sokobanLevelGenerationOld}.\\\par
 
-Rychnovsky\cite{fruitDatingPCG} work focused on generating levels for his new game Fruit Dating\cite{fruitDating}. Rychnovsky developed a level editor that can be used to generate new levels or test playability of certain level. Generating new levels is done by generating level layout and placing game objects based on some prior game knowledge, then check for a solution using a similar algorithm to BFS. The technique doesn't take more than couple of minutes to generate a level with no direct way to influence difficulty in the generated levels.\\\par
+Rychnovsky\cite{fruitDatingPCG} work focused on generating levels for his new game Fruit Dating\cite{fruitDating}. Rychnovsky developed a level editor that can be used to generate new levels or test playability of certain level. Generating new levels is done by generating level layout and placing game objects in certain locations based on some prior game knowledge, then check for a solution using a similar algorithm to BFS. The technique doesn't take more than couple of minutes to generate a level with no direct way to influence difficulty in the generated levels.\\\par
 
 Shaker et al.\cite{ctrAutomaticGeneration} worked on generating levels for physics based puzzle games. They applied their technique on Cut The Rope(CTR)\cite{cutTheRope}. Shaker et al. used Grammar Evolution (GE) technique to generate levels for CTR. The grammar is designed to ensure that every game object appears at least one time. The fitness function depends on some heuristic measures based on prior knowledge about the game and the result of several playouts using a random player. Shaker et al. generated 100 playable levels and analyzed them according to some metrics such as frequency, density, and ...etc. Shaker et al.\cite{ctrSimulationApproach} conducted their research on CTR to improve generated level quality. They replaced the random player with an intelligent one. The generated levels are far more diverse because the random player discards some potential levels in the search space.\\\par
 
-Shaker et al.\cite{ctrProgressiveApproach} introduced a new generation technique named Progressive Approach. It can be used on any kind of games to reduce the generation time. Progressive Approach starts by using GE to generate a time-line of game events, then an intelligent player is used to map and evaluates the time-line to a playable level. Shaker et al. tested the new technique on CTR and compared its results with their previous work\cite{ctrSimulationApproach}. The results indicates a huge decrease in generation time, but the quality of the levels depends on the intelligent player used in the mapping process.\\\par
+Shaker et al.\cite{ctrProgressiveApproach} introduced a new generation technique named Progressive Approach. It can be used on any kind of games to reduce the generation time. Progressive Approach starts by using GE to generate a time-line of game events, then an intelligent player is used to map and evaluate the time-line to a playable level. Shaker et al. tested the new technique on CTR and compared its results with their previous work\cite{ctrSimulationApproach}. The results indicates a huge decrease in generation time, but the quality of the levels depended on the mapping process of the intelligent player.\\\par
 
-Smith et al.\cite{refractionStudy} worked on generating puzzle levels for Refraction\cite{refraction}. The system starts by generating a solution outline, then it translates into a geometric layout, at last the system tests the generated level for playability. Smith et al. implemented the system into two different ways (Algorithmic approach and Answer Set Programming (ASP)). Results shows that ASP is faster than Algorithmic approach, while Algorithmic approach produces more diverse levels than ASP.
+Smith et al.\cite{refractionStudy} worked on generating puzzle levels for Refraction\cite{refraction}. The system starts by generating a solution outline, followed by translating the outline into a geometric layout, then at last it tests the generated level for playability. Smith et al. implemented the system using two different ways (Algorithmic approach and Answer Set Programming (ASP)). Results shows that ASP is faster than Algorithmic approach, while Algorithmic approach produces more diverse levels than ASP.
 
 \section{Methodology}
-Level Generation is not an easy task specially when the game rules are not known before generation. Although some of the previous research suggested a general technique to generate levels, it is still based on designing a game specific fitness function. Our approach relies heavily on the understanding of the current game rules and some prior knowledge about Puzzle Script language. \figref{levelGenBlockDiagram} shows a high level block diagram of the system. The following subsections will describe each block in details.\\\par
+Level Generation is not an easy task specially when the game rules are not known before generation. Although some of the previous research suggested a general technique to generate levels, it is still based on designing a game specific fitness function. Our approach relies heavily on the understanding of the current game rules and some prior knowledge about Puzzle Script language. \figref{levelGenBlockDiagram} shows a high level block diagram of the system.\\\par
 
 \begin{figure*}[ht]
   	\centering
@@ -77,7 +77,7 @@ Level Generation is not an easy task specially when the game rules are not known
     \label{Figure:levelGenBlockDiagram}
 \end{figure*}
 
-The system starts by analyzing the current game rules using a Rule Analyzer. The output of the Rule Analyzer (Rule Analysis) and the Level Outlines are fed to a Level Generator. The Level Generator generates some initial level layouts using Genetic Algorithm(GA) or Constructive Algorithm. The generated levels are subjected to a Level Evaluator. The Level Evaluator measures level playability and challenge using an automated player. The following subsections describe each of these components in details.
+The system starts by analyzing the current game rules using a Rule Analyzer. The output of the Rule Analyzer (Rule Analysis) and the Level Outlines are fed to a Level Generator. The Level Generator generates some initial level layouts using Genetic Algorithm(GA) or Constructive Algorithm. The generated levels are subjected to a Level Evaluator. The Level Evaluator measures their playability and challenge using an automated player. The following subsections will describe each block in details.
 
 \subsection{Rule Analyzer}
 The Rule Analyzer is the first module in our system. It analyzes game rules and extract some useful information about each object. The extracted information is fed to the Level Generator and the Level Evaluator. Each object is assigned:
@@ -86,25 +86,25 @@ The Rule Analyzer is the first module in our system. It analyzes game rules and 
 	\begin{itemize}
 		\item \emph{Rule Object:} Any object that appears in a rule is defined as a rule object.
 		\item \emph{Player Object:} It is defined by name "Player" in the Puzzle Script.
-		\item \emph{Winning Object:} They are objects appearing in the winning condition.
+		\item \emph{Winning Object:} They are two objects appearing in the winning condition.
 		\item \emph{Solid Object:} All objects that does not appear in any rule but on the same collision layer with a Rule Object.
 	\end{itemize}
-	\item \emph{Subtype:} each Rule Object is assigned a Subtype based on its presence in game rules. These subtypes are:
+	\item \emph{Subtype:} each Rule Object is assigned a Subtype based on its presence in the game rules. These subtypes are:
 	\begin{itemize}
-		\item \emph{Critical Object:} is an object that has appeared with the Player object and one of the Winning Objects in the rules.
-		\item \emph{Normal Object:} same like the Critical Object but it only appears with one of them.
+		\item \emph{Critical Object:} is an object that has appeared with the Player object and one of the Winning Objects in rules.
+		\item \emph{Normal Object:} same like the Critical Object but it appears with either one of them.
 		\item \emph{Useless Object:} is an object that neither appears with the Player Object nor the Winning Objects in any rule.
 	\end{itemize}
 	\item \emph{Priority:} It reflects the number of times each object appears in the rules.
-	\item \emph{Behaviors:} Behaviors are analyzed from the difference between the left hand side and the right hand side of each rule for every object. Every object can have one or more behavior. There are 4 kinds of behaviors:
+	\item \emph{Behaviors:} Behaviors are analyzed from the difference between the left hand side and the right hand side for every object in each rule. Every object can have one or more behavior. There are 4 kinds of behaviors:
 		\begin{itemize}
 			\item \emph{Move:} The object on the left hand side have different movement than the right hand side.
-			\item \emph{Teleport:} The object on the left hand side have different location in the rule in the right hand side.
-			\item \emph{Create:} The number of a certain object on the left hand side is less than its number on the right hand side.
-			\item \emph{Destroy:} The number of a certain object on the left hand side is more than its number on the right hand side.
+			\item \emph{Teleport:} The object on the left hand side have different location in the rule than the right hand side.
+			\item \emph{Create:} The number of times the object appears on the left hand side is less than its number on the right hand side.
+			\item \emph{Destroy:} The number of times the object appears on the left hand side is more than its number on the right hand side.
 		\end{itemize}
-	\item \emph{Minimum Number:} It is the maximum number of times for an object to appear in the left hand side of game rules except for objects with Create behavior. In create rules, the numbers reflects the least number of appearances for the object.
-	\item \emph{Relations:} It is a list of all objects that appears in the same rule with a certain object.
+	\item \emph{Minimum Number:} It is the maximum number of times for an object to appear in the left hand side of game rules except for objects with Create behavior. The numbers reflects the least number of times for the object in create rules.
+	\item \emph{Relations:} It is a connected graph for all objects that appears in the rules and winning conditions.
 \end{itemize}
 
 \subsection{Level Generator}
@@ -132,11 +132,11 @@ Constructive Approach uses information from the Rule Analyzer to modify the Leve
 \end{algorithm}
 \setlength{\textfloatsep}{10pt}
 
-The algorithm consists of two main part. The first part is responsible for determining the amount of objects that should be presented in the current level outline. Each object type contributes by a percentage equal to its minimum number to make sure that all rules can happen. Winning objects have an equal amount of objects except if any of these objects have a Create behavior. The second part is responsible for inserting game objects in the most suitable location. All the insertion algorithms need to find the most suitable empty locations to insert the new Object. The most suitable location is calculated based on the features of the inserted object. If the object has a Move behavior, it should be inserted at spots with the most free locations around it. Otherwise any random free location is okay. The second winning object is inserted on the same place of the first one if No rule is used. All critical objects are inserted at least one time, while normal rule objects are selected based on their Priority feature.
+The algorithm consists of two main part. The first part is responsible for determining the amount of objects that should be presented in the current level outline. Each object type contributes by a percentage equal to its minimum number to make sure that all rules can happen. Winning objects have an equal amount of objects except if any of these objects have a Create behavior. The second part is responsible for inserting game objects in the most suitable location. The most suitable location is calculated based on the features of the inserted object. If the object has a Move behavior, it should be inserted at spots with the most free locations around it. Otherwise any random free location is okay. The second winning object is inserted on the same place of the first one if No rule is presented. All the critical objects are inserted in the level at least one time. Normal rule objects are selected based on their Priority feature.
 
 \subsubsection{Genetic Approach}
 This method uses GA to evolve level outlines to playable levels. Elitism is used to ensure that the best levels are carried to the next generation.\\\\
-\emph{\textbf{Chromosome Representation:}} In this technique levels are represented as 2D matrix. Each location value represents all the objects at that location.\\\\
+\emph{\textbf{Chromosome Representation:}} In this technique levels are represented as 2D matrix. Each value represents all the objects at that location.\\\\
 \emph{\textbf{Genetic Operators:}} Crossover and Mutation are used to ensure better levels in the following generations. One point crossover is used where level rows are swapped between the two selected chromosomes. Mutation changes any random selected position using the following:
 \begin{itemize}
 	\item \emph{Creating an object:} a random object is selected to replace an empty position in the level.
@@ -152,7 +152,7 @@ The mutation operation happens by subjecting the level outline to these 3 method
 \end{itemize}
 
 \subsection{Level Evaluator}
-Level Evaluator is responsible for evaluating the generated levels. Level evaluation is based on some global knowledge about the Puzzle Script Language and Puzzle Games. The evaluation takes place by measuring the level playability and some heuristics measures. Level playability is achieved by using an automated player which will be discussed later. These heuristics measures ensure that the solution have more moves with some thinking ahead. \figref{diffLevelsSokoban} shows several levels designed for Sokoban game where all are playable but some of them are more interesting than the others.
+Level Evaluator is responsible for evaluating the generated levels. The evaluation takes place by measuring the level playability and some heuristics measures. Level playability is achieved by using an automated player which will be discussed later. The heuristics measures ensure that the solution have moves with some thinking ahead. \figref{diffLevelsSokoban} shows several levels designed for Sokoban game where all are playable but some of them are more interesting than the others.
 \begin{figure}[ht]
   	\centering
     \includegraphics[width=0.45\textwidth]{Images/diffLevelsSokoban}
@@ -163,7 +163,7 @@ Level Evaluator is responsible for evaluating the generated levels. Level evalua
 \subsubsection{Automated Player}
 Our Level Evaluator uses a modified version of the BestFS Algorithm as the automated player. BestFS Algorithm was introduced in Lim et al.\cite{puzzleScriptGeneration} work. BestFS is similar to BFS algorithm but instead of exploring states sequentially, it sorts them according to a score generated from a fitness function. This causes the algorithm to explore the more important nodes first, helping it to reach the solution faster.\\\par
 
-In any proper game, rules must be applied before achieving the winning condition. Based on that fact, we extended Lim et al. metrics to measure the distance between rule objects in the left hand side of each rule. For example, \figref{lavaGame} shows a level from a game called LavaGame. LavaGame is a puzzle game where the goal is to make the player reaches the exit. The path towards the exit is usually stuck by lava which can be destroyed by pushing a crate over it. Player's aim is to move crates towards the lava to unblock his path towards the exit. This aim is somehow explained in the game rules, so by using the output of Rule Analyzer, we can know which objects need to be closer.
+In any proper game, rules must be applied before achieving the winning condition. Based on that fact, we extended Lim et al. fitness function to measure the distance between rule objects in the left hand side of each rule. For example, \figref{lavaGame} shows a level from a game called LavaGame. LavaGame is a puzzle game where the goal is to make the player reaches the exit. The path towards the exit is usually stuck by lava which can be destroyed by pushing a crate over it. Player's aim is to move crates towards the lava to unblock his path towards the exit. This aim is somehow explained in the game rules, so by using the output of Rule Analyzer, we can know which objects need to be closer.
 
 \begin{figure}
   	\centering
@@ -175,11 +175,11 @@ In any proper game, rules must be applied before achieving the winning condition
 \subsubsection{Heuristic Measures}
 Heuristic measures are calculated using a weighted function of six measures.
 \begin{itemize}
-	\item \emph{Playing Score ($P_{score}$):} Playing score is used to ensure level playability. A float value is assigned for how much the level is near the solution. Based on the work by Nielsen et al.\cite{gvgpPerformanceProfiles}, a score is calculated for the initial level state using the same way and subtracted from previous value. The Playing Score can be expressed by the following equation:
+	\item \emph{Playing Score ($P_{score}$):} Playing score is used to ensure level playability. A float value is assigned for how much the level is near the solution. Based on the work by Nielsen et al.\cite{gvgpPerformanceProfiles}, a score is calculated for the initial level state using the same way and subtracted from the previous value. The Playing Score can be expressed by the following equation:
 	\begin{center}$ P_{score} = S_{play} - S_{nothing}$\end{center}
 	where $S_{play}$ is the automated player score and $S_{nothing}$ is the initial level score.
 	
-	\item\emph{Solution Length Score ($L_{score}$):} Bigger levels needs longer solution, a score is given to the ratio between solution length and level area. We analyzed 40 hand crafted levels with different area from 5 different games. A histogram is plotted for the ratio and shown in \figref{solutionLengthHistogram}. The histogram seems to follow a Normal Distribution with $\mu = 1.221$ and $\sigma = 0.461$. Based on that, the Solution Length Score is expressed by the following equation:
+	\item\emph{Solution Length Score ($L_{score}$):} Since bigger levels needs longer solution, a score is given to the ratio between the solution length and the level area. We analyzed 40 hand crafted levels with different area from 5 different games. A histogram is plotted for the ratio and shown in \figref{solutionLengthHistogram}. The histogram seems to follow a Normal Distribution with $\mu = 1.221$ and $\sigma = 0.461$. Based on that, the Solution Length Score is expressed by the following equation:
 	\begin{center}$L_{score} = Normal(\dfrac{L}{A}, 1.221, 0.461)$\end{center}
 	where $Normal(ratio, \mu, \sigma)$ is a normal distribution function, $L$ is the solution length, and $A$ is the level area.
 	\begin{figure}
@@ -192,16 +192,16 @@ Heuristic measures are calculated using a weighted function of six measures.
 	\item \emph{Object Number Score ($N_{score}$):} The Object Number Score is calculated by the following equation:
 	\begin{center}$N_{score} = 0.4 * N_{rule} + 0.3 * N_{player} + 0.3 * N_{winning}$\end{center}
 	\begin{itemize}
-		\item \emph{Number of Rule Objects ($N_{rule}$):} The number of times an object should appear in the level must be greater than or equal its minimum number property from the Rule Analyzer to ensure the possibility of applying all rules.
-		\item \emph{Number of Players ($N_{player}$):} The game should have only one player. If any level have a different value, the score will be zero.
-		\item \emph{Number of Winning Objects ($N_{winning}$):} The number of the winning objects should be equal, unless one of the winning objects have "Create" behavior.
+		\item \emph{Number of Rule Objects ($N_{rule}$):} is a score for the number of objects appearing in the level. An object is considered in the object if it appears in the level greater than or equal to its minimum number property to ensure the possibility of applying every rule.
+		\item \emph{Number of Players ($N_{player}$):} is a score for the number of players in the level. Generated levels should only have only one player.
+		\item \emph{Number of Winning Objects ($N_{winning}$):} is a score for the number of winning objects in the level. This score ensures the number of the winning objects are equal, unless one of the winning objects have "Create" behavior.
 	\end{itemize}
 	
 	\item \emph{Box Line Score ($B_{score}$):} It is similar to Taylor and Parberry metric\cite{sokobanLevelGenerationNew} to find the farthest state. This metric calculates the number of unrepeated moves found in the solution and divide it by the solution length. The following equation represents it:
 	\begin{center}$B_{score} = \dfrac{L_{unique}}{L}$\end{center}
 	where $L_{unique}$ is the number of unrepeated moves in the solution and $L$ is the solution length.
 	
-	\item \emph{Applied Rule Score ($R_{score}$):} The ratio between the number of applied rules to the solution length should be used for indicting good level design. To find the best ratio between both, We analyzed 40 hand crafted levels from 5 different games and a histogram is plotted in \figref{rulesSolutionLengthHistogram}. The histogram seems to follow a Normal Distribution with $\mu = 0.417$ and $\sigma = 0.128$. Based on that the Applied Rule Score can be expressed by the following equation:
+	\item \emph{Applied Rule Score ($R_{score}$):} The ratio between the number of applied rules to the solution length should be used for indicating good level design. To find the best ratio, we analyzed 40 hand crafted levels from 5 different games and a histogram is plotted in \figref{rulesSolutionLengthHistogram}. The histogram seems to follow a Normal Distribution with $\mu = 0.417$ and $\sigma = 0.128$. Based on that the Applied Rule Score can be expressed by the following equation:
 	\begin{center}$R_{score} = Normal(\dfrac{R_{app} \pm R_{none}}{L}, 0.417, 0.128)$\end{center}
 	where $Normal(ration, \mu, \sigma)$ is a normal distribution function, $R_{app}$ is the number of applied rules, $R_{none}$ is the number of applied rules without any previous actions, and $L$ is the solution length.
 	\begin{figure}
@@ -236,7 +236,7 @@ Our system is tested against five different games. The five games are completely
 \end{itemize}
 
 \subsection{Automated Player}
-Forty handcrafted levels from the five different games were used to compare the new player with original one. Levels are designed with different sizes and ideas to cover different design aspects. Both players plays all the forty levels and reports the solution length and the number of states explored. \figref{automatedPlayerPerformance} shows the average number of states each player explores in each game to reach the goal. The new player outperforms the original player in Sokoban and GemGame, but its almost the similar in the rest of the games. The new players performed badly in DestroyGame and LavaGame. The main reason behind the bad performance in these games is the presence of the Destroy behavior as the core mechanic of the game.\\\par
+Forty handcrafted levels from the five different games were used to compare the new player with the original one. Levels are designed with different sizes and ideas to cover different design aspects. Both players plays all the forty levels and reports the solution length and the number of states explored. \figref{automatedPlayerPerformance} shows the average number of states each player explores in each game to reach the goal. The new player outperforms the original player in Sokoban and GemGame, but its almost the similar in the rest of the games. The new players performed badly in DestroyGame and LavaGame because of the presence of the Destroy behavior as the core mechanic of the game.\\\par
 
 \begin{figure}
   	\centering
@@ -245,7 +245,7 @@ Forty handcrafted levels from the five different games were used to compare the 
     \label{Figure:automatedPlayerPerformance}
 \end{figure}
 
-\figref{automatedPlayerLength} shows the average solution length for each game for the different players. The new player produces  a slightly shorter solutions than the original player. Comparing both \figref{automatedPlayerPerformance} and \figref{automatedPlayerLength} a correlation can be noticed between both of them except for Sokoban. Sokoban does not follow the same pattern due to being abstract as the game has a very small amount of objects and just one rule. This abstraction is the main reason both players can reach the goal in almost the same amount of steps.
+\figref{automatedPlayerLength} shows the average solution length for each game for the both players. The new player produces  a slightly shorter solutions than the original player. Comparing both \figref{automatedPlayerPerformance} and \figref{automatedPlayerLength} a correlation can be noticed between both of them except for Sokoban. Sokoban does not follow the same pattern due to being abstract as the game has a very small amount of objects and just one rule. This abstraction is the main reason both players can reach the goal in almost the same amount of steps.
 
 \begin{figure}
   	\centering
@@ -255,7 +255,7 @@ Forty handcrafted levels from the five different games were used to compare the 
 \end{figure}
 
 \subsection{Level Generation}
-This section shows the results of the level generation techniques. The new automated player is used with a limit of 5000 explored states to ensure fast execution. \figref{levelLayouts} shows the eight different level layouts are used to generate levels which are the same like handcrafted games.\\\par
+This section shows the results of the level generation techniques. The new automated player is used with a limit of 5000 explored states to ensure fast execution. Level generation is tested against several level layouts. \figref{levelLayouts} shows the eight different level layouts used in generation.\\\par
 \begin{figure}
   	\centering
     \includegraphics[width=0.45\textwidth]{Images/levelLayouts}
@@ -263,24 +263,24 @@ This section shows the results of the level generation techniques. The new autom
     \label{Figure:levelLayouts}
 \end{figure}
 
-All the scores are from all the following techniques are combined and a general correlation is calculated. \figref{totalCorrelation} shows the correlation between the system score and human score for all games and techniques.
+Scores from all the following techniques are combined and compared to human feedback. \figref{totalCorrelation} shows the correlation between system scores and human scores for all levels. The figure shows a good correlation between them. The reason for not having a very high correlation is due to the small amount of collected data and the absence of a concrete idea about a good level.
 
 \begin{figure}
   	\centering
-    \includegraphics[width=0.5\textwidth]{Images/sokobanCorrelation}
+    \includegraphics[width=0.5\textwidth]{Images/totalCorrelation}
     \caption{Correlation between all automated player score and human scores for all games}
     \label{Figure:totalCorrelation}
 \end{figure}
 
 \subsubsection{Constructive Approach}
-One hundred level are generated using the constructive algorithm described in \secref{constructiveApproach}. Each level is evaluated and the best two levels are selected. Out of the 80 levels only 15\% are reported as unplayable by the system. By testing these levels by human players only 10\% are completely unplayable while the remaining levels are very difficult levels (needs more states to be explored).
+One hundred level are generated using the constructive algorithm for each layout. Each level is evaluated and the best two levels are selected. Out of the 80 selected levels only 15\% are reported as unplayable by the system. By testing these levels by human players only 10\% are completely unplayable while the remaining levels are very difficult levels to be solved by the automated player with the current limit.
 
 \subsubsection{Genetic Approach}
-The genetic approach gives the system the ability to modify the generated levels to improve their playability and challenge. GA is used for 20 generations with a population equal to 50 chromosomes. The crossover rate is around 70\% and the mutation rate is around 10\%. GA is applied on each level layout and the best two chromosomes from each layout are selected. Elitism is used with probability equals to 2\% to ensure best chromosome doesn't disappear with generations.
+The genetic approach gives the system the ability to modify the generated levels to improve their playability and challenge. GA is used for 20 generations with a population equal to 50 chromosomes. The crossover rate is around 70\% and the mutation rate is around 10\%. GA is applied on each level layout and the best two chromosomes from each layout are selected. Elitism is used with probability equals to 2\% to ensure the best chromosome survive for the next generation.
 \begin{itemize}
-	\item \emph{Random Initialization:} Out of the 80 levels only 75\% of the generated levels are playable although the automated player reported only 73.75\%.
-	\item \emph{Constructive Initialization:} Using constructive algorithm to initialize the GA increase the overall level playability from 90\% to reach 100\% by expanding the search space to find better levels than the constructive approach.
-	\item \emph{Mixed Initialization:} Same like constructive initialization with 100\% playability and more diverse levels.
+	\item \emph{Random Initialization:} Out of the 80 selected levels only 75\% of them are playable although the automated player reported only 73.75\%.
+	\item \emph{Constructive Initialization:} Using constructive algorithm to initialize the GA increase the overall level playability from 90\% to reach 100\% by tuning the unplayable levels from the constructive approach.
+	\item \emph{Mixed Initialization:} Same like constructive initialization with 100\% playability but with more diversity.
 \end{itemize}
 
 \subsubsection{Fitness Comparison}
@@ -308,13 +308,13 @@ The following figures shows a comparison between the max fitness of the all pres
 \end{figure}
 
 \section{Conclusion and Future Work}
-This research presented a system to generate levels and rules for Puzzle Script. Also, it proposed several metrics to evaluate puzzle levels and games based on their solution sequence.\\\par
+This research presented a system to generate levels and rules for Puzzle Script. Also, it proposed several metrics to evaluate puzzle levels based on their solution sequence.\\\par
 
-The proposed system generates levels regardless of the game rules. It uses two different techniques (Constructive and Genetic approach). The constructive approach resulted in 90\% playable levels which is enhanced in the genetic approach to reach 100\%, but it needs more time. Genetic approach uses GA with three different initialization methods (Random initialization, Constructive initialization, and Mixed initialization). Random initialization produces levels with different configuration from the constructive approach, but with low playability equals to 75\%.  The constructive approach produces levels with playability reaching 100\%, but with similar structure to the constructive approach. The mixed initialization is similar to constructive initialization in terms of playability but it expands the search space.\\\par
+The proposed system generates levels regardless of the game rules. It uses two different techniques (Constructive and Genetic approach). The constructive approach resulted in 90\% playable levels which is enhanced in the genetic approach to reach 100\%, but it needs more time. Genetic approach uses GA with three different initialization methods (Random initialization, Constructive initialization, and Mixed initialization). Random initialization produces levels with different configuration from the constructive approach, but with low playability equals to 75\%.  The constructive approach produces levels with playability reaching 100\%, but with similar structure to the constructive approach. The mixed initialization is similar to constructive initialization in terms of playability but it expands the search space which need more time to get better fitness.\\\par
 
 The generated levels are tested using human players and a score is given for each level. Comparing the human scores with the system scores indicate a high correlation. This high correlation is a good indication that the proposed metrics can actually measure game playability and challenge. The correlation is higher in some games such as BlockFaker and Sokoban due to the high performance of the automated player in playing them.\\\par
 
-This work is a first stone in general level and rule generation. There is a plenty to be done to expand and enhance it. As for future work, we aim to:
+This work is a first stone in general level generation. There is a plenty to be done to expand and enhance it. As for future work, we aim to:
 \begin{itemize}
 	\item analyze the effect of each metric on the level generation.
 	\item utilize the metrics to analyze the search space for level generation.
