@@ -391,4 +391,76 @@ The following figures shows a comparison between the max fitness of the all pres
 From the previous figures its clear that Constructive Algorithm always generate a challenging playable levels regardless of the input rules. That point is the main reason behind using the constructive algorithm in Rule Generation besides being a fast generation technique.
 
 \section{Rule Generation}
-to be written.
+This section shows the results of the rule generation techniqu introduced in \chref{Chapter4}. The new automated player is used with a fixed number of explored states. It is limited to 1500 explored states to ensure fast execution.\\\par
+
+GA is used using 50 chromosomes for 50 generations, with crossover rate equals 65\%, mutation rate equals 10\%, and elitism rate equals 2\%. \figref{ruleMaxFitness} and \figref{ruleAvgFitness} shows the max fitness and average fitness for all the following experiments respectively. The graphs shows a very slow rate of fitness increase due to the vast majority of unplayable games found in the space. The max fitness and average fitness of Fixed Rules experiment are very high due to the small search space of the win conditions compared to rules search space.
+
+\gfigure{Maximum fitness for Rule Generation experiments}{ruleMaxFitness}{width=6.0in}{Images/ruleMaxFitness}
+
+\gfigure{Average fitness for Rule Generation experiments}{ruleAvgFitness}{width=6.0in}{Images/ruleAvgFitness}
+
+The following subsections explain the required input data for each experiments, followed by the results for each one.
+
+\subsection{Input Description}
+The input for rule generation is the objects and the collision layers. Eight different objects are used over 4 different collision layers. \figref{ruleGenCollisionLayer} shows the different objects distributed on the collision layers. Background is alone in the lowest layer, while Player and Wall are in the highest layer. The other five objects are distributed across the top three layers.
+
+\gfigure{Collision layers for Rule Generation objects}{ruleGenCollisionLayer}{width=3.0in}{Images/ruleGenCollisionLayer}
+
+The level outline used in generation is shown in \figref{ruleGenLevelOutline}. The outline is not small nor big which ensure fast execution and various challenging levels.
+
+\gfigure{The level outline used for Rule Generation}{ruleGenLevelOutline}{width=2.5in}{Images/ruleGenLevelOutline}
+
+\subsection{No Restriction}
+The first experiment where there is no restriction on levels, rules, win condition. The output games are playable but they are not any challenging. The best generated game have the following rules:
+\begin{center}
+[ action Player ] -> [ $\wedge$ Object4 ]
+\end{center}
+\begin{center}
+Some Object4 on Object1
+\end{center}
+where the rules are used to reach the goal. Other generated playable games, rules have no relation with the goal. These games have different rules but all have the same winning condition:
+\begin{center}
+Some Player on Target
+\end{center}
+this winning condition is the main reason for having a playable game.
+
+\subsection{Fixed Level}
+The second experiment was to fix the level with certain objects instead of using the level generator. \figref{ruleFixedLevel} shows the selected level which is one of the hand crafted levels from Sokoban. The usage of the fixed level is it to ensure that our level generator is not the drawback in the Rule Generation process.\\\par
+
+\gfigure{Fixed level used for Rule Generation}{ruleFixedLevel}{width=2.5in}{Images/ruleFixedLevel}
+
+The output games are playable but with very weird rules. All generated rules looks like these:
+\begin{center}
+[ Object4 ] -> [ Object1 ]
+\end{center}
+\begin{center}
+[ Player | \ \ \ \ |  Object2 ] -> [  Object3 | $\vee$ Object5 | \ \ \ \ ]
+\end{center}
+\begin{center}
+All Object4 on Player
+\end{center}
+The first rule is the main reason that the game is playable while all the second rule is nothing. The winning rule also is not correct as both objects on same collision layer which makes the first rule valid as it destroys all Object4 from the map to be solvable.
+
+\subsection{Fixed Win Condition}
+The third experiment was to fix the win condition and search for the possible rules that can fit with it. The win condition used is Sokoban condition:
+\begin{center}
+All Object1 on Object4
+\end{center}
+
+The output games are playable and can be solved in several steps which is better from the previous experiment. The best generated rules are:
+\begin{center}
+[  Object1 | $\vee$ Player ] -> [ \ \ \ \ | $\vee$ Player ]
+\end{center}
+This rule destroys Object1 when the player moves beside it. This rule makes the game playable and not so trivial. Other playable generated games just removed the Player from left hand side which transform the game to be trivial like the previous game.
+
+\subsection{Fixed Rules}
+The last experiment was to fix the rules and search for the best winning condition. This experiment is easier than all the previous experiments as the search space for win condition is much smaller. The rules were fixed to Sokoban rule:
+\begin{center}
+[ > Player | Object4 ] -> [ > Player | > Object4 ]
+\end{center}
+
+The best output win rule was Sokoban win rule which was predicted
+\begin{center}
+All Object1 on Object4
+\end{center}
+Other win rules are all the same like sokoban but with swapping Object1 and Object4 or having Object2 or Object3 instead of Object1. Also one interesting win rule with lower fitness than Sokoban was No Object1 on Object4 which is easier than Sokoban to be played that's why they have lower fitness due to our new Level Fitness used.

@@ -425,17 +425,17 @@ Level Generator is responsible for generating random levels for the generated ru
 \subsection{Rule and Level Evaluator}
 Rule and Level Evaluator is responsible for giving a score for the generated games (rules and levels). It is a mixture between the Level Evaluator from \secref{levelEvaluator} and Lim et al.\cite{puzzleScriptGeneration} Evaluator. The game evaluation score can be expressed by the following equation:
 \begin{center}
-$RL_{score} = 0.3 * L_{score} + 0.7 * R_{score}$
+$RL_{score} = 0.5 * L_{score} + 0.5 * R_{score}$
 \end{center}
-where $L_{score}$ is the level score and $R_{score}$ is the rule score. The rule score gets higher weight than the level score as it is the core of game generation, if the rules are bad, the game will not be playable.
+where $L_{score}$ is the level score and $R_{score}$ is the rule score.
 
 \subsubsection{Level Score}
-It uses the automated player described in \secref{automatedPlayer} to give each generated level a score and the best scored level is the selected one. The level score is calculated using the same equation in \secref{levelScoreEquation} except for the Playability Score. The Do Nothing Score is removed from Playability Score calculations. The Do Nothing Score removal gives an equal chances to all the winning conditions. For example, the No rule always have a Do Nothing Score equal to zero, while other rules have a value. Leaving the Do Nothing score, the generator will always favor the No rule over other rules.
+It uses the automated player described in \secref{automatedPlayer} to give each generated level a score and the best scored level is the selected one. The level score is calculated using the same equation in \secref{levelScoreEquation} except for the Playability Score. Instead of using a range of values, It is just indicates if it is playable or not.
 
 \subsubsection{Rule Score}
 It is divided into 2 different parts rule heuristics score and rule validity score. The rule score can be expressed by the following equation:
 \begin{center}
-$R_{score} = 0.5 * H_{score} + 0.5 * V_{score}$
+$R_{score} = 0.6 * H_{score} + 0.4 * V_{score}$
 \end{center}
 where $H_{score}$ is the rule heuristic score and $V_{score}$ is the rule validity score.\\\\
 \textbf{Rule Heuristics Score ($H_{score}$):} It is similar to Lim et al.\cite{puzzleScriptGeneration} heuristics. It is a group of heuristics that ensures higher chance of playability for the generated games. The Rule Heuristic Score can be expressed by the following equation:
