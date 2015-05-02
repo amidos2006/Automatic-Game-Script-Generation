@@ -148,7 +148,7 @@ The following algorithms are responsible for inserting objects based on the numb
 	\label{Algorithm:solidObjects}
 \end{algorithm}
 
-Before inserting the Player to the level, Winning Objects should be inserted. \algref{winningObjects} is responsible for inserting Winning Objects into the level outline. The algorithm generates an equal amount of both winning objects except if any of these objects have a Create behavior. The amount of the generated Winning Objects must be a multiple of their minimum number to ensure that all rules can be applied. The first winning object is inserted at any suitable empty location, while the other must be inserted at the farthest suitable empty location. Inserting at a very far location ensures a more difficult level. If the Winning Rule is No then the second object will be inserted at the same location of the first object.\\
+Before inserting the Player to the level, Winning Objects should be inserted. \algref{winningObjects} is responsible for inserting Winning Objects into the level outline. The algorithm generates an equal amount of both winning objects except if any of these objects have a Create behavior. The amount of the generated Winning Objects must be a multiple of their minimum number to ensure that all rules can be applied. The first winning object is inserted at any suitable empty location, while the other must be inserted at the farthest suitable empty location. Inserting at a very far location ensures a more difficult level. If the Winning Condition is No then the second object will be inserted at the same location of the first object.\\
 
 \begin{algorithm}[H]
 	\KwData{level outline, rule analysis, number of objects}
@@ -171,7 +171,7 @@ Before inserting the Player to the level, Winning Objects should be inserted. \a
 		
 		\BlankLine
 		\For{1 \KwTo minObject2}{
-			\If{Winning Rule != No}{
+			\If{Winning Condition != No}{
 				location = Get the farthest suitable empty location for Winning Object 2\;
 			}
 			levelOutline[location] = Winning Object 2\;
@@ -397,7 +397,7 @@ The system starts by generating random rules for different games. These rules ar
 
 \subsection{Rule Generator}
 Rule Generator is responsible for generating and evolving rules. Rule generator uses GA for the evolution process. It is the same system used by Lim et al.\cite{puzzleScriptGeneration} in his work.\\\\
-\textbf{Chromosome Representation:} The chromosome is represented as a list of rules of maximum of four and a minimum of one and a single winning rule. \\\\
+\textbf{Chromosome Representation:} The chromosome is represented as a list of rules of maximum of four and a minimum of one and a single winning condition. \\\\
 \textbf{Genetic Operators:} Crossover and Mutation are used to evolve the rules from one generation to the next. Crossover takes place only when the two chromosomes possess the same number of rules, the same number of tuples within each rule, and the same number of objects per tuple. There is two kind of crossover that can take place:
 \begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
 	\item \textbf{Hand Side Crossover:} Single point crossover is used to swap the whole right hand side between rules of different chromosomes.
@@ -413,7 +413,7 @@ Mutation has no preconditions to take place except for a certain probability. Th
 	\item \textbf{Hand size swap mutator:} swaps the left hand side with the right hand side of a rule.
 \end{itemize}
 
-These operators are not used over the winning condition. Winning condition have a separate crossover and mutation operators. Crossover is done using one point crossover to swap the winning objects and the winning rule. Mutation swaps any of the objects to a random object or change the winning rule to a random rule.\\\\
+These operators are not used over the winning condition. Winning condition have a separate crossover and mutation operators. Crossover is done using one point crossover to swap the winning objects and the winning condition. Mutation swaps any of the objects to a random object or change the winning condition to a random rule.\\\\
 \textbf{Initial Population:} The population is initialized by mutated versions of an empty rule.
 
 \subsection{Rule Analyzer}

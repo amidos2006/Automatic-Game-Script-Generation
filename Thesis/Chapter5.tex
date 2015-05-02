@@ -78,15 +78,15 @@ From \chref{Chapter4}, The level generation system needs a game description and 
 \subsubsection{Game Descriptions}
 The five different games are the same games described in \secref{gameDescription} as they cover a wide variety of different object behaviors and winning conditions. The following list explains these behaviors and rules.
 \begin{itemize}
-	\item \textbf{Sokoban:} The game have four main objects (Player, Crate, Target, and Wall). Crate and Target are winning objects with Crate having a Move behavior. Wall is a solid object. The game has an All winning rule.
+	\item \textbf{Sokoban:} The game have four main objects (Player, Crate, Target, and Wall). Crate and Target are winning objects with Crate having a Move behavior. Wall is a solid object. The game has an "All" winning condition.
 	
-	\item \textbf{LavaGame:} The game has five main objects (Player, Lava, Crate, Target, and Wall). Player and Target are winning objects. Lava and Crate are normal rule objects with Destroy behavior. Crate also has a Move behavior. Wall is solid object. The game has an All winning rule.
+	\item \textbf{LavaGame:} The game has five main objects (Player, Lava, Crate, Target, and Wall). Player and Target are winning objects. Lava and Crate are normal rule objects with Destroy behavior. Crate also has a Move behavior. Wall is solid object. The game has an "All" winning condition.
 	
-	\item \textbf{BlockFaker:} The game has five main objects (Player, Crate, Stopper, Target, and Wall). Player and Target are winning objects. Stopper and Crate are normal rule objects with Crate having Move and Destroy behaviors. Wall is solid object. The game has an All winning rule.
+	\item \textbf{BlockFaker:} The game has five main objects (Player, Crate, Stopper, Target, and Wall). Player and Target are winning objects. Stopper and Crate are normal rule objects with Crate having Move and Destroy behaviors. Wall is solid object. The game has an "All" winning condition.
 	
-	\item \textbf{GemGame:} The game has five main objects (Player, Crate, Gem, Target, and Wall). Gem and Target are winning objects with Gem having a Create behavior. Crate is a critical rule object with Move and Destroy behaviors. Wall is a solid Object. The game has a Some winning rule.
+	\item \textbf{GemGame:} The game has five main objects (Player, Crate, Gem, Target, and Wall). Gem and Target are winning objects with Gem having a Create behavior. Crate is a critical rule object with Move and Destroy behaviors. Wall is a solid Object. The game has a "Some" winning condition.
 	
-	\item \textbf{DestroyGame:} The game has five main objects (Player, Crate, Gem, Target, and Wall). Gem and Target are winning objects with Gem having a Destroy behavior. Crate is a critical rule object with Move and Destroy behaviors. Wall is a solid object. The game has a No winning rule.
+	\item \textbf{DestroyGame:} The game has five main objects (Player, Crate, Gem, Target, and Wall). Gem and Target are winning objects with Gem having a Destroy behavior. Crate is a critical rule object with Move and Destroy behaviors. Wall is a solid object. The game has a "No" winning condition.
 \end{itemize}
 
 \subsubsection{Level Layouts}
@@ -397,13 +397,13 @@ GA is used using 50 chromosomes for 50 generations, with crossover rate equals 6
 
 Different experiments are tested on the system. These experiments are:
 \begin{itemize}
-	\item \textbf{No Restriction:} The system has no restriction on the levels, the rules, nor the win condition.
+	\item \textbf{No Restriction:} The system has no restriction on the levels, the rules, nor the winning condition.
 	\item \textbf{Fixed Level:} The system uses a fixed level instead of generating one.
-	\item \textbf{Fixed Win Condition:} The system fixes the win condition and search for rules.
-	\item \textbf{Fixed Rules:} The system has a fixed set of rules and search for win condition. 
+	\item \textbf{Fixed Winning Condition:} The system fixes the winning condition and search for rules.
+	\item \textbf{Fixed Rules:} The system has a fixed set of rules and search for winning condition. 
 \end{itemize}
 
-\figref{ruleMaxFitness} and \figref{ruleAvgFitness} shows the maximum and the average fitness respectively for all the experiments. The graphs show a very slow increase rate due to the vast majority of unplayable games found in the search space. The max fitness and average fitness of \emph{Fixed Rules} experiment are the highest due to the small search space of win conditions.
+\figref{ruleMaxFitness} and \figref{ruleAvgFitness} shows the maximum and the average fitness respectively for all the experiments. The graphs show a very slow increase rate due to the vast majority of unplayable games found in the search space. The max fitness and average fitness of \emph{Fixed Rules} experiment are the highest due to the small search space of winning conditions.
 
 \gfigure{Maximum fitness for Rule Generation experiments}{ruleMaxFitness}{width=6.0in}{Images/ruleMaxFitness}
 
@@ -428,7 +428,7 @@ The output games are playable but they are very trivial. The best generated game
 \begin{center}
 Some Object4 on Object1
 \end{center}
-The rules in this game is related with the win condition. That is not the case with other generated games, rules have no relation with the goal no can be applied. These games have different rules but all have the same winning condition:
+The rules in this game is related with the winning condition. That is not the case with other generated games, rules have no relation with the goal no can be applied. These games have different rules but all have the same winning condition:
 \begin{center}
 Some Player on Object1
 \end{center}
@@ -449,10 +449,10 @@ The output games are winnable but not playable. Most of them have these rules:
 \begin{center}
 All Object4 on Player
 \end{center}
-The first rule is the main reason that the game is winnable. The winning rule also is not correct as both objects on same collision layer but its the reason for making the having the first rule winnable. These bad results can be noticed from the low fitness for this experiment in \figref{ruleMaxFitness} and \figref{ruleAvgFitness}.
+The first rule is the main reason that the game is winnable. The winning condition also is not correct as both objects on same collision layer but its the reason for making the having the first rule winnable. These bad results can be noticed from the low fitness for this experiment in \figref{ruleMaxFitness} and \figref{ruleAvgFitness}.
 
-\subsection{Fixed Win Condition}
-The win condition is fixed to the same one used is Sokoban:
+\subsection{Fixed Winning Condition}
+The winning condition is fixed to the same one used is Sokoban:
 \begin{center}
 All Object1 on Object4
 \end{center}
@@ -464,16 +464,16 @@ The output games are playable which is better from the previous experiment. The 
 This rule destroys Object1 when the player moves beside it. Destroying Object1 cause satisfying for the winning condition. Other generated games are winnable games but not playable, as they have same rule without having the Player in the left hand side.
 
 \subsection{Fixed Rules}
-This experiment is easier than all the previous experiments as the search space for win condition is much smaller. The rules were fixed to Sokoban rule:
+This experiment is easier than all the previous experiments as the search space for winning condition is much smaller. The rules were fixed to Sokoban rule:
 \begin{center}
 [ > Player | Object4 ] -> [ > Player | > Object4 ]
 \end{center}
 
-The best output win rule was Sokoban which was predicted:
+The best output winning condition was Sokoban which was predicted:
 \begin{center}
 All Object1 on Object4
 \end{center}
-Other win rules are all the same like sokoban but with swapping Object1 and Object4 or having Object2 / Object3 instead of Object1. Also one interesting win rule was 
+Other win rules are all the same like sokoban but with swapping Object1 and Object4 or having Object2 / Object3 instead of Object1. Also one interesting winning condition was 
 \begin{center}
 No Object1 on Object4
 \end{center}
