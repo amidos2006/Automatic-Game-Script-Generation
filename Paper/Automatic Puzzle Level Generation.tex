@@ -10,7 +10,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[hidelinks]{hyperref}
 \urlstyle{same}
-\usepackage[margin=0.5in]{geometry}
+\usepackage[margin=0.6in]{geometry}
 
 \pdfinfo{
 /Title (Automatic Puzzle Level Generation: A General Approach using a Description Language)
@@ -58,7 +58,7 @@ We can not generate general levels without having a methodology to describe the 
 PS file starts with some meta data like game name, author name, and website then it is divided into 7 sections objects, legend, sounds, collision layers, rules, win conditions, and levels. In this work, we focus on rules, win conditions, and levels sections. Rules are a set of production rules that govern how the game will be played. For example, \begin{center}[> Player | Crate] -> [> Player | > Crate]\end{center} means if there is a Player and Crate beside each other, and the Player moves towards the Crate, then both the Player and the Crate will move in the same direction. Win conditions are group of rules that identify when the level should end. Levels are 2D matrices showing the current configuration for each game level using objects identified in objects section.
 
 \section{Literature Review}
-As far as we know, no previous research was done in general puzzle level generation. Most of the previous work is done for a certain game. This section will show most previous work that was done in level generation. One of the earliest research in Puzzle Games was by Murase et al.\cite{sokobanLevelGenerationOld}. Murase et al. work focused on generating well designed solvable levels for Sokoban\cite{sokoban}. Breadth First Search(BFS) is used to check playability. Results show that for every 500 generated levels only 14 are considered as good levels. These levels are characterized by having a short solution sequence. Taylor and Parberry\cite{sokobanLevelGenerationNew} followed Yoshio Murase et al. work\cite{sokobanLevelGenerationOld} to improve generated level quality. Their system places the crates at the farthest possible location from the target using a similar algorithm to BFS. The generated levels are not suffering from the problem of short solution sequences presented in Yoshio Murase et al. work\cite{sokobanLevelGenerationOld}.\\\par
+As far as we know, most of the previous work in level generation is done for specific games. This section will show most previous work that was done in level generation. One of the earliest research in Puzzle Games was by Murase et al.\cite{sokobanLevelGenerationOld}. Murase et al. work focused on generating well designed solvable levels for Sokoban\cite{sokoban}. Breadth First Search(BFS) is used to check playability. Results show that for every 500 generated levels only 14 are considered as good levels. These levels are characterized by having a short solution sequence. Taylor and Parberry\cite{sokobanLevelGenerationNew} followed Yoshio Murase et al. work\cite{sokobanLevelGenerationOld} to improve generated level quality. Their system places the crates at the farthest possible location from the target using a similar algorithm to BFS. The generated levels are not suffering from the problem of short solution sequences presented in Yoshio Murase et al. work\cite{sokobanLevelGenerationOld}.\\\par
 
 Rychnovsky\cite{fruitDatingPCG} work focused on generating levels for his new game Fruit Dating\cite{fruitDating}. Rychnovsky developed a level editor that can be used to generate new levels or test playability of certain level. Generating new levels is done by generating level layout and placing game objects in certain locations based on some prior game knowledge, then check for a solution using a similar algorithm to BFS. The technique doesn't take more than couple of minutes to generate a level with no direct way to influence difficulty in the generated levels.\\\par
 
@@ -73,7 +73,7 @@ Level Generation is not an easy task specially when the game rules are not known
 
 \begin{figure*}[ht]
   	\centering
-    \includegraphics[width=0.9\textwidth]{Images/levelGenBlockDiagram}
+    \includegraphics[width=0.7\textwidth]{Images/levelGenBlockDiagram}
     \caption{High level system block diagram for Level Generation}
     \label{Figure:levelGenBlockDiagram}
 \end{figure*}
@@ -162,8 +162,8 @@ In any proper game, rules must be applied before achieving the winning condition
 
 \begin{figure}[ht]
   	\centering
-    \includegraphics[width=0.25\textwidth]{Images/lavaGame}
-    \caption{Example level from LavaGame showing the new metric}
+    \includegraphics[width=0.2\textwidth]{Images/lavaGame}
+    \caption{Example level from LavaGame showing the new metric for the automated player}
     \label{Figure:lavaGame}
 \end{figure}
 
@@ -179,7 +179,7 @@ Heuristic measures are calculated using a weighted function of six measures.
 	where $Normal(ratio, \mu, \sigma)$ is a normal distribution function, $L$ is the solution length, and $A$ is the level area.
 	\begin{figure}[ht]
 		\centering
-		\includegraphics[width=0.5\textwidth]{Images/solutionLengthHistogram}
+		\includegraphics[width=0.4\textwidth]{Images/solutionLengthHistogram}
 		\caption{Histogram for the ratio between the solution length and the level area}
 		\label{Figure:solutionLengthHistogram}
 	\end{figure}
@@ -201,7 +201,7 @@ Heuristic measures are calculated using a weighted function of six measures.
 	where $Normal(ration, \mu, \sigma)$ is a normal distribution function, $R_{app}$ is the number of applied rules, $R_{none}$ is the number of applied rules without any previous actions, and $L$ is the solution length.
 	\begin{figure}[ht]
 		\centering
-		\includegraphics[width=0.5\textwidth]{Images/rulesSolutionLengthHistogram}
+		\includegraphics[width=0.4\textwidth]{Images/rulesSolutionLengthHistogram}
 		\caption{Histogram for the number of rules applied to the solution length}
 		\label{Figure:rulesSolutionLengthHistogram}
 	\end{figure}
@@ -235,7 +235,7 @@ Forty handcrafted levels from the five games were used to compare the new player
 
 \begin{figure}[ht]
   	\centering
-    \includegraphics[width=0.5\textwidth]{Images/automatedPlayerPerformance}
+    \includegraphics[width=0.4\textwidth]{Images/automatedPlayerPerformance}
     \caption{Comparison between the number of explored states for different automated players}
     \label{Figure:automatedPlayerPerformance}
 \end{figure}
@@ -244,25 +244,19 @@ Forty handcrafted levels from the five games were used to compare the new player
 
 \begin{figure}[ht]
   	\centering
-    \includegraphics[width=0.5\textwidth]{Images/automatedPlayerLength}
+    \includegraphics[width=0.4\textwidth]{Images/automatedPlayerLength}
     \caption{Comparison between the average solution length for different automated players}
     \label{Figure:automatedPlayerLength}
 \end{figure}
 
 \subsection{Level Generation}
-This section shows the results of the level generation techniques. The new automated player is used with a limit of 5000 explored states to ensure fast execution. Level generation is tested against several level layouts to cover different sizes and inner structures. \figref{levelLayouts} shows the eight different level layouts used in generation.\\\par
-\begin{figure}[ht]
-  	\centering
-    \includegraphics[width=0.45\textwidth]{Images/levelLayouts}
-    \caption{Different level layouts for level generation}
-    \label{Figure:levelLayouts}
-\end{figure}
+This section shows the results of the level generation techniques. The new automated player is used with a limit of 5000 explored states to ensure fast execution. Level generation is tested against several level layouts to cover different sizes and inner structures.\\\par
 
 Scores from all the following techniques are combined and compared to human feedback. \figref{totalCorrelation} shows the correlation between system scores and human scores for all levels. The figure shows a good correlation between them. The reason for not having a very high correlation is due to the small amount of collected data and the presence of different ideas about a good level.
 
 \begin{figure}[ht]
   	\centering
-    \includegraphics[width=0.45\textwidth]{Images/totalCorrelation}
+    \includegraphics[width=0.4\textwidth]{Images/totalCorrelation}
     \caption{Correlation between automated player scores and human scores for all games}
     \label{Figure:totalCorrelation}
 \end{figure}
@@ -283,21 +277,21 @@ The following figures show a comparison between the max fitness of the all prese
 
 \begin{figure}[ht]
   	\centering
-    \includegraphics[width=0.5\textwidth]{Images/sokobanComparison}
+    \includegraphics[width=0.4\textwidth]{Images/sokobanComparison}
     \caption{Max fitness of all proposed techniques for Sokoban}
     \label{Figure:sokobanComparison}
 \end{figure}
 
 \begin{figure}[ht]
   	\centering
-    \includegraphics[width=0.5\textwidth]{Images/lavaGameComparison}
+    \includegraphics[width=0.4\textwidth]{Images/lavaGameComparison}
     \caption{Max fitness of all proposed techniques for LavaGame}
     \label{Figure:lavaGameComparisonmparison}
 \end{figure}
 
 \begin{figure}[ht]
   	\centering
-    \includegraphics[width=0.5\textwidth]{Images/blockFakerComparison}
+    \includegraphics[width=0.4\textwidth]{Images/blockFakerComparison}
     \caption{Max fitness of all proposed techniques for BlockFaker}
     \label{Figure:blockFakerComparison}
 \end{figure}
