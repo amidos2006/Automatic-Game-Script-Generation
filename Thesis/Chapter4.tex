@@ -31,7 +31,7 @@ The Rule Analyzer is the first module in our system. It analyzes game rules and 
 		\item \textbf{Normal Object:} same like the Critical Object but it only appears with one of them.
 		\item \textbf{Useless Object:} is an object that neither appears with the Player Object nor the Winning Objects in any rule.
 	\end{itemize}
-	\item \textbf{Priority:} It reflects the number of times each object appears in the rules.
+	\item \textbf{Priority:} It reflects the number of rules each object appears in them.
 	\item \textbf{Behaviors:} Behaviors are analyzed from the difference between the left hand side and the right hand side of each rule for every object. Every object can have one or more behavior. There are 4 kinds of behaviors:
 		\begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
 			\item \textbf{Move:} If an object on the left hand side has a different movement than its movement on the right hand side, this object has a Move behavior. For example, In the following rule Crate moves when Player approaches it.
@@ -320,7 +320,7 @@ where $P_{score}$ is the Playing Score, $L_{score}$ is the Solution Length Score
 \begin{itemize}
 	\item \textbf{Playing Score ($P_{score}$):} Playing score is used to ensure level playability. Instead of using a boolean value for playable or not. A float value is assigned for how much the player is near the solution. The first output of the automated player is used for that purpose. Making the domain more continuous (using float) helps in measuring the percentage of the level playability instead of using it as a constraint.\\\par
 	
-	Based on the work by Nielsen et al.\cite{gvgpPerformanceProfiles} which proved that static players (Do Nothing players) score badly in all human crafted games. This bad scores prove that the Do Nothing players can be used as a measurement for game design. A score is calculated for the initial level state. This score is subtracted from the previous score to show how much improvement the automated player have done. The Playing Score can be expressed by the following equation:
+	Based on the work by Nielsen et al.\cite{gvgpPerformanceProfiles} which proved that static players (Do Nothing players) score badly in all human crafted games. These bad scores prove that the Do Nothing players can be used as a measurement for game design. A score is calculated for the initial level state. This score is subtracted from the previous score to show how much improvement the automated player have done. The Playing Score can be expressed by the following equation:
 	\begin{center}$ P_{score} = S_{play} - S_{nothing}$\end{center}
 	where $S_{play}$ is the automated player score and $S_{nothing}$ is the Do Nothing player score.
 	
@@ -410,10 +410,10 @@ Mutation has no preconditions to take place except for a certain probability. Th
 	\item \textbf{Object mutator:} changes a random object in a rule with any random object.
 	\item \textbf{Direction mutator:} changes the direction of a random object in a rule. It also can add or remove a direction for a random object.
 	\item \textbf{Tuple size mutator:} change the number of objects inside the tuple by either deleting a random object or adding a random object with a random direction.
-	\item \textbf{Hand size swap mutator:} swaps the left hand side with the right hand side of a rule.
+	\item \textbf{Hand side swap mutator:} swaps the left hand side with the right hand side of a rule.
 \end{itemize}
 
-These operators are not used over the winning condition. The winning condition has a separate crossover and mutation operators. Crossover is done using one point crossover to swap the winning objects and the winning condition. Mutation replaces any of the winning objects with a random object or changes the winning condition to a random rule.\\\\
+These operators are not used over the winning condition. The winning condition has a separate crossover and mutation operators. Crossover is done using two points crossover to swap one of the winning objects or the winning condition. Mutation replaces any of the winning objects with a random object or changes the winning condition to a random rule.\\\\
 \textbf{Initial Population:} The population is initialized randomly using mutated versions of an empty rule.
 
 \subsection{Rule Analyzer}
