@@ -51,14 +51,14 @@ The Rule Analyzer is the first module in our system. It analyzes game rules and 
 				[ Crate | Crate | Crate ] -> [ \ \ \ \ | \ \ \ \ | \ \ \ \ ]
 			\end{center}
 		\end{itemize}
-	\item \textbf{Minimum Number:} It is the maximum number of times for an object to appear in the left hand side of game rules. For example consider the following group of rules:
+	\item \textbf{Minimum Required Number:} It is the maximum number of times for an object to appear in the left hand side of game rules. For example consider the following group of rules:
 	\begin{center}
 		[ > Player | Crate ] -> [ > Player | > Crate ]
 	\end{center}
 	\begin{center}
 		[ > Crate | Crate ] -> [ > Crate | > Crate ]
 	\end{center}
-	The Crate object appeared in the both rules. The first rule the Crate object appeared once, while in the second rule it appeared twice. This means the minimum number of Crates is two. This is not the case when an object has a Create behavior. Create rules are responsible for generating objects. The Minimum Number of the Create objects is updated to reflect the least number of appearances in all the Create rules. For example the following rules have two Create rules (the first and the third).
+	The Crate object appeared in the both rules. The first rule the Crate object appeared once, while in the second rule it appeared twice. This means the minimum required number of Crates is two. This is not the case when an object has a Create behavior. Create rules are responsible for generating objects. The Minimum Required Number of the Create objects is updated to reflect the least number of appearances in all the Create rules. For example the following rules have two Create rules (the first and the third).
 	\begin{center}
 		[ > Player | \ \ \ \ ] -> [ Crate | Player ]
 	\end{center}
@@ -68,7 +68,7 @@ The Rule Analyzer is the first module in our system. It analyzes game rules and 
 	\begin{center}
 		[ Gem | Crate | Gem ] -> [ Crate | Crate | Crate ]
 	\end{center}
-	The number of Crate objects in each rule are 0, 2, 1 respectively. In normal case, the minimum number of Crate object will be 2. Crate object have Create behavior (in both the first and the third rule) then the minimum number of objects will be zero instead.
+	The number of Crate objects in each rule are 0, 2, 1 respectively. In normal case, the minimum required number of Crate object will be 2. Crate object have Create behavior (in both the first and the third rule) then the minimum required number of objects will be zero instead.
 	\item \textbf{Relations:} It is a list of all objects that appear in the same rule with a certain object. For example, In the following rules, Crate has relations with Player and Lava, Player has a relation with Crate, and Lava has a relation with Crate.
 	\begin{center}
 		[ > Player | Crate ] -> [ > Player | > Crate ]
@@ -103,7 +103,7 @@ Constructive Approach uses information from the Rule Analyzer to modify the Leve
 \end{algorithm}
 The algorithm consists of two main part. The first part is responsible for determining the amount of objects that should be presented in the current level outline. The second part is responsible for inserting game objects in an intelligent way to the current level outline. The order of the insertion algorithm places the most important game objects first to ensure playability.\\\par
 
-\algref{numberObjects} shows the process of calculating the amount of objects. The algorithm starts by determining the percentages for each object type. Each object type contributes by a percentage equal to its minimum number to make sure that all rules can happen. A cover percentage is calculated based on the number of critical and winning objects. The value of the cover percentage is inversely proportional with the summation of both critical and winning objects. Critical and Winning Objects are the main game objects, without them the game is not playable at all. The excessive increase in their numbers causes the level to be very complex. Having a small cover percentage when the numbers of winning and critical objects are huge, makes sure the game is not very complex.\\
+\algref{numberObjects} shows the process of calculating the amount of objects. The algorithm starts by determining the percentages for each object type. Each object type contributes by a percentage equal to its minimum required number to make sure that all rules can happen. A cover percentage is calculated based on the number of critical and winning objects. The value of the cover percentage is inversely proportional with the summation of both critical and winning objects. Critical and Winning Objects are the main game objects, without them the game is not playable at all. The excessive increase in their numbers causes the level to be very complex. Having a small cover percentage when the numbers of winning and critical objects are huge, makes sure the game is not very complex.\\
 
 \begin{algorithm}[H]
 	\KwData{level outline, object features}
@@ -114,8 +114,8 @@ The algorithm consists of two main part. The first part is responsible for deter
 		percentages[Winning Object] = 2\;
 	}
 	percentages[Solid Object] = Number of different kinds of Solid Objects\;
-	percentages[Critical Object] = Summation of the minimum number of all Critical Objects\;
-	percentages[Rule Object] = Summation of the minimum number of all Rule Objects\;
+	percentages[Critical Object] = Summation of the minimum required numbers of all Critical Objects\;
+	percentages[Rule Object] = Summation of the minimum required numbers of all Rule Objects\;
 	Divide all percentages by their total summation\;
 	\BlankLine
 	coverPercentage = 1 - percentages[Winning Object] - percentages[Critical Object]\;
@@ -148,7 +148,7 @@ The following algorithms are responsible for inserting objects based on the numb
 	\label{Algorithm:solidObjects}
 \end{algorithm}
 
-Before inserting the Player to the level, Winning Objects should be inserted. \algref{winningObjects} is responsible for inserting Winning Objects into the level outline. The algorithm generates an equal amount of both winning objects unless any of these objects have a Create behavior. The number of the generated Winning Objects must be a multiple of their minimum number to ensure that all rules can be applied. The first winning object is inserted at any suitable empty location, while the other must be inserted at the farthest suitable empty location. Inserting at a very far location ensures a more difficult level. At "No" winning condition, the second object is inserted at the same location of the first object.\\
+Before inserting the Player to the level, Winning Objects should be inserted. \algref{winningObjects} is responsible for inserting Winning Objects into the level outline. The algorithm generates an equal amount of both winning objects unless any of these objects have a Create behavior. The number of the generated Winning Objects must be a multiple of their minimum required number to ensure that all rules can be applied. The first winning object is inserted at any suitable empty location, while the other must be inserted at the farthest suitable empty location. Inserting at a very far location ensures a more difficult level. At "No" winning condition, the second object is inserted at the same location of the first object.\\
 
 \begin{algorithm}[H]
 	\KwData{level outline, object features, number of objects}
@@ -199,7 +199,7 @@ Before inserting the Player to the level, Winning Objects should be inserted. \a
 \algref{criticalObjects} is responsible for inserting Critical Objects. Critical Objects are one of the most important objects in the game. As they are connected with both Player and Winning Objects. In some games, levels are not solvable without Critical Objects. For example, the following rules are from a game called DestroyGame. The game goal is to destroy all Gem objects. Gem objects can be destroyed if they are aligned with 2 Crate objects. Crate objects can be pushed by the Player object.
 \begin{center} [ > Player | Crate ] -> [ > Player | > Crate ]\end{center}
 \begin{center} [ Crate | Gem | Crate ] -> [ \ \ \ \ | \ \ \ \ | \ \ \ \ ]\end{center}
-From these rules Crate is a critical object as it is connected with Gem and Player objects. If there is no Crates in the level, the game will be unplayable. For that reason the algorithm ensures inserting the minimum Number of all the critical objects. The algorithm adds more critical objects according to critical objects' calculated number. Each critical object has a chance to appear directly proportional with its Priority feature.\\
+From these rules Crate is a critical object as it is connected with Gem and Player objects. If there is no Crates in the level, the game will be unplayable. For that reason the algorithm ensures inserting the minimum required number of all the critical objects. The algorithm adds more critical objects according to critical objects' calculated number. Each critical object has a chance to appear directly proportional with its Priority feature.\\
 
 \begin{algorithm}[H]
 	\KwData{level outline, object features, number of objects}
@@ -256,12 +256,12 @@ This method uses GA to evolve level outlines to playable levels. Elitism is used
 	\item \textbf{Deleting an object:} a random object from the level is deleted.
 	\item \textbf{Changing object position:} a random empty position is swapped with a non-empty one.
 \end{itemize}
-The mutation operation happens by subjecting the level outline to these 3 methods using different probabilities. The Creating and deleting an object are given a lower probability than the changing object position to ensure a moderate number of objects is inserted in the level specially for Constructive and Mixed Initialization.\\\\
+The mutation operation happens by subjecting the level outline to these 3 methods using different probabilities. The Creating and deleting an object are given a lower probability than the changing object position to ensure a moderate number of objects is inserted in the level specially for Constructive and Hybrid Initialization.\\\\
 \textbf{Initial Population:} Three different techniques are used to generate an initial population for the GA. These techniques are:
 \begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
 	\item \textbf{Random Initialization:} The population is initialized as mutated versions of the empty level outline. This technique takes very long time to find a good designed level as it searches the whole generative space.
 	\item \textbf{Constructive Initialization:} The population is initialized using the Constructive Approach algorithm. Using the algorithm tighten the search space so less time is required to find good playable levels.
-	\item \textbf{Mixed Approach:} The population is initialized as a mixture between the Random Initialization and the Constructive Initialization. A portion of the population is initialized using the Constructive Approach Algorithm and some mutated versions, while the other portion is the same like the Random Initialization. Using that algorithm ensure more diversity than the previous two approaches.
+	\item \textbf{Hybrid Initialization:} The population is initialized as a mixture between the Random Initialization and the Constructive Initialization. A portion of the population is initialized using the Constructive Approach Algorithm and some mutated versions, while the other portion is the same like the Random Initialization. Using that algorithm ensure more diversity than the previous two approaches.
 \end{itemize}
 More details about the results of each algorithm will be discussed in \chref{Chapter5}.
 
@@ -273,7 +273,7 @@ Level Evaluator is responsible for evaluating the generated levels. Level evalua
 The example shows the need for using heuristic measures to ensure more interesting levels.
 
 \subsubsection{Automated Player}\seclbl{automatedPlayer}
-The Level Evaluator uses a modified version of the BestFS Algorithm as the automated player. BestFS Algorithm was introduced in Lim et al.\cite{puzzleScriptGeneration} work. BestFS is similar to BFS algorithm but instead of exploring states sequentially, it sorts them according to a score generated from a fitness function. This causes the algorithm to explore the more important nodes first, helping it to reach the solution faster. As explained in \chref{Chapter3}, Lim et al. algorithm uses two metrics (as a fitness function) to evaluate each game state:
+The Level Evaluator uses an enhanced version of the BestFS Algorithm as the automated player. BestFS Algorithm was introduced in Lim et al.\cite{puzzleScriptGeneration} work. BestFS is similar to BFS algorithm but instead of exploring states sequentially, it sorts them according to a score generated from a fitness function. This causes the algorithm to explore the more important nodes first, helping it to reach the solution faster. As explained in \chref{Chapter3}, Lim et al. algorithm uses two metrics (as a fitness function) to evaluate each game state:
 \begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
 	\item \textbf{Distance between winning objects:} BestFS tries to either increase or decrease the distance between the winning objects according to the winning condition. The "No" winning condition is the only rule that need to increase the distance, while the others need to decrease it. \figref{bestFS1} shows an example from Sokoban, where the distance between crates and targets is highlighted.
 	\item \textbf{Distance between player and winning objects:} BestFS always tries to minimize the distance between the player and the winning objects. To achieve the first metric, the player should come near the winning objects. \figref{bestFS2} shows the same level from Sokoban, where the distance between player and winning objects (crates and targets) is highlighted.
@@ -340,9 +340,9 @@ where $P_{score}$ is the Playing Score, $L_{score}$ is the Solution Length Score
 	\begin{center}$N_{score} = 0.4 * N_{rule} + 0.3 * N_{player} + 0.3 * N_{winning}$\end{center}
 	where $N_{rule}$ is the Number of Rule Objects ratio, $N_{player}$ is the Number of Players value, and $N_{winning}$ is the Number of Winning Objects value.
 	\begin{itemize}
-		\item \textbf{Number of Rule Objects ($N_{rule}$):} In a good designed level, most of the rule objects should appear in the level to ensure there is a possibility of applying every rule. The number of times the object should appear in the level must be greater than or equal his minimum number property from the Rule Analyzer. A ratio is calculated between the number of objects greater than their minimum number property and the total number of the rule objects.
+		\item \textbf{Number of Rule Objects ($N_{rule}$):} In a good designed level, most of the rule objects should appear in the level to ensure there is a possibility of applying every rule. The number of times the object should appear in the level must be greater than or equal his minimum required number property from the Rule Analyzer. A ratio is calculated between the number of objects greater than their minimum required number property and the total number of the rule objects.
 		\begin{center}$N_{rule} = \dfrac{N_{min}}{N_{max}}$\end{center}
-		where $N_{min}$ is the number of objects greater than their minimum number property and $N_{max}$ is the total number of the rule objects.
+		where $N_{min}$ is the number of objects greater than their minimum required number property and $N_{max}$ is the total number of the rule objects.
 		\item \textbf{Number of Players ($N_{player}$):} The game should have only one player. If any level has a different value, the score will be zero.
 		\begin{center}
 		$N_{player}= \begin{cases}

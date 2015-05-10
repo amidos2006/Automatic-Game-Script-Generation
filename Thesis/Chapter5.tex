@@ -1,7 +1,7 @@
-This chapter shows the results of level and the rule generation techniques proposed in \chref{Chapter4}. The generated levels and games are all published on a website \footnote{http://www.amidos-games.com/puzzlescript-pcg/} to collect human feedbacks. The collected feedbacks are compared with the system scores. The following section analyzes the results of the new automated player and compares its results with the original one, followed by the results of the level generation techniques, and the last section shows the results of the rule generation.\\\par
+This chapter shows the results of the level and rule generation techniques proposed in \chref{Chapter4}. The generated levels and games are all published on a website \footnote{http://www.amidos-games.com/puzzlescript-pcg/} to collect human feedbacks. The collected feedbacks are compared with the automated player scores. The following section analyzes the results of the new automated player and compares its results with the original one, followed by the results of the level generation techniques, and finally the results of the rule generation.\\\par
 
 \section{Automated Player}
-\secref{automatedPlayer} introduces a new metric to improve the automated player performance. Different weights are given to each one of the three metrics. The distance between winning objects metric is the most important because it indicates the playability of the level. Other metrics contributes with a lower weight equals to 50\%. The distance between the player and the winning objects metric is weighted 50\% compared to the new metric because at least one of the winning objects is a rule object. The new metric measures the distance between rule objects in the left hand side of any rule. This means one of the winning objects already contributes in the new metric. The following equation shows the final weights:
+\secref{automatedPlayer} introduces a new metric to improve the automated player performance. Different weights are given to each one of the three metric components. The distance between the two winning objects metric is the most important because it indicates the playability of the level. Other metrics contributes with a lower weight equals to 50\%. The distance between the player and the winning objects metric is weighted 50\% compared to the new metric because at least one of the two winning objects is a rule object. The new metric measures the distance between rule objects in the left hand side of all rules. This means one of the winning objects already contributes in the new metric. The following equation shows the final weights:
 \begin{center}$d_{total} = d_{winning} + 0.5 * (d_{rules} + 0.5 * d_{player})$\end{center}
 where $d_{winning}$ is the distance between winning objects metric, $d_{rules}$ is the distance between rule objects (new metric), and $d_{player}$ is the distance between the player and the winning objects.\\\par
 
@@ -14,47 +14,47 @@ Forty handcrafted levels from five different games were used. The five games are
 
 The five games are Sokoban, LavaGame, BlockFaker, GemGame, and DestroyGame.
 \begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
-	\item \textbf{Sokoban:} The goal of the game is to place every single crate over a certain position. Player can push crates to achieve that goal.
-	\item \textbf{LavaGame:} The goal of the game is to reach the exit. The path towards the exit is always blocked by a lava. Player should push crates over the lava to clear his way.
-	\item \textbf{BlockFaker:} The goal of the game is to reach the exit. The path towards the exit is always blocked by lots of crates. Player should push these crates to align them vertically or horizontally. Every three aligned crates are destroyed which clear the path towards the exit.
-	\item \textbf{GemGame:} The goal of the game is to place at least one gem over one of several locations. Player can create gems by pushing crates. Every three aligned crates are replaced with a single gem instead of the middle crate.
-	\item \textbf{DestroyGame:} The goal of the game is to clear every single gem. Gems can be destroyed when they are aligned with two other crates vertically or horizontally. Player should push crates to reach that goal.
+	\item \textbf{Sokoban:} The goal of the game is to place every single crate over a certain position. The player should push crates to achieve that goal.
+	\item \textbf{LavaGame:} The goal of the game is to reach the exit. The path towards the exit is always blocked by a lava. The player should push crates over the lava to clear his way.
+	\item \textbf{BlockFaker:} The goal of the game is to reach the exit. The path towards the exit is always blocked by lots of crates. The player should push these crates to align them vertically or horizontally. Every three aligned crates are destroyed which clear the path towards the exit.
+	\item \textbf{GemGame:} The goal of the game is to place at least one gem over one of several locations. The player can create gems by pushing crates. Every three aligned crates are replaced with a single gem instead of the middle crate.
+	\item \textbf{DestroyGame:} The goal of the game is to clear every single gem. Gems can be destroyed when they are aligned with two other crates vertically or horizontally. The player should push crates to reach that goal.
 \end{itemize}
 
 \subsection{Comparing Different Players}
-Lim et al.\cite{puzzleScriptGeneration} automated player is compared with the new automated player. Both of them plays all the forty levels and reports the solution length and the number of states explored. \figref{automatedPlayerPerformance} shows the average number of states each player explores in each game to reach the goal.
+In this section, the new automated player is compared to Lim et al.\cite{puzzleScriptGeneration} automated player. Each of them plays all the forty levels and reports the solution length and the number of states explored. \figref{automatedPlayerPerformance} shows the average number of states each player explores in each game to reach the goal.
 
 \gfigure{Comparison between the number of explored states for different automated players}{automatedPlayerPerformance}{width=6.0in}{Images/automatedPlayerPerformance}
 
-The new player outperforms the original player in Sokoban and GemGame, but its almost the similar in the rest of the games. In games where the player is one of the winning objects, the new player just performed slightly better in BlockFaker, while LavaGame is slightly worse. The new players also performed badly in DestroyGame. The main reason behind the bad performance in these games is the presence of the Destroy behavior as the core mechanic of the game. For example, \figref{automatedPlayerProblem} have two crates and two lava, the metric measures the average distance between each crate and all lava. If the lower lava is destroyed first, the metric will represents the long distance between the crate and the far lava which is a little bit longer than before where both distance (short and long) are considered. Based on that, the player will explore more states that will not lead to the destroy of the lower lava.
+The enhanced player outperforms the original player in Sokoban and GemGame, but its almost the similar in the rest of the games. In games where the player is one of the winning objects, the enhanced player performs slightly better in BlockFaker, while in LavaGame, it is slightly worse. The enhanced players also performed badly in DestroyGame. The main reason behind the bad performance in these games is the presence of the Destroy behavior as the core mechanic of the game. For example, \figref{automatedPlayerProblem} has two crates and two lava. The metric measures the average distance between each crate and all lava. If the lower lava is destroyed first, the metric will represents the long distance between the crate and the far lava which is a little bit longer than before where both distances (short and long) are considered. Based on that, the player will explore more states that will not lead to the destroying the lower lava.
 
-\gfigure{LavaGame level cause the new player to do worse}{automatedPlayerProblem}{width=2.5in}{Images/automatedPlayerProblem}
+\gfigure{LavaGame level cause the enhanced player to do worse}{automatedPlayerProblem}{width=2.5in}{Images/automatedPlayerProblem}
 
-Another drawback of the new metric is when levels have lots of unused objects. The new metric will make the player explores the unused objects aiming to reach the goal which increase the total number of explored states. This drawback is not so important as the main goal is to generate levels not to solve them. The presence of unused objects leads to an increase in the level difficulty.\\\par
+Another drawback of the new metric is when levels have lots of unused objects. The new metric makes the player explore the unused objects aiming to reach the goal which increase the total number of explored states. This drawback is not so important as the main goal is to generate levels not to solve them. The presence of unused objects leads to an increase in the level difficulty.\\\par
 
-\figref{automatedPlayerLength} shows the average solution length for each game for the different players. The new player produces  a slightly shorter solutions than the original player. Comparing both \figref{automatedPlayerPerformance} and \figref{automatedPlayerLength} a correlation can be noticed between both of them except for Sokoban. Sokoban does not follow the same pattern due to being abstract as the game has a very small amount of objects and just one rule. This abstraction is the main reason both players can reach the goal in almost the same amount of steps.
+\figref{automatedPlayerLength} shows the average solution length for each game for the different players. The enhanced player produces  a slightly shorter solutions than the original player. Comparing both \figref{automatedPlayerPerformance} and \figref{automatedPlayerLength} a correlation can be noticed between both of them except for Sokoban. Sokoban does not follow the same pattern due to being abstract as the game has a very small amount of objects and just one rule. This abstraction is the main reason both players can reach the goal in almost the same amount of steps.
 
 \gfigure{Comparison between the average solution length for different automated players}{automatedPlayerLength}{width=6.0in}{Images/automatedPlayerLength}
 
-\tabref{playerCorrelation} shows the correlation between the average solution length and the average explored states between the two players. The values in the table is the difference between the original player and the new player. Positive values indicates the new player is better than the original and vice versa.
+\tabref{playerCorrelation} shows the correlation between the average solution length and the average explored states between the two players. The values in the table are the difference between the original player and the enhanced player. Positive values indicates the enhanced player is better than the original and vice versa.
 
 \begin{table}[!ht]
 	\centering
-	\begin{tabular}{|c|c|}
+	\begin{tabular}{|c|c|c|}
 		\hline
-		\textbf{The average solution length} & \textbf{The average explored states}\\
+		 & \textbf{The average solution length} & \textbf{The average explored states}\\
 		\hline
-		-0.875 & 11127.625\\
+		\textbf{Sokoban} & -0.875 & 11127.625\\
 		\hline
-		-1 & -3914\\
+		\textbf{LavaGame} & -1 & -3914\\
 		\hline
-		5 & 2736.625\\
+		\textbf{BlockFaker} & 5 & 2736.625\\
 		\hline
-		12.875 & 16763.625\\
+		\textbf{GemGame} & 12.875 & 16763.625\\
 		\hline
-		-4.75 & -6696.75\\
+		\textbf{DestroyGame} & -4.75 & -6696.75\\
 		\hline
-		\textbf{Correlation} & 0.77127\\
+		 & \textbf{Correlation} & 0.77127\\
 		\hline
 	\end{tabular}
 	\caption{Correlation between the average explored states and the average solution length}
@@ -66,10 +66,10 @@ This section shows the results of the level generation techniques introduced in 
 
 The following section will discuss the required input for the system to work, followed by the results for each technique. The results are evaluated by the system and several human players and a correlation is calculated. The correlation is a bit low for several reasons:
 \begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
-	\item The automated player evaluates all levels and give them a score corresponding to its percentage of playability which is not the case with human players. 
+	\item The automated player evaluates all levels and give them a score corresponding to the levels' percentage of playability which is not the case with human players. 
 	\item The very challenging levels are rated high with the system, while low with human players.
-	\item There is no single definition for a good level.
-	\item Small amount of human players contributes in the evaluation.
+	\item There is no concise definition for a good level.
+	\item Small amount of human players contributes in the evaluation compared to the huge amount of the generated levels.
 \end{itemize}
 
 \subsection{Input Description}
@@ -90,64 +90,64 @@ The five different games are the same games described in \secref{gameDescription
 \end{itemize}
 
 \subsubsection{Level Layouts}
-Eight different level layouts are used to generate levels which are the same like handcrafted games. \figref{levelLayouts} shows these layouts. The layouts have different sizes and different internal structure. The biggest level layout is of size $8x8$ because the generation time increases as the level size increases.
+Eight different level layouts are used to automatically generate levels. These layouts are the same layouts used in the handcrafted games. \figref{levelLayouts} shows these layouts. The layouts have different sizes and different internal structure. The biggest level layout is of size $8x8$ because the generation time increases as the level size increases.
 
 \gfigure{Different level layouts for level generation}{levelLayouts}{width=5.5in}{Images/levelLayouts}
 
 \subsection{Constructive Approach Results}
-One hundred level are generated using the constructive algorithm described in \secref{constructiveApproach}. Each level is evaluated and the best two levels are selected. This approach is repeated for the five different games and applied over all the layouts. The total amount of generated levels are 80 levels. \figref{constructiveExamples} shows examples of some of generated levels for different games.\\\par
+One hundred levels are generated using the constructive algorithm described in \secref{constructiveApproach}. Each level is evaluated and the best two levels are selected. This approach is repeated for the five different games and applied over all layouts. The total amount of generated levels are 80 levels. \figref{constructiveExamples} shows examples of some of the generated levels for different games.\\\par
 
 \gfigure{Examples of the generated levels using constructive approach}{constructiveExamples}{width=5.5in}{Images/constructiveExamples}
 
 Out of the 80 levels only 15\% are reported as unplayable by the system. By testing these levels by human players only 10\% are completely unplayable while the remaining levels are very difficult levels (needs more states to be explored). \tabref{constructiveScores} shows the scores for all the generated levels using the system and human players.\\\par
 
-\tabref{constructiveScores} shows the correlation between the generated scores and the human scores. Sokoban and BlockFaker have the highest correlation value. The reason is the automated player is better at these games using 5000 states (refer to \figref{automatedPlayerPerformance}). LavaGame has the most unplayable levels because of the huge amount of crates compared to the lava as Crate has a higher priority than lava (refer to the game rules). GemGame and DestroyGame have a very small correlation. These games have the most difficult rules so the automated player prefers generating easier levels. These games have a Do Nothing score equals to zero which makes the playability score the biggest influence on the result.
+\tabref{constructiveScores} shows the correlation between the generated scores and the human player scores. Sokoban and BlockFaker have the highest correlation value. The reason is the automated player is better at these games using 5000 states (refer to \figref{automatedPlayerPerformance}). LavaGame has the most unplayable levels because of the huge amount of crates compared to the lava as Crate has a higher priority than lava (refer to the game rules). GemGame and DestroyGame have a very small correlation. These games have the most difficult rules so the automated player prefers generating easier levels. These games have a Do Nothing score equal to zero which makes the playability score having the highest effect on the result.
 
 \begin{landscape}
 \begin{table}[!ht]
 	\centering
-	\begin{tabular}{|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|}
+	\begin{tabular}{|p{0.5in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|}
 		\hline
-		\multicolumn{2}{c}{\textbf{Sokoban}} & \multicolumn{2}{c}{\textbf{LavaGame}} & \multicolumn{2}{c}{\textbf{\textbf{BlockFaker}}} & \multicolumn{2}{c}{\textbf{GemGame}} & \multicolumn{2}{c}{\textbf{DestroyGame}}\\
+		 & \multicolumn{2}{c}{\textbf{Sokoban}} & \multicolumn{2}{c}{\textbf{LavaGame}} & \multicolumn{2}{c}{\textbf{\textbf{BlockFaker}}} & \multicolumn{2}{c}{\textbf{GemGame}} & \multicolumn{2}{c}{\textbf{DestroyGame}}\\
 		\hline
-		\textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player}\\
+		\textbf{Levels} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player}\\
 		\hline
-		0.616362 & 0.490740741 & 0.62840621 & 0 & 0.67445767 & 0.5 & 0.770599632 & 0.5 & 0.8232172 & 0.5\\
+		1 & 0.616362 & 0.49074074 & 0.6284062 & 0 & 0.67445767 & 0.5 & 0.77059963 & 0.5 & 0.8232172 & 0.5\\
 		\hline
-		0.616362 & 0.465517241 & 0.5876679 & 0.291666667 & 0.6232392 & 0.464285714 & 0.770599 & 0.5 & 0.8232172 & 0.5\\
+		2 & 0.616362 & 0.46551724 & 0.5876679 & 0.29166667 & 0.6232392 & 0.46428571 & 0.770599 & 0.5 & 0.8232172 & 0.5\\
 		\hline
-		0.69734 & 0.637931034 & 0.5896824 & 0 & 0.65679029 & 0.464285714 & 0.9577728 & 0.625 & 0.9098534 & 0.6\\
+		3 & 0.69734 & 0.63793103 & 0.5896824 & 0 & 0.65679029 & 0.46428571 & 0.9577728 & 0.625 & 0.9098534 & 0.6\\
 		\hline
-		0.694114 & 0.620689655 & 0.5821967 & 0.45 & 0.650513102 & 0.5 & 0.95777289 & 0.625 & 0.9095344 & 0.6\\
+		4 & 0.694114 & 0.62068965 & 0.5821967 & 0.45 & 0.6505131 & 0.5 & 0.95777289 & 0.625 & 0.9095344 & 0.6\\
 		\hline
-		0.685905 & 0.714285714 & 0.62574735 & 0.3125 & 0.60716514 & 0.392857143 & 0.96990456 & 0.4375 & 0.914115 & 0.6\\
+		5 & 0.685905 & 0.71428571 & 0.62574735 & 0.3125 & 0.60716514 & 0.39285714 & 0.96990456 & 0.4375 & 0.914115 & 0.6\\
 		\hline
-		0.671965 & 0.663461538 & 0.61386285 & 0.5 & 0.59945915 & 0.642857143 & 0.95356176 & 0.625 & 0.8975684 & 0.55\\
+		6 & 0.671965 & 0.66346153 & 0.61386285 & 0.5 & 0.59945915 & 0.64285714 & 0.95356176 & 0.625 & 0.8975684 & 0.55\\
 		\hline
-		0.68588 & 0.586538462 & 0.6865308 & 0.5 & 0.743085297 & 0.464285714 & 0.85842389 & 0.5625 & 0.9479144 & 0.45\\
+		7 & 0.68588 & 0.58653846 & 0.6865308 & 0.5 & 0.74308529 & 0.46428571 & 0.85842389 & 0.5625 & 0.9479144 & 0.45\\
 		\hline
-		0.67818 & 0.605769231 & 0.662806064 & 0.55 & 0.712869944 & 0.75 & 0.8531832 & 0.5625 & 0.9418275 & 0.55\\
+		8 & 0.67818 & 0.60576923 & 0.66280606 & 0.55 & 0.71286994 & 0.75 & 0.8531832 & 0.5625 & 0.9418275 & 0.55\\
 		\hline
-		0.676906 & 0.615384615 & 0.7116651 & 0.45 & 0.750199824 & 0.535714286 & 0.91531076 & 0.5 & 0.9259153 & 0.55\\
+		9 & 0.676906 & 0.61538461 & 0.7116651 & 0.45 & 0.75019982 & 0.53571428 & 0.91531076 & 0.5 & 0.9259153 & 0.55\\
 		\hline
-		0.6724738 & 0.625 & 0.6679423 & 0 & 0.74666923 & 0.785714286 & 0.8580357 & 0.5 & 0.9144401 & 0.6\\
+		10 & 0.6724738 & 0.625 & 0.6679423 & 0 & 0.74666923 & 0.78571428 & 0.8580357 & 0.5 & 0.9144401 & 0.6\\
 		\hline
-		0.70278 & 0.596153846 & 0.651134564 & 0.5 & 0.6585878 & 0 & 0.87784682 & 0.375 & 0.935399 & 0.5\\
+		11 & 0.70278 & 0.59615384 & 0.65113456 & 0.5 & 0.6585878 & 0 & 0.87784682 & 0.375 & 0.935399 & 0.5\\
 		\hline
-		0.698841 & 0.68 & 0.63963322 & 0 & 0.6572663 & 0.571428571 & 0.8774374 & 0.5625 & 0.9293 & 0.5\\
+		12 & 0.698841 & 0.68 & 0.63963322 & 0 & 0.6572663 & 0.57142857 & 0.8774374 & 0.5625 & 0.9293 & 0.5\\
 		\hline
-		0.659504 & 0.56 & 0.77533756 & 0.5 & 0.783839585 & 0.607142857 & 0.9196736 & 0.625 & 0.947915 & 0.5\\
+		13 & 0.659504 & 0.56 & 0.77533756 & 0.5 & 0.78383958 & 0.60714285 & 0.9196736 & 0.625 & 0.947915 & 0.5\\
 		\hline
-		0.6530206 & 0.64 & 0.67766235 & 0.45 & 0.7277456 & 0.785714286 & 0.8669255 & 0.6875 & 0.9369172 & 0.7\\
+		14 & 0.6530206 & 0.64 & 0.67766235 & 0.45 & 0.7277456 & 0.78571428 & 0.8669255 & 0.6875 & 0.9369172 & 0.7\\
 		\hline
-		0.681864 & 0.72 & 0.69552052 & 0 & 0.7283029 & 0.678571429 & 0.91133042 & 0.75 & 0.9449218 & 0.55\\
+		15 & 0.681864 & 0.72 & 0.69552052 & 0 & 0.7283029 & 0.678571429 & 0.91133042 & 0.75 & 0.9449218 & 0.55\\
 		\hline
-		0.671696 & 0.72 & 0.667115002 & 0 & 0.7209062 & 0 & 0.89999055 & 0.8125 & 0.93881904 & 0.65\\
+		16 & 0.671696 & 0.72 & 0.667115 & 0 & 0.7209062 & 0 & 0.89999055 & 0.8125 & 0.93881904 & 0.65\\
 		\hline
-		\textbf{Correlation} & 0.6716985 & \textbf{Correlation} & 0.2051036 & \textbf{Correlation} & 0.2414221 & \textbf{Correlation} & 0.2536727 & \textbf{Correlation} & 0.1976141\\
+		 & \textbf{Correlation} & 0.6716985 & \textbf{Correlation} & 0.2051036 & \textbf{Correlation} & 0.2414221 & \textbf{Correlation} & 0.2536727 & \textbf{Correlation} & 0.1976141\\
 		\hline
 	\end{tabular}
-	\caption{Automated Scores vs Human Scores for constructive approach}
+	\caption{Automated Player Scores vs Human Player Scores for constructive approach}
 	\label{Table:constructiveScores}
 \end{table}
 \end{landscape}
@@ -159,19 +159,19 @@ The constructive technique is a very fast technique that can be used in real tim
 	\item The second winning object is always at the farthest distance from the first object. The second winning object is always at the level borders refer to \figref{constructiveExamples}.
 \end{itemize}
 
-The smaller levels are subjected to a higher similarity than the bigger ones. Out of the 80 levels only 8.75\% are the same and all of them happens in the first three layouts specially the first one.
+Removing any of these constrains causes the playability to be dropped dramatically. The smaller levels are subjected to a higher similarity than the bigger ones. Out of the 80 levels only 8.75\% are the same and all of them occur in the first three layouts, especially the first one.
 
 \subsection{Genetic Approach Results}
-The genetic approach gives the system the ability to modify the generated levels to improve their playability and difficulty. GA is used for 20 generations with a population equal to 50 chromosomes. The crossover rate is around 70\% and the mutation rate is around 10\%. GA is applied on each level layout and the best two chromosomes from each layout are selected.\\\par
+The genetic approach gives the system the ability to improve the generated levels scores. GA is used for 20 generations with a population equal to 50 chromosomes. The crossover rate is around 70\% and the mutation rate is around 10\%. GA is applied on each level layout and the best two chromosomes from each layout are selected.\\\par
 
-Initial results from GA is presented in \figref{gaWithoutElitism}. Its clear that the best chromosomes disappear after few generations so elitism is used with probability equals to 2\%. The drawback of using elitism that the second best chromosome is usually the same as the best one.
+Initial results from GA are presented in \figref{gaWithoutElitism}. It is clear that the best chromosomes disappear after few generations so 2\% elitism is used. The drawback of using elitism that the second best chromosome is usually the same as the best one.
 
 \gfigure{Maximum fitness for GA without Elitism}{gaWithoutElitism}{width=6.0in}{Images/gaWithoutElitism}
 
-The following subsections shows the results of the different initialization methods for GA introduced in \secref{geneticApproach}. At the end of each subsection the system scores are compared with human scores, then the results are analyzed.
+The following subsections shows the results of the different initialization methods for GA introduced in \secref{geneticApproach}. At the end of each subsection the automated player scores are compared with human player scores, then the results are analyzed.
 
 \subsubsection{Random Initialization}
-\figref{randomMaxFitness} and \figref{randomAverageFitness} shows the evolution of the maximum and the average fitness respectively. Sokoban is the best evolved game in all of them because it needs small amount of objects to have a playable level. On the other hand, GemGame levels has very bad score because GemGame has pretty tough restrictions to be playable. The DestroyGame has a zero Do Nothing score, while Sokoban always has a high Do Nothing score (refer to \tabref{constructiveScores}). This difference is the reason that DestroyGame levels has higher fitness score than Sokoban levels but with less difficulty.
+\figref{randomMaxFitness} and \figref{randomAverageFitness} show the evolution of the maximum and the average fitness respectively. Sokoban is the best evolved game in all of them because it needs small amount of objects to have a playable level. On the other hand, GemGame levels has a very bad score because GemGame has pretty tough restrictions to be playable. The DestroyGame has a zero Do Nothing score, while Sokoban always has a high Do Nothing score (refer to \tabref{constructiveScores}). This difference is the reason that DestroyGame levels have a higher fitness score than Sokoban levels but with less difficulty.
 
 \gfigure{Maximum fitness for GA with random initialization}{randomMaxFitness}{width=6.0in}{Images/randomMaxFitness}
 
@@ -179,64 +179,64 @@ The following subsections shows the results of the different initialization meth
 
 \gfigure{Examples of the generated levels using GA with random initialization}{randomExamples}{width=5.5in}{Images/randomExamples}
 
-\figref{randomExamples} shows different generated levels using GA with random initialization for different games. The generated levels are subjected to human players to test their playability and challenge. About 42.5\% of the generated levels are repeated (due to elitism). 75\% of the generated levels are playable although the automated player reported only 73.75\%. Most of the unplayable levels are found in GemGame and DestroyGame, while most of the playable levels are found in LavaGame and BlockFaker. The reason behind that the winning condition for BlockFaker and LavaGame is more easier to be satisfied than GemGame and DestroyGame.\\\par 
+\figref{randomExamples} shows different generated levels using GA with random initialization for different games. The generated levels are subjected to human players to test their playability and challenge. About 42.5\% of the generated levels are repeated (due to elitism). 75\% of the generated levels are playable although the automated player reported only 73.75\%. GemGame and DestroyGame have a higher percentage of unplayable levels, while LavaGame and BlockFaker have a lower percentage. The reason behind that the winning condition for BlockFaker and LavaGame is easier to be satisfied than GemGame and DestroyGame.\\\par 
 
-\tabref{randomScores} shows the correlation between the system scores and the human scores. The correlation is the highest at GemGame and DestroyGame because most of the generated levels are unplayable and having a very small system score. It is obvious from the table and the previous figures that more generations are needed to converge to a playable challenging levels. For examples, most of LavaGame and BlockFaker levels are just straight forward towards the goal.
+\tabref{randomScores} shows the correlation between the automated player scores and the human player scores. The correlation is the highest at GemGame and DestroyGame because most of the generated levels are unplayable and have a very small automated player score. It is obvious from the table and the previous figures that more generations are needed to br able to find more playable and challenging levels. For examples, most of LavaGame and BlockFaker levels are just straight forward towards the goal.
 
 \begin{landscape}
 \begin{table}[!ht]
 	\centering
-	\begin{tabular}{|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|}
+	\begin{tabular}{|p{0.5in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|}
 		\hline
-		\multicolumn{2}{c}{\textbf{Sokoban}} & \multicolumn{2}{c}{\textbf{LavaGame}} & \multicolumn{2}{c}{\textbf{\textbf{BlockFaker}}} & \multicolumn{2}{c}{\textbf{GemGame}} & \multicolumn{2}{c}{\textbf{DestroyGame}}\\
+		 & \multicolumn{2}{c}{\textbf{Sokoban}} & \multicolumn{2}{c}{\textbf{LavaGame}} & \multicolumn{2}{c}{\textbf{\textbf{BlockFaker}}} & \multicolumn{2}{c}{\textbf{GemGame}} & \multicolumn{2}{c}{\textbf{DestroyGame}}\\
 		\hline
-		\textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player}\\
+		\textbf{Levels} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player}\\
 		\hline
-		0.472927827 & 0.441176471 & 0.55654906 & 0.875 & 0.56366794 & 0.25 & 0.2895113 & 0 & 0.823277724 & 0.5\\
+		1 & 0.472927827 & 0.441176471 & 0.55654906 & 0.875 & 0.56366794 & 0.25 & 0.2895113 & 0 & 0.823277724 & 0.5\\
 		\hline
-		0.472927827 & 0.426470588 & 0.55654906 & 0.875 & 0.56366794 & 0.25 & 0.2895113 & 0 & 0.823277724 & 0.5\\
+		2 & 0.472927827 & 0.426470588 & 0.55654906 & 0.875 & 0.56366794 & 0.25 & 0.2895113 & 0 & 0.823277724 & 0.5\\
 		\hline
-		0.66605524 & 0.569444444 & 0.4829044 & 0.25 & 0.58819125 & 0.25 & 0.2852678 & 0 & 0.285267846 & 0\\
+		3 & 0.66605524 & 0.569444444 & 0.4829044 & 0.25 & 0.58819125 & 0.25 & 0.2852678 & 0 & 0.285267846 & 0\\
 		\hline
-		0.66605524 & 0.569444444 & 0.4829044 & 0.25 & 0.58819125 & 0.25 & 0.2852678 & 0 & 0.285267846 & 0\\
+		4 & 0.66605524 & 0.569444444 & 0.4829044 & 0.25 & 0.58819125 & 0.25 & 0.2852678 & 0 & 0.285267846 & 0\\
 		\hline
-		0.620078 & 0.777777778 & 0.58316514 & 0.291666667 & 0.539436756 & 0.25 & 0.284260212 & 0 & 0.296260212 & 0\\
+		5 & 0.620078 & 0.777777778 & 0.58316514 & 0.291666667 & 0.539436756 & 0.25 & 0.284260212 & 0 & 0.296260212 & 0\\
 		\hline
-		0.601255799 & 0.694444444 & 0.58316514 & 0.291666667 & 0.539436756 & 0.25 & 0.284260212 & 0 & 0.296260212 & 0\\
+		6 & 0.601255799 & 0.694444444 & 0.58316514 & 0.291666667 & 0.539436756 & 0.25 & 0.284260212 & 0 & 0.296260212 & 0\\
 		\hline
-		0.57708091 & 0.402777778 & 0.55400489 & 0.25 & 0.50191485 & 0.25 & 0.3350501 & 0 & 0.75341078 & 0.35\\
+		7 & 0.57708091 & 0.402777778 & 0.55400489 & 0.25 & 0.50191485 & 0.25 & 0.3350501 & 0 & 0.75341078 & 0.35\\
 		\hline
-		0.577080912 & 0.402777778 & 0.554004895 & 0.25 & 0.50191485 & 0.25 & 0.3350501 & 0 & 0.75341078 & 0.35\\
+		8 & 0.577080912 & 0.402777778 & 0.554004895 & 0.25 & 0.50191485 & 0.25 & 0.3350501 & 0 & 0.75341078 & 0.35\\
 		\hline
-		0.5720216 & 0.069444444 & 0.4216133 & 0.25 & 0.523848613 & 0.25 & 0.346181665 & 0 & 0.87578933 & 0.55\\
+		9 & 0.5720216 & 0.069444444 & 0.4216133 & 0.25 & 0.523848613 & 0.25 & 0.346181665 & 0 & 0.87578933 & 0.55\\
 		\hline
-		0.5720216 & 0.073529412 & 0.4216133 & 0.25 & 0.46675503 & 0.25 & 0.33422192 & 0 & 0.87108038 & 0.45\\
+		10 & 0.5720216 & 0.073529412 & 0.4216133 & 0.25 & 0.46675503 & 0.25 & 0.33422192 & 0 & 0.87108038 & 0.45\\
 		\hline
-		0.604114365 & 0.296875 & 0.57729139 & 0.333333333 & 0.50550698 & 0.375 & 0.282968 & 0 & 0.865837091 & 0.5\\
+		11 & 0.604114365 & 0.296875 & 0.57729139 & 0.333333333 & 0.50550698 & 0.375 & 0.282968 & 0 & 0.865837091 & 0.5\\
 		\hline
-		0.604114365 & 0.397058824 & 0.57729139 & 0.291666667 & 0.50550698 & 0.375 & 0.282968 & 0 & 0.858546414 & 0.65\\
+		12 & 0.604114365 & 0.397058824 & 0.57729139 & 0.291666667 & 0.50550698 & 0.375 & 0.282968 & 0 & 0.858546414 & 0.65\\
 		\hline
-		0.638117335 & 0.558823529 & 0.569474277 & 0.5 & 0.46041324 & 0.291666667 & 0.8438745 & 0 & 0.934646319 & 0.5\\
+		13 & 0.638117335 & 0.558823529 & 0.569474277 & 0.5 & 0.46041324 & 0.291666667 & 0.8438745 & 0 & 0.934646319 & 0.5\\
 		\hline
-		0.638117336 & 0.558823529 & 0.569474277 & 0.5 & 0.46041324 & 0.25 & 0.8438745 & 0.416666667 & 0.934646319 & 0.5\\
+		14 & 0.638117336 & 0.558823529 & 0.569474277 & 0.5 & 0.46041324 & 0.25 & 0.8438745 & 0.416666667 & 0.934646319 & 0.5\\
 		\hline
-		0.620584613 & 0.578125 & 0.5843821 & 0.6 & 0.54673306 & 0.291666667 & 0.90855179 & 0.833333333 & 0.84207603 & 0.55\\
+		15 & 0.620584613 & 0.578125 & 0.5843821 & 0.6 & 0.54673306 & 0.291666667 & 0.90855179 & 0.833333333 & 0.84207603 & 0.55\\
 		\hline
-		0.620584613 & 0.566666667 & 0.5843821 & 0.6 & 0.53355297 & 0.666666667 & 0.90855179 & 0.583333333 & 0.52655178 & 0.2\\
+		16 & 0.620584613 & 0.566666667 & 0.5843821 & 0.6 & 0.53355297 & 0.666666667 & 0.90855179 & 0.583333333 & 0.52655178 & 0.2\\
 		\hline
-		\textbf{Correlation} & 0.3876642 & \textbf{Correlation} & 0.3862481 & \textbf{Correlation} & -0.0389277 & \textbf{Correlation} & 0.8223281 & \textbf{Correlation} & 0.9689049\\
+		 & \textbf{Correlation} & 0.3876642 & \textbf{Correlation} & 0.3862481 & \textbf{Correlation} & -0.0389277 & \textbf{Correlation} & 0.8223281 & \textbf{Correlation} & 0.9689049\\
 		\hline
 	\end{tabular}
-	\caption{Automated Scores vs Human Scores for GA with random initialization}
+	\caption{Automated Player Scores vs Human Player Scores for GA with random initialization}
 	\label{Table:randomScores}
 \end{table}
 \end{landscape}
 
 \subsubsection{Constructive Initialization}
-Using constructive algorithm to initialize the GA increase the overall level playability from 90\% to reach 100\% by expanding the search space to find better levels than the constructive approach. \figref{gaConstructiveMax} and \figref{gaConstructiveAverage} show the evolution of the max fitness and the average fitness respectively. The slow increase in the max fitness score is due to:
+Using the constructive algorithm to initialize the GA increase the overall level playability from 90\% to reach 100\% by expanding the search space to find better levels than the constructive approach. \figref{gaConstructiveMax} and \figref{gaConstructiveAverage} show the evolution of the max fitness and the average fitness respectively. The slow increase in the max fitness score is due to:
 \begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
 	\item The high quality of the generated levels by the constructive algorithm.
-	\item The limited search space of the constructive algorithm.
+	\item The limited search space of the initial population.
 \end{itemize}
 The second point is the main reason for the drop in the average score at the beginning. GA uses mutation operator only to expands the search space to find different levels, while crossover has a small effect as all the levels have the same formate of the constructive algorithm. Due to the limited search space, the generated levels are very similar to the constructive approach. For examples, Sokoban level presented in \figref{constructiveGAExamples} has crates at the most empty spaces and targets at the borders like the constructive algorithm.
 
@@ -244,170 +244,162 @@ The second point is the main reason for the drop in the average score at the beg
 
 \gfigure{Average fitness for GA with constructive initialization}{gaConstructiveAverage}{width=6.0in}{Images/gaConstructiveAverage}
 
-\figref{constructiveGAExamples} shows different generated levels from different games.  All the generated levels are playable. 46.25\% of the generated levels are similar due to the elitism and the small search space. \tabref{constructiveGAScores} shows the system scores with the human scores and calculates the correlation between both of them. The correlation is the same like the constructive approach as most of the generated levels have the same structure of the constructive algorithm levels.
+\figref{constructiveGAExamples} shows different generated levels from different games.  All the generated levels are playable. 46.25\% of the generated levels are identical due to the elitism and the small search space. \tabref{constructiveGAScores} shows the automated player scores with the human player scores and calculates the correlation between both of them. The correlation is the same like the constructive approach as most of the generated levels have the same structure of the constructive algorithm levels.
 
 \gfigure{Examples of the generated levels using GA with constructive initialization}{constructiveGAExamples}{width=5.5in}{Images/constructiveGAExamples}
 
 \begin{landscape}
 \begin{table}[!ht]
 	\centering
-	\begin{tabular}{|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|}
+	\begin{tabular}{|p{0.5in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|}
 		\hline
-		\multicolumn{2}{c}{\textbf{Sokoban}} & \multicolumn{2}{c}{\textbf{LavaGame}} & \multicolumn{2}{c}{\textbf{\textbf{BlockFaker}}} & \multicolumn{2}{c}{\textbf{GemGame}} & \multicolumn{2}{c}{\textbf{DestroyGame}}\\
+		& \multicolumn{2}{c}{\textbf{Sokoban}} & \multicolumn{2}{c}{\textbf{LavaGame}} & \multicolumn{2}{c}{\textbf{\textbf{BlockFaker}}} & \multicolumn{2}{c}{\textbf{GemGame}} & \multicolumn{2}{c}{\textbf{DestroyGame}}\\
 		\hline
-		\textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player}\\
+		\textbf{Levels} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player}\\
 		\hline
-		0.616362 & 0.480769231 & 0.6191616 & 0.3 & 0.674457 & 0.541666667 & 0.8730908 & 0.5 & 0.8769583 & 0.55\\
+		1 & 0.616362 & 0.480769231 & 0.6191616 & 0.3 & 0.674457 & 0.541666667 & 0.8730908 & 0.5 & 0.8769583 & 0.55\\
 		\hline
-		0.615881 & 0.395833333 & 0.6191616 & 0.3 & 0.674457 & 0.541666667 & 0.8730908 & 0.5 & 0.8769583 & 0.55\\
+		2 & 0.615881 & 0.395833333 & 0.6191616 & 0.3 & 0.674457 & 0.541666667 & 0.8730908 & 0.5 & 0.8769583 & 0.55\\
 		\hline
-		0.71161371 & 0.653846154 & 0.6521912 & 0.5 & 0.640292 & 0.458333333 & 0.957772 & 0.666666667 & 0.927642 & 0.5\\
+		3 & 0.71161371 & 0.653846154 & 0.6521912 & 0.5 & 0.640292 & 0.458333333 & 0.957772 & 0.666666667 & 0.927642 & 0.5\\
 		\hline
-		0.71161371 & 0.634615385 & 0.6121912 & 0.5 & 0.640292 & 0.458333333 & 0.957772 & 0.666666667 & 0.927642 & 0.5\\
+		4 & 0.71161371 & 0.634615385 & 0.6121912 & 0.5 & 0.640292 & 0.458333333 & 0.957772 & 0.666666667 & 0.927642 & 0.5\\
 		\hline
-		0.6813152 & 0.5 & 0.6261598 & 0.7 & 0.613533 & 0.166666667 & 0.9541082 & 0.583333333 & 0.9201257 & 0.6\\
+		5 & 0.6813152 & 0.5 & 0.6261598 & 0.7 & 0.613533 & 0.166666667 & 0.9541082 & 0.583333333 & 0.9201257 & 0.6\\
 		\hline
-		0.6813152 & 0.5 & 0.6260663 & 0.55 & 0.60379 & 0.166666667 & 0.9541082 & 0.583333333 & 0.9201257 & 0.6\\
+		6 & 0.6813152 & 0.5 & 0.6260663 & 0.55 & 0.60379 & 0.166666667 & 0.9541082 & 0.583333333 & 0.9201257 & 0.6\\
 		\hline
-		0.692882 & 0.75 & 0.650007 & 0.5 & 0.75497 & 0.791666667 & 0.92124517 & 0.666666667 & 0.94662662 & 0.45\\
+		7 & 0.692882 & 0.75 & 0.650007 & 0.5 & 0.75497 & 0.791666667 & 0.92124517 & 0.666666667 & 0.94662662 & 0.45\\
 		\hline
-		0.692882 & 0.711538462 & 0.650007 & 0.5 & 0.75497 & 0.791666667 & 0.92124517 & 0.666666667 & 0.94332112 & 0.45\\
+		8 & 0.692882 & 0.711538462 & 0.650007 & 0.5 & 0.75497 & 0.791666667 & 0.92124517 & 0.666666667 & 0.94332112 & 0.45\\
 		\hline
-		0.690599 & 0.5 & 0.765587 & 0.85 & 0.80884 & 0.708333333 & 0.9003137 & 0.666666667 & 0.928826 & 0.6\\
+		9 & 0.690599 & 0.5 & 0.765587 & 0.85 & 0.80884 & 0.708333333 & 0.9003137 & 0.666666667 & 0.928826 & 0.6\\
 		\hline
-		0.690599 & 0.5 & 0.765587 & 0.8 & 0.80884 & 0.708333333 & 0.9003137 & 0.666666667 & 0.928826 & 0.6\\
+		10 & 0.690599 & 0.5 & 0.765587 & 0.8 & 0.80884 & 0.708333333 & 0.9003137 & 0.666666667 & 0.928826 & 0.6\\
 		\hline
-		0.702111 & 0.615384615 & 0.80019 & 0.6 & 0.827012 & 0.916666667 & 0.9340367 & 0.75 & 0.9418921 & 0.5\\
+		11 & 0.702111 & 0.615384615 & 0.80019 & 0.6 & 0.827012 & 0.916666667 & 0.9340367 & 0.75 & 0.9418921 & 0.5\\
 		\hline
-		0.69881 & 0.576923077 & 0.80019 & 0.6 & 0.827012 & 0.916666667 & 0.9340367 & 0.75 & 0.9418921 & 0.5\\
+		12 & 0.69881 & 0.576923077 & 0.80019 & 0.6 & 0.827012 & 0.916666667 & 0.9340367 & 0.75 & 0.9418921 & 0.5\\
 		\hline
-		0.672561 & 0.666666667 & 0.7755379 & 0.5 & 0.810844 & 0.791666667 & 0.9438273 & 0.583333333 & 0.93639401 & 0.85\\
+		13 & 0.672561 & 0.666666667 & 0.7755379 & 0.5 & 0.810844 & 0.791666667 & 0.9438273 & 0.583333333 & 0.93639401 & 0.85\\
 		\hline
-		0.672561 & 0.673076923 & 0.7755379 & 0.5 & 0.766883 & 0.75 & 0.9438273 & 0.583333333 & 0.93639401 & 0.85\\
+		14 & 0.672561 & 0.673076923 & 0.7755379 & 0.5 & 0.766883 & 0.75 & 0.9438273 & 0.583333333 & 0.93639401 & 0.85\\
 		\hline
-		0.703393 & 0.673076923 & 0.697292 & 0.45 & 0.817545 & 0.541666667 & 0.923987 & 0.416666667 & 0.9321509 & 0.8\\
+		15 & 0.703393 & 0.673076923 & 0.697292 & 0.45 & 0.817545 & 0.541666667 & 0.923987 & 0.416666667 & 0.9321509 & 0.8\\
 		\hline
-		0.703393 & 0.653846154 & 0.697292 & 0.45 & 0.817545 & 0.5 & 0.923987 & 0.416666667 & 0.9321509 & 0.8\\
+		16 & 0.703393 & 0.653846154 & 0.697292 & 0.45 & 0.817545 & 0.5 & 0.923987 & 0.416666667 & 0.9321509 & 0.8\\
 		\hline
-		\textbf{Correlation} & 0.6095415 & \textbf{Correlation} & 0.4865985 & \textbf{Correlation} & 0.7975041 & \textbf{Correlation} & 0.2908096 & \textbf{Correlation} & 0.0770555\\
+		& \textbf{Correlation} & 0.6095415 & \textbf{Correlation} & 0.4865985 & \textbf{Correlation} & 0.7975041 & \textbf{Correlation} & 0.2908096 & \textbf{Correlation} & 0.0770555\\
 		\hline
 	\end{tabular}
-	\caption{Automated Scores vs Human Scores for GA with constructive initialization}
+	\caption{Automated Player Scores vs Human Player Scores for GA with constructive initialization}
 	\label{Table:constructiveGAScores}
 \end{table}
 \end{landscape}
 
-\subsubsection{Mixed Initialization}
-Mixed initialization is used to ensure more diversity by exploring more of the search space. 25\% of population is initialized using the constructive algorithm, another 25\% with mutated versions of the constructive algorithm levels, while the rest are the same like the random initialization (mutated versions of the empty level layout). The mutated levels are constructed by subjecting a level to the mutation operator for twenty times.\\\par 
+\subsubsection{Hybrid Initialization}
+Hybrid initialization is used to ensure more diversity by exploring more of the search space. 25\% of population is initialized using the constructive algorithm, another 25\% with mutated versions of the constructive algorithm levels, while the rest are the same like the random initialization (mutated versions of the empty level layout). The mutated levels are constructed by subjecting a level to the mutation operator for twenty times.\\\par 
 
 \figref{gaMixedMax} and \figref{gaMixedAverage} shows the evolution of the max fitness and the average fitness respectively. The average fitness increases steadily along the generations, while the max fitness increases with a very slow rate. Games with high unplayable percentage in the constructive algorithm have the highest increase rate in the maximum fitness such as LavaGame.
 
-\gfigure{Maximum fitness for GA with mixed initialization}{gaMixedMax}{width=6.0in}{Images/gaMixedMax}
+\gfigure{Maximum fitness for GA with hybrid initialization}{gaMixedMax}{width=6.0in}{Images/gaMixedMax}
 
-\gfigure{Average fitness for GA with mixed initialization}{gaMixedAverage}{width=6.0in}{Images/gaMixedAverage}
+\gfigure{Average fitness for GA with hybrid initialization}{gaMixedAverage}{width=6.0in}{Images/gaMixedAverage}
 
-\figref{mixedExamples} shows different generated levels using mixed initialization. The generated levels have different structure than the constructive algorithm. For example, LavaGame level in \figref{mixedExamples} have a lot of crates around the goal entity instead of the empty spaces on the right side of the level. All the generated levels are playable with 42.5\% repeated levels. \tabref{mixedGAScores} shows the system scores and human players scores.
+\figref{mixedExamples} shows different generated levels using hybrid initialization. The generated levels have different structure than the constructive algorithm. For example, LavaGame level in \figref{mixedExamples} have a lot of crates around the goal entity instead of the empty spaces on the right side of the level. All the generated levels are playable with 42.5\% identical levels. \tabref{mixedGAScores} shows the automated player scores and human players scores.
 
-\gfigure{Examples of the generated levels using GA with mixed initialization}{mixedExamples}{width=5.5in}{Images/mixedExamples}
+\gfigure{Examples of the generated levels using GA with hybrid initialization}{mixedExamples}{width=5.5in}{Images/mixedExamples}
 
 \begin{landscape}
 \begin{table}[!ht]
 	\centering
-	\begin{tabular}{|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|p{0.8in}|}
+	\begin{tabular}{|p{0.5in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|}
 		\hline
-		\multicolumn{2}{c}{\textbf{Sokoban}} & \multicolumn{2}{c}{\textbf{LavaGame}} & \multicolumn{2}{c}{\textbf{\textbf{BlockFaker}}} & \multicolumn{2}{c}{\textbf{GemGame}} & \multicolumn{2}{c}{\textbf{DestroyGame}}\\
+		& \multicolumn{2}{c}{\textbf{Sokoban}} & \multicolumn{2}{c}{\textbf{LavaGame}} & \multicolumn{2}{c}{\textbf{\textbf{BlockFaker}}} & \multicolumn{2}{c}{\textbf{GemGame}} & \multicolumn{2}{c}{\textbf{DestroyGame}}\\
 		\hline
-		\textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player}\\
+		\textbf{Levels} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player} & \textbf{Automated Player} & \textbf{Human Player}\\
 		\hline
-		0.654089218 & 0.615384615 & 0.5989727 & 0.45 & 0.5658553 & 0.458333333 & 0.82325022 & 0.5 & 0.680589 & 0.3\\
+		1 & 0.654089218 & 0.615384615 & 0.5989727 & 0.45 & 0.5658553 & 0.458333333 & 0.82325022 & 0.5 & 0.680589 & 0.3\\
 		\hline
-		0.654089218 & 0.557692308 & 0.5989727 & 0.45 & 0.5658553 & 0.458333333 & 0.82325022 & 0.5 & 0.680589 & 0.3\\
+		2 & 0.654089218 & 0.557692308 & 0.5989727 & 0.45 & 0.5658553 & 0.458333333 & 0.82325022 & 0.5 & 0.680589 & 0.3\\
 		\hline
-		0.64291055 & 0.538461538 & 0.5544389 & 0.7 & 0.6580676 & 0.541666667 & 0.9621 & 0.625 & 0.9132655 & 0.5\\
+		3 & 0.64291055 & 0.538461538 & 0.5544389 & 0.7 & 0.6580676 & 0.541666667 & 0.9621 & 0.625 & 0.9132655 & 0.5\\
 		\hline
-		0.64291055 & 0.519230769 & 0.5544389 & 0.7 & 0.6580676 & 0.541666667 & 0.9621 & 0.625 & 0.9132655 & 0.5\\
+		4 & 0.64291055 & 0.519230769 & 0.5544389 & 0.7 & 0.6580676 & 0.541666667 & 0.9621 & 0.625 & 0.9132655 & 0.5\\
 		\hline
-		0.68702434 & 0.403846154 & 0.5526414 & 0.55 & 0.62174446 & 0.541666667 & 0.9430214 & 0.6875 & 0.9396707 & 0.65\\
+		5 & 0.68702434 & 0.403846154 & 0.5526414 & 0.55 & 0.62174446 & 0.541666667 & 0.9430214 & 0.6875 & 0.9396707 & 0.65\\
 		\hline
-		0.68702434 & 0.403846154 & 0.5526414 & 0.55 & 0.62174446 & 0.583333333 & 0.9430214 & 0.6875 & 0.9390626 & 0.65\\
+		6 & 0.68702434 & 0.403846154 & 0.5526414 & 0.55 & 0.62174446 & 0.583333333 & 0.9430214 & 0.6875 & 0.9390626 & 0.65\\
 		\hline
-		0.68636698 & 0.4375 & 0.6992303 & 0.25 & 0.68210815 & 0.625 & 0.8828038 & 0.4375 & 0.933516 & 0.5\\
+		7 & 0.68636698 & 0.4375 & 0.6992303 & 0.25 & 0.68210815 & 0.625 & 0.8828038 & 0.4375 & 0.933516 & 0.5\\
 		\hline
-		0.6863669 & 0.4375 & 0.6992303 & 0.25 & 0.68210815 & 0.625 & 0.8824508 & 0.4375 & 0.933516 & 0.5\\
+		8 & 0.6863669 & 0.4375 & 0.6992303 & 0.25 & 0.68210815 & 0.625 & 0.8824508 & 0.4375 & 0.933516 & 0.5\\
 		\hline
-		0.6894032 & 0.576923077 & 0.718745 & 0.7 & 0.7304408 & 0.541666667 & 0.924357 & 0.625 & 0.9286588 & 0.4\\
+		9 & 0.6894032 & 0.576923077 & 0.718745 & 0.7 & 0.7304408 & 0.541666667 & 0.924357 & 0.625 & 0.9286588 & 0.4\\
 		\hline
-		0.6894032 & 0.576923077 & 0.718745 & 0.7 & 0.7304408 & 0.541666667 & 0.924357 & 0.625 & 0.9286588 & 0.4\\
+		10 & 0.6894032 & 0.576923077 & 0.718745 & 0.7 & 0.7304408 & 0.541666667 & 0.924357 & 0.625 & 0.9286588 & 0.4\\
 		\hline
-		0.6994754 & 0.615384615 & 0.654869 & 0.65 & 0.7425093 & 0.708333333 & 0.931827 & 0.625 & 0.933017 & 0.85\\
+		11 & 0.6994754 & 0.615384615 & 0.654869 & 0.65 & 0.7425093 & 0.708333333 & 0.931827 & 0.625 & 0.933017 & 0.85\\
 		\hline
-		0.6994754 & 0.615384615 & 0.654869 & 0.65 & 0.7425093 & 0.833333333 & 0.931827 & 0.625 & 0.933017 & 0.85\\
+		12 & 0.6994754 & 0.615384615 & 0.654869 & 0.65 & 0.7425093 & 0.833333333 & 0.931827 & 0.625 & 0.933017 & 0.85\\
 		\hline
-		0.67699273 & 0.576923077 & 0.7309346 & 0.5 & 0.65543165 & 0.541666667 & 0.950839 & 0.5 & 0.9321156 & 0.65\\
+		13 & 0.67699273 & 0.576923077 & 0.7309346 & 0.5 & 0.65543165 & 0.541666667 & 0.950839 & 0.5 & 0.9321156 & 0.65\\
 		\hline
-		0.67699273 & 0.576923077 & 0.7309346 & 0.5 & 0.65543165 & 0.541666667 & 0.950839 & 0.5 & 0.9321156 & 0.65\\
+		14 & 0.67699273 & 0.576923077 & 0.7309346 & 0.5 & 0.65543165 & 0.541666667 & 0.950839 & 0.5 & 0.9321156 & 0.65\\
 		\hline
-		0.65561072 & 0.673076923 & 0.7776904 & 0.85 & 0.745198 & 0.791666667 & 0.93151312 & 0.75 & 0.9451245 & 0.55\\
+		15 & 0.65561072 & 0.673076923 & 0.7776904 & 0.85 & 0.745198 & 0.791666667 & 0.93151312 & 0.75 & 0.9451245 & 0.55\\
 		\hline
-		0.65561072 & 0.692307692 & 0.7586242 & 0.85 & 0.745198 & 0.791666667 & 0.93151312 & 0.75 & 0.9451245 & 0.55\\
+		16 & 0.65561072 & 0.692307692 & 0.7586242 & 0.85 & 0.745198 & 0.791666667 & 0.93151312 & 0.75 & 0.9451245 & 0.55\\
 		\hline
-		\textbf{Correlation} & -0.2750102 & \textbf{Correlation} & 0.1465936 & \textbf{Correlation} & 0.7747938 & \textbf{Correlation} & 0.5326768 & \textbf{Correlation} & 0.6169169\\
+		& \textbf{Correlation} & -0.2750102 & \textbf{Correlation} & 0.1465936 & \textbf{Correlation} & 0.7747938 & \textbf{Correlation} & 0.5326768 & \textbf{Correlation} & 0.6169169\\
 		\hline
 	\end{tabular}
-	\caption{Automated Scores vs Human Scores for GA with mixed initialization}
+	\caption{Automated Player Scores vs Human Player Scores for GA with hybrid initialization}
 	\label{Table:mixedGAScores}
 \end{table}
 \end{landscape}
 
-\subsection{Different Techniques Comparison}
-All the previous score table are combined and a general correlation is calculated for each game. Sokoban and BlockFaker have a very good correlation which can be seen in \figref{sokobanCorrelation} and \figref{blockFakerCorrelation}.
+\subsection{Comparison of Different Techniques}
+The scores in the tables \tabref{constructiveScores}, \tabref{randomScores}, \tabref{constructiveGAScores}, and \tabref{mixedGAScores} are aggregated and a general correlation is calculated for each game. Sokoban and BlockFaker have a very good correlation which can be seen in \figref{sokobanCorrelation} and \figref{blockFakerCorrelation} due to the high performance of the automated player in playing them..
 
-\gfigure{Correlation between all automated player score and human scores for Sokoban}{sokobanCorrelation}{width=5.5in}{Images/sokobanCorrelation}
+\gfigure{Correlation between all automated player scores and human player scores for Sokoban}{sokobanCorrelation}{width=5.5in}{Images/sokobanCorrelation}
 
-\gfigure{Correlation between all automated player score and human scores for BlockFaker}{blockFakerCorrelation}{width=5.5in}{Images/blockFakerCorrelation}
+\gfigure{Correlation between all automated player scores and human player scores for BlockFaker}{blockFakerCorrelation}{width=5.5in}{Images/blockFakerCorrelation}
 
 GemGame and DestroyGame have also a high correlation, but since the collected data is very small so \figref{gemGameCorrelation} and \figref{destroyGameCorrelation} looks more flat.
 
-\gfigure{Correlation between all automated player score and human scores for GemGame}{gemGameCorrelation}{width=5.5in}{Images/gemGameCorrelation}
+\gfigure{Correlation between all automated player scores and human player scores for GemGame}{gemGameCorrelation}{width=5.5in}{Images/gemGameCorrelation}
 
-\gfigure{Correlation between all automated player score and human scores for DestroyGame}{destroyGameCorrelation}{width=5.5in}{Images/destroyGameCorrelation}
+\gfigure{Correlation between all automated player scores and human player scores for DestroyGame}{destroyGameCorrelation}{width=5.5in}{Images/destroyGameCorrelation}
 
 LavaGame has a very small correlation in \figref{lavaGameCorrelation} because of the bad performance of the automated player and the small amount of the collected data.
 
-\gfigure{Correlation between all automated player score and human scores for LavaGame}{lavaGameCorrelation}{width=5.5in}{Images/lavaGameCorrelation}
+\gfigure{Correlation between all automated player scores and human player scores for LavaGame}{lavaGameCorrelation}{width=5.5in}{Images/lavaGameCorrelation}
 
-The following figures shows a comparison between the max fitness of the all presented techniques. GA with constructive initialization have the highest score in almost all games specially in \figref{blockFakerComparison}, followed by GA with mixed initialization which is almost the same as GA with constructive initialization. Mixed initialization achieves better scores in some levels like in \figref{lavaGameComparison} but with different structure. The worst of them all is the GA with random initialization as it need more generations to find a good playable levels. Its worst scores are in \figref{gemGameComparison} and \figref{destroyGameComparison} due to the difficulty of the rules to reach the winning condition. Constructive algorithm technique is always better than GA with random initialization but rarely outperform the others like in \figref{destroyGameComparison}. The fact that GA uses constructive algorithm as an initial seed to find better levels what makes it outperform the constructive approach. Sokoban scores in \figref{sokobanComparison} are almost the similar with all techniques due to simplicity of the game rules and the small number of objects needed to have a playable level.
+\figref{techComparison} shows a comparison between all the proposed techniques for all different games. GA with constructive initialization scores the best in all games, followed by GA with hybrid initialization and constructive approach. Both have almost same score but the hybrid initialization has a higher playability percentage which makes it better. The worst technique is GA with random initialization which needs more generations to reach a playable level. The random initialization performs the worst in both GemGame and DestroyGame due to the difficulty of the rules to reach the winning condition. GA with constructive initialization achieves the highest score due to the fact it uses constructive approach to initialize its population.
 
-\gfigure{Max fitness of all proposed techniques for Sokoban}{sokobanComparison}{width=6.0in}{Images/sokobanComparison}
+\gfigure{Max fitness of all proposed techniques for all different games}{techComparison}{width=6.0in}{Images/Level_MaxFitness_Comparison}
 
-\gfigure{Max fitness of all proposed techniques for LavaGame}{lavaGameComparison}{width=6.0in}{Images/lavaGameComparison}
-
-\gfigure{Max fitness of all proposed techniques for BlockFaker}{blockFakerComparison}{width=6.0in}{Images/blockFakerComparison}
-
-\gfigure{Max fitness of all proposed techniques for GemGame}{gemGameComparison}{width=6.0in}{Images/gemGameComparison}
-
-\gfigure{Max fitness of all proposed techniques for DestroyGame}{destroyGameComparison}{width=6.0in}{Images/destroyGameComparison}
-
-From the previous figures its clear that Constructive Algorithm always generate a challenging playable levels regardless of the input rules. That point is the main reason behind using the constructive algorithm in Rule Generation besides being a fast generation technique.
+From the previous figure, it can be deduced that Constructive Approach always generate a challenging playable levels regardless of the input rules. In addition the constructive approach is a fast generation technique, this is why it is used in Rule Generation.
 
 \section{Rule Generation}
 This section shows the results of the rule generation technique introduced in \chref{Chapter4}. The new automated player is used with a fixed number of explored states. It is limited to 1500 explored states to ensure fast execution.\\\par
 
-GA is used using 50 chromosomes for 50 generations, with crossover rate equals 65\%, mutation rate equals 10\%, and elitism rate equals 2\%. Different experiments are done on the technique. Constructive approach is used to generate 25 levels where the best five levels are selected.\\\par
+GA is used using 50 chromosomes for 50 generations, with crossover rate equals 65\%, mutation rate equals 10\%. Different experiments are done on the technique. The constructive approach is used to generate 25 levels where the best five levels are selected.\\\par
 
 Different experiments are tested on the system. These experiments are:
 \begin{itemize}
 	\item \textbf{No Restriction:} The system has no restriction on the levels, the rules, nor the winning condition.
 	\item \textbf{Fixed Level:} The system uses a fixed level instead of generating one.
 	\item \textbf{Fixed Winning Condition:} The system fixes the winning condition and search for rules.
-	\item \textbf{Fixed Rules:} The system has a fixed set of rules and search for winning condition. 
+	\item \textbf{Fixed Playing Rules:} The system has a fixed set of playing rules and search for winning condition. 
 \end{itemize}
 
-\figref{ruleMaxFitness} and \figref{ruleAvgFitness} shows the maximum and the average fitness respectively for all the experiments. The graphs show a very slow increase rate due to the vast majority of unplayable games found in the search space. The max fitness and average fitness of \emph{Fixed Rules} experiment are the highest due to the small search space of winning conditions.
+\figref{ruleMaxFitness} and \figref{ruleAvgFitness} show the maximum and average fitness respectively for all the experiments. The graphs show a very slow increase rate due to the vast majority of unplayable games found in the search space. The max fitness and average fitness of \emph{Fixed Rules} experiment are the highest due to the small search space of winning conditions. The other experiments have lower fitness due to the huge search space of the playing rules. The difference in the fitness between the other experiments will be explained in the results of each experiment.
 
 \gfigure{Maximum fitness for Rule Generation experiments}{ruleMaxFitness}{width=6.0in}{Images/ruleMaxFitness}
 
-\gfigure{Average fitness for Rule Generation experiments}{ruleAvgFitness}{width=6.0in}{Images/ruleAvgFitness}
+\gfigure{Average fitness for Rule Generation experiments}{ruleAvgFitness}{width=6.0in}{Images/ruleAverageFitness}
 
 The following subsections explain the required input data for each experiments, followed by the special input and the results for each one.
 
@@ -416,7 +408,7 @@ The inputs for rule generation are the objects and the collision layers. Eight d
 
 \gfigure{Collision layers for Rule Generation objects}{ruleGenCollisionLayer}{width=3.0in}{Images/ruleGenCollisionLayer}
 
-\figref{ruleGenLevelOutline} shows the level outline used in the level generation. The outline is neither big nor small to ensure fast execution with a wide variety of generated levels.
+\figref{ruleGenLevelOutline} shows the level outline used in the level generation. The outline is small with no internal structure to ensure fast execution with a wide variety of generated levels.
 
 \gfigure{The level outline used for Rule Generation}{ruleGenLevelOutline}{width=2.5in}{Images/ruleGenLevelOutline}
 
@@ -435,11 +427,11 @@ Some Player on Object1
 This winning condition is the main reason for making them playable regardless of the rules involved.
 
 \subsection{Fixed Level}
-\figref{ruleFixedLevel} shows the selected level for the experiment. This level is one of the hand crafted levels from Sokoban. The main reason for that experiment to make sure that the level generator is not the drawback in the Rule Generation process.\\\par
+\figref{ruleFixedLevel} shows the selected level for the experiment. This level is one of the hand crafted levels from Sokoban. The main reason for that experiment is to make sure that the level generator is not the cause of low performance of the Rule Generation process.\\\par
 
 \gfigure{Fixed level used for Rule Generation}{ruleFixedLevel}{width=2.5in}{Images/ruleFixedLevel}
 
-The output games are winnable but not playable. Most of them have these rules:
+The output games are winnable but not playable. The winning condition is satisfied as soon as the game starts. Most of them have these rules:
 \begin{center}
 [ Object4 ] -> [ Object1 ]
 \end{center}
@@ -449,22 +441,22 @@ The output games are winnable but not playable. Most of them have these rules:
 \begin{center}
 All Object4 on Player
 \end{center}
-The first rule is the main reason that the game is winnable. The winning condition also is not correct as both objects on same collision layer but its the reason for making the having the first rule winnable. These bad results can be noticed from the low fitness for this experiment in \figref{ruleMaxFitness} and \figref{ruleAvgFitness}.
+The first rule is the main reason that the game is winnable. As it destroy all Object4 in the level as the level starts. These bad results can be noticed from the low fitness for this experiment in \figref{ruleMaxFitness} and \figref{ruleAvgFitness}.
 
 \subsection{Fixed Winning Condition}
-The winning condition is fixed to the same one used is Sokoban:
+The winning condition is fixed to Sokoban's winning condition:
 \begin{center}
 All Object1 on Object4
 \end{center}
 
-The output games are playable which is better from the previous experiment. The best generated rules are:
+The output games are playable which is better relative to the previous experiment. The best generated rules are:
 \begin{center}
 [  Object1 | $\vee$ Player ] -> [ \ \ \ \ | $\vee$ Player ]
 \end{center}
-This rule destroys Object1 when the player moves beside it. Destroying Object1 cause satisfying for the winning condition. Other generated games are winnable games but not playable, as they have same rule without having the Player in the left hand side.
+This rule destroys Object1 when the player moves beside it. Destroying all Object1 causes the satisfaction of the winning condition. Other generated games are winnable games but not playable, as they have the same previous rule but without having the Player in the left hand side.
 
-\subsection{Fixed Rules}
-This experiment is easier than all the previous experiments as the search space for winning condition is much smaller. The rules were fixed to Sokoban rule:
+\subsection{Fixed Playing Rules}
+This experiment is easier than all the previous experiments as the search space for winning condition is much smaller. The playing rules were fixed to Sokoban rule:
 \begin{center}
 [ > Player | Object4 ] -> [ > Player | > Object4 ]
 \end{center}
