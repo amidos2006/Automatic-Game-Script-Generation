@@ -105,7 +105,7 @@
 \newif\if@listofalgorithms
 \DeclareOption{nolistofalgorithms}{\@listofalgorithmsfalse}
 \DeclareOption{listofalgorithms}{\@listofalgorithmstrue}
-\ExecuteOptions{nopraise,nophero,infopage,comp,msc}
+\ExecuteOptions{nopraise,phero,infopage,comp,msc}
 \ExecuteOptions{listoftables,listoffigures,listofalgorithms}
 \ProcessOptions
 \LoadClass[12pt,a4paper]{report}
@@ -287,7 +287,7 @@
                 \MakeTextUppercase{\university}}
     \centerline{\MakeTextUppercase{\city},
                 \MakeTextUppercase{\country}}
-    \centerline{\MakeTextUppercase{\@SMonthText} {\@SYear}}
+    \centerline{\MakeTextUppercase{} {\@SYear}}
     \normalsize
     \end{center}
     \newpage
@@ -296,7 +296,7 @@
     \if@praise
         \centerline{\includegraphics{Praise}}
     \fi
-    \includegraphics{FE-Logo} \hfill
+    \includegraphics[width=3.0cm]{FE-Logo} \hfill
     \if@phero
         \includegraphics{CU-Phero}
     \else
@@ -375,11 +375,13 @@
             Approved by the Examining Committee:\\[24pt]
             \begin{tabular}{l}
                 \\ \\  \hline
-                \@ExternalExaminer, External Examiner
+                \@MainSupervisor, Thesis Main Advisor
                 \\ \\ \\  \hline
                 \@InternalExaminer, Internal Examiner
                 \\ \\ \\  \hline
-                \@MainSupervisor, Thesis Main Advisor
+                \@ExternalExaminer, External Examiner
+                \\
+                Professor at Electronic Research Institute - National Research Center
                 \\ \\ \\
                 \ifnum \the@NumberOfMemberExaminers > 0
                     \hline \@FirstMemberExaminer, Member
@@ -424,9 +426,9 @@
         & &\\
         \textbf{Examiners:}
             & &\\
-            & \@ExternalExaminer  &(External examiner)  \\
-            & \@InternalExaminer &(Internal examiner) \\
             & \@MainSupervisor  &(Thesis main advisor)\\
+            & \@InternalExaminer &(Internal examiner) \\
+            & \@ExternalExaminer  &(External examiner)  \\
             \ifnum \the@NumberOfMemberExaminers > 0
                 & \@FirstMemberExaminer &(Member)\\
                 \ifnum \the@NumberOfMemberExaminers > 1
@@ -544,6 +546,7 @@
     \pagenumbering{roman}
     \pagestyle{plain}
     \setcounter{page}{1}
+    \Preamble{Acknowledgements}
     \@NNChapterTitle{Table of Contents}
     \@starttoc{toc}
     \if@listoftables
