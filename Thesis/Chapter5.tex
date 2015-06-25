@@ -26,7 +26,7 @@ In this section, the new automated player is compared to Lim et al.\cite{puzzleS
 
 \gfigure{Comparison between the number of explored states for different automated players}{automatedPlayerPerformance}{width=6.0in}{Images/automatedPlayerPerformance}
 
-The enhanced player outperforms the original player in Sokoban and GemGame, but its almost the similar in the rest of the games. In games where the player is one of the winning objects, the enhanced player performs slightly better in BlockFaker, while in LavaGame, it is slightly worse. The enhanced players also performed badly in DestroyGame. The main reason behind the bad performance in these games is the presence of the Destroy behavior as the core mechanic of the game. For example, \figref{automatedPlayerProblem} has two crates and two lava. The metric measures the average distance between each crate and all lava. If the lower lava is destroyed first, the metric will represents the long distance between the crate and the far lava which is a little bit longer than before where both distances (short and long) are considered. Based on that, the player will explore more states that will not lead to the destroying the lower lava.
+The enhanced player outperforms the original player in Sokoban and GemGame, but its almost similar in the rest of the games. In games where the player is one of the winning objects, the enhanced player performs slightly better in BlockFaker, while in LavaGame, it is slightly worse. The enhanced players also performed badly in DestroyGame. The main reason behind the bad performance in these games is the presence of the Destroy behavior as the core mechanic of the game. For example, \figref{automatedPlayerProblem} has two crates and two lava. The metric measures the average distance between each crate and all lava. If the lower lava is destroyed first, the metric will represent the long distance between the crate and the far lava which is a little bit longer than before where both distances (short and long) are considered. Based on that, the player will explore more states that will not lead to the destroying the lower lava.
 
 \gfigure{LavaGame level cause the enhanced player to do worse}{automatedPlayerProblem}{width=2.5in}{Images/automatedPlayerProblem}
 
@@ -64,12 +64,12 @@ Another drawback of the new metric is when levels have lots of unused objects. T
 \section{Level Generation}
 This section shows the results of the level generation techniques introduced in \chref{Chapter4}. The new automated player is used with a fixed number of explored states. It is limited to 5000 explored states to ensure fast execution.\\\par
 
-The following section will discuss the required input for the system to work, followed by the results for each technique. The results are evaluated by the system and several human players and a correlation is calculated. The correlation is a bit low for several reasons:
+The following section will discuss the required input for the system to work, followed by the results for each technique. The results are evaluated by the system and several human players and a correlation is calculated. The correlation may be low for several reasons:
 \begin{itemize} \itemsep0pt \parskip0pt \parsep0pt
-	\item The automated player evaluates all levels and give them a score corresponding to the levels' percentage of playability which is not the case with human players. 
+	\item The automated player evaluates all levels and gives them a score corresponding to the levels' percentage of playability which is not the case with human players. 
 	\item The very challenging levels are rated high with the system, while low with human players.
 	\item There is no concise definition for a good level.
-	\item Small amount of human players contributes in the evaluation compared to the huge amount of the generated levels.
+	\item Small amount of human players contribute in the evaluation compared to the huge amount of the generated levels.
 \end{itemize}
 
 \subsection{Input Description}
@@ -164,7 +164,7 @@ Removing any of these constrains causes the playability to be dropped dramatical
 \subsection{Genetic Approach Results}
 The genetic approach gives the system the ability to improve the generated levels scores. GA is used for 20 generations with a population equal to 50 chromosomes. The crossover rate is around 70\% and the mutation rate is around 10\%. GA is applied on each level layout and the best two chromosomes from each layout are selected.\\\par
 
-Initial results from GA are presented in \figref{gaWithoutElitism}. It is clear that the best chromosomes disappear after few generations so 2\% elitism is used. The drawback of using elitism that the second best chromosome is usually the same as the best one.
+Initial results from GA are presented in \figref{gaWithoutElitism}. It is clear that the best chromosomes disappear after few generations so 2\% elitism is used. The drawback of using elitism is that the second best chromosome is usually the same as the best one.
 
 \gfigure{Maximum fitness for GA without Elitism}{gaWithoutElitism}{width=6.0in}{Images/gaWithoutElitism}
 
@@ -179,7 +179,7 @@ The following subsections shows the results of the different initialization meth
 
 \gfigure{Examples of the generated levels using GA with random initialization}{randomExamples}{width=5.5in}{Images/randomExamples}
 
-\figref{randomExamples} shows different generated levels using GA with random initialization for different games. The generated levels are subjected to human players to test their playability and challenge. About 42.5\% of the generated levels are repeated (due to elitism). 75\% of the generated levels are playable although the automated player reported only 73.75\%. GemGame and DestroyGame have a higher percentage of unplayable levels, while LavaGame and BlockFaker have a lower percentage. The reason behind that the winning condition for BlockFaker and LavaGame is easier to be satisfied than GemGame and DestroyGame.\\\par 
+\figref{randomExamples} shows different generated levels using GA with random initialization for different games. The generated levels are subjected to human players to test their playability and challenge. About 42.5\% of the generated levels are repeated (due to elitism). 75\% of the generated levels are playable although the automated player reported only 73.75\%. GemGame and DestroyGame have a higher percentage of unplayable levels, while LavaGame and BlockFaker have a lower percentage. The reason behind is that the winning condition for BlockFaker and LavaGame is easier to be satisfied than GemGame and DestroyGame.\\\par 
 
 \tabref{randomScores} shows the correlation between the automated player scores and the human player scores. The correlation is the highest at GemGame and DestroyGame because most of the generated levels are unplayable and have a very small automated player score. It is obvious from the table and the previous figures that more generations are needed to br able to find more playable and challenging levels. For examples, most of LavaGame and BlockFaker levels are just straight forward towards the goal.
 
@@ -238,7 +238,7 @@ Using the constructive algorithm to initialize the GA increase the overall level
 	\item The high quality of the generated levels by the constructive algorithm.
 	\item The limited search space of the initial population.
 \end{itemize}
-The second point is the main reason for the drop in the average score at the beginning. GA uses mutation operator only to expands the search space to find different levels, while crossover has a small effect as all the levels have the same formate of the constructive algorithm. Due to the limited search space, the generated levels are very similar to the constructive approach. For examples, Sokoban level presented in \figref{constructiveGAExamples} has crates at the most empty spaces and targets at the borders like the constructive algorithm.
+The second point is the main reason for the drop in the average score at the beginning. GA uses mutation operator only to expand the search space to find different levels, while crossover has a small effect as all the levels have the same format as the constructive algorithm. Due to the limited search space, the generated levels are very similar to the constructive approach. For examples, Sokoban level presented in \figref{constructiveGAExamples} has crates at the most empty spaces and targets at the borders like the constructive algorithm.
 
 \gfigure{Maximum fitness for GA with constructive initialization}{gaConstructiveMax}{width=6.0in}{Images/gaConstructiveMax}
 
@@ -376,11 +376,11 @@ LavaGame has a very small correlation in \figref{lavaGameCorrelation} because of
 
 \gfigure{Correlation between all automated player scores and human player scores for LavaGame}{lavaGameCorrelation}{width=5.5in}{Images/lavaGameCorrelation}
 
-\figref{techComparison} shows a comparison between all the proposed techniques for all different games. GA with constructive initialization scores the best in all games, followed by GA with hybrid initialization and constructive approach. Both have almost same score but the hybrid initialization has a higher playability percentage which makes it better. The worst technique is GA with random initialization which needs more generations to reach a playable level. The random initialization performs the worst in both GemGame and DestroyGame due to the difficulty of the rules to reach the winning condition. GA with constructive initialization achieves the highest score due to the fact it uses constructive approach to initialize its population.
+\figref{techComparison} shows a comparison between all the proposed techniques for all different games. GA with constructive initialization scores the best in all games, followed by GA with hybrid initialization and constructive approach. Both have almost same score but the hybrid initialization has a higher playability percentage which makes it better. The worst technique is GA with random initialization which needs more generations to reach a playable level. The random initialization performs the worst in both GemGame and DestroyGame due to the difficulty of the rules to reach the winning condition. GA with constructive initialization achieves the highest score due to the fact that it uses constructive approach to initialize its population.
 
 \gfigure{Max fitness of all proposed techniques for all different games}{techComparison}{width=6.0in}{Images/Level_MaxFitness_Comparison}
 
-From the previous figure, it can be deduced that Constructive Approach always generate a challenging playable levels regardless of the input rules. In addition the constructive approach is a fast generation technique, this is why it is used in Rule Generation.
+From the previous figure, it can be deduced that Constructive Approach always generates challenging playable levels regardless of the input rules. In addition the constructive approach is a fast generation technique, this is why it is used in Rule Generation.
 
 \section{Rule Generation}
 This section shows the results of the rule generation technique introduced in \chref{Chapter4}. The new automated player is used with a fixed number of explored states. It is limited to 1500 explored states to ensure fast execution.\\\par
@@ -391,8 +391,8 @@ Different experiments are tested on the system. These experiments are:
 \begin{itemize}
 	\item \textbf{No Restriction:} The system has no restriction on the levels, the rules, nor the winning condition.
 	\item \textbf{Fixed Level:} The system uses a fixed level instead of generating one.
-	\item \textbf{Fixed Winning Condition:} The system fixes the winning condition and search for rules.
-	\item \textbf{Fixed Playing Rules:} The system has a fixed set of playing rules and search for winning condition. 
+	\item \textbf{Fixed Winning Condition:} The system fixes the winning condition and searches for rules.
+	\item \textbf{Fixed Playing Rules:} The system has a fixed set of playing rules and searches for winning condition. 
 \end{itemize}
 
 \figref{ruleMaxFitness} and \figref{ruleAvgFitness} show the maximum and average fitness respectively for all the experiments. The graphs show a very slow increase rate due to the vast majority of unplayable games found in the search space. The max fitness and average fitness of \emph{Fixed Rules} experiment are the highest due to the small search space of winning conditions. The other experiments have lower fitness due to the huge search space of the playing rules. The difference in the fitness between the other experiments will be explained in the results of each experiment.
@@ -420,7 +420,7 @@ The output games are playable but they are very trivial. The best generated game
 \begin{center}
 Some Object4 on Object1
 \end{center}
-The rules in this game is related with the winning condition. That is not the case with other generated games, rules have no relation with the goal no can be applied. These games have different rules but all have the same winning condition:
+The rules in this game are related with the winning condition. That is not the case with lower score generated games where rules have no relation with the game goal. These games have different rules but all have the same winning condition:
 \begin{center}
 Some Player on Object1
 \end{center}
